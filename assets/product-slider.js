@@ -21,16 +21,17 @@ function initProductSliders() {
     slidesPerView: "auto",
     spaceBetween: 10,
     speed: 500,
-    watchSlidesProgress: true
+    watchSlidesProgress: true,
   });
 
   // Init main slider
   window.productSliders.main_swiper = new Swiper(".product-slider", {
     slidesPerView: 1,
     spaceBetween: 100,
-    speed: 0,
+    speed: 500,
+    loop: true,
     thumbs: {
-      swiper: window.productSliders.thumb_swiper
-    }
+      swiper: window.productSliders.thumb_swiper,
+    },
   });
 }
