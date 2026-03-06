@@ -1,0 +1,34 @@
+{% comment %}
+  Half Star Icon
+
+  Renders a half star SVG icon (left half filled)
+
+  Accepts:
+  - color: {String} Fill color for the star (optional, defaults to currentColor)
+  - size: {String} Size of the icon (optional, defaults to 32)
+  - class: {String} Additional CSS classes (optional)
+
+  Usage:
+  {% render 'icon-half-star' %}
+  {% render 'icon-half-star', color: '#ffc107' %}
+  {% render 'icon-half-star', size: '24', class: 'custom-class' %}
+{% endcomment %}
+
+{%- assign color = color | default: 'currentColor' -%}
+{%- assign size = size | default: '32' -%}
+{%- assign class = class | default: '' -%}
+
+<svg
+  width="{{ size }}"
+  height="{{ size }}"
+  viewBox="0 0 32 32"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  class="{{ class }}"
+  style="clip-path: inset(0 50% 0 0);"
+>
+  <path
+    d="M15.0791 0.55193C15.4922 -0.183976 16.5078 -0.183977 16.9209 0.55193L21.552 8.80212C21.7024 9.07016 21.9525 9.26055 22.2423 9.32767L31.1613 11.3934C31.9569 11.5777 32.2708 12.5898 31.7305 13.2289L25.6736 20.3936C25.4768 20.6264 25.3813 20.9344 25.4099 21.2439L26.2911 30.7709C26.3697 31.6206 25.5481 32.2462 24.8011 31.9052L16.4266 28.0831C16.1546 27.9589 15.8454 27.9589 15.5734 28.0831L7.19892 31.9052C6.45193 32.2462 5.63028 31.6206 5.70888 30.7709L6.5901 21.2439C6.61873 20.9344 6.52321 20.6264 6.32642 20.3936L0.269511 13.2289C-0.270758 12.5898 0.0430844 11.5777 0.838655 11.3934L9.75772 9.32767C10.0475 9.26055 10.2976 9.07016 10.448 8.80212L15.0791 0.55193Z"
+    fill="{{ color }}"
+  />
+</svg>

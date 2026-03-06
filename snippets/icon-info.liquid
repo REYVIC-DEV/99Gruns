@@ -1,0 +1,30 @@
+{% comment %}
+  Icon Info Snippet
+
+  This snippet renders an info icon with customizable color and size.
+
+  Usage:
+    Basic: {% render 'icon-info' %}
+    With custom color and size: {% render 'icon-info', color: '#FF0000', size: '20px' %}
+
+  Parameters:
+    color (string): Hex color for the icon, defaults to 'currentColor'
+    size (string): Size for the icon (width x height), defaults to '16px'
+{% endcomment %}
+
+{% assign color = color | default: 'currentColor' %}
+{% assign size = size | default: '16px' %}
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class="tw-cursor-pointer"
+  style="width: {{ size }}; height: {{ size }};"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke="{{ color }}"
+  stroke-width="2"
+>
+  <circle cx="12" cy="12" r="10" />
+  <line x1="12" y1="16" x2="12" y2="12" />
+  <line x1="12" y1="8" x2="12.01" y2="8" />
+</svg>

@@ -1,0 +1,351 @@
+{{ 'product-faq-component-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'product-faq-collapsible-content.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+	.section-{{ section.id }}-padding {
+	padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+	padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+	}
+
+	details[open] svg {
+		transform: rotate(180deg);
+		transition: transform 0.3s ease-in-out;
+	}
+
+
+	@media screen and (min-width: 750px) {
+	.section-{{ section.id }}-padding {
+		padding-top: {{ section.settings.padding_top }}px;
+		padding-bottom: {{ section.settings.padding_bottom }}px;
+	}
+	}
+
+	/* Main header styling */
+	.faq-main-header {
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 120%;
+	letter-spacing: -5%;
+	color: #000000;
+	text-align: left;
+	margin: 0px;
+	padding-bottom: 18px;
+	}
+
+	{% if section.settings.show_mobile %}
+	@media screen and (max-width: 749px) {
+	.collapsible-content {
+		display: block !important;
+	}
+	}
+{% endif %}
+
+/* Heading styling */
+.collapsible-content__heading {
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -5%;
+  color: #000000;
+}
+
+/* Number styling */
+.faq-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -2.5%;
+  flex-shrink: 0;
+}
+
+/* Accordion layout */
+.accordion{
+  border-top: none !important;
+}
+
+.accordion details {
+  border-bottom: 1px solid #000000;
+}
+
+.accordion summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion__title {
+  flex: 1;
+  margin: 0;
+  color: #000000;
+}
+
+.accordion__content p {
+  color: #000000;
+}
+
+/* ICON FIX — THIS IS THE IMPORTANT PART */
+.icon-add,
+.icon-minus {
+  display: none;
+  flex-shrink: 0;
+}
+
+details:not([open]) .icon-add {
+  display: block;
+}
+
+details[open] .icon-minus {
+  display: block;
+}
+
+/* Content spacing */
+.accordion__content {
+  padding: 0 0 16px 24px;
+}
+{%- endstyle -%}
+
+<section class="color-{{ section.settings.bg_color }}">
+  <div class="collapsible-content md:tw-block page-width">
+    <div class="lg:!tw-py-[70px] collapsible-content__wrapper section-{{ section.id }}-padding tw-mx-auto">
+		<div class="tw-flex tw-flex-col lg:tw-flex-row tw-justify-between tw-items-center lg:tw-items-start tw-max-w-[100%]">
+			<!-- Header -->
+			<div class="collapsible-content__header tw-w-full lg:tw-w-[35%] tw-flex tw-flex-col lg:tw-justify-between md:tw-pb-[40px]">
+				{% comment %} style="text-align: {{ section.settings.heading_alignment }}; {% endcomment %}
+
+				{% if section.settings.heading != blank %}
+					<h2 class="collapsible-content__heading {{ section.settings.heading_size }} tw-text-[32px] md:tw-text-[44px] tw-text-center lg:tw-text-start tw-tracking-tighter !tw-mb-[20px]">
+					{{ section.settings.heading }}
+					</h2>
+				{% endif %}
+
+				{% comment %} <a
+					class="
+						tw-inline-flex
+						tw-items-center
+						tw-justify-center
+						tw-font-semibold
+						tw-px-12
+						tw-py-3
+						tw-rounded-full
+						tw-no-underline
+
+						tw-bg-[#007e40]
+						hover:tw-bg-[#00582d]
+						tw-text-[20px]
+						tw-text-white
+						tw-font-dm-sans
+						tw-tracking-tight
+
+						hover:tw-shadow-[0_0_0_0.5px_#000,2px_2px_0_#000]
+						hover:tw-translate-x-1
+						hover:tw-translate-y-1
+						tw-shadow-[inset_0_0_0_0.5px_#000,4px_4px_0_#000]
+
+
+						tw-transition-all
+						tw-duration-300
+						tw-ease-out
+
+						tw-w-full
+						md:tw-w-[248px]
+						md:tw-mx-auto
+						lg:tw-mx-0
+						md:tw-flex-nowrap
+						md:tw-text-nowrap
+					"
+				>
+					{{ section.settings.button_text }}
+				</a> {% endcomment %}
+
+				<a
+				class="
+					tw-mt-2
+					tw-inline-flex tw-items-center tw-justify-center
+					tw-font-bold tw-no-underline
+					tw-rounded-full
+					tw-bg-[#007e40] hover:tw-bg-[#00582d] tw-text-white
+
+					hover:tw-shadow-[0_0_0_0.5px_#000,2px_2px_0_#000]
+					hover:tw-translate-x-1 hover:tw-translate-y-1
+					tw-shadow-[inset_0_0_0_0.5px_#000,3px_3px_0_#000]
+					tw-transition-all tw-duration-300 tw-ease-out
+
+					tw-w-full md:tw-w-[266px] lg:tw-w-[291px]
+
+					tw-px-[32px] tw-py-[12px]
+
+					tw-text-[16px] md:tw-text-[20px]
+					tw-leading-[120%]
+					tw-tracking-tighter
+
+					tw-text-center
+					tw-whitespace-normal md:tw-whitespace-nowrap
+				"
+				>
+				{{ section.settings.button_text }}
+				</a>
+			</div>
+
+			<!-- Accordion -->
+			<div class="tw-w-full lg:tw-w-[60%]">
+				<div>
+					{% for block in section.blocks %}
+					<div class="accordion" {{ block.shopify_attributes }}>
+						<details
+							{% if section.settings.open_first_collapsible_row and forloop.first %}
+								open
+							{% endif %}
+							>
+							<summary>
+								<h3 class="accordion__title h4  tw-text-[20px] tw-font-semibold !tw-text-#000000 tw-tracking-tight">
+								{{ block.settings.heading }}
+								</h3>
+
+								<svg
+									aria-hidden="true"
+									width="24"
+									height="24"
+									viewBox="0 0 10 6"
+									class="tw-transition-transform tw-duration-300">
+									<path
+										d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+										fill="#000000"
+									/>
+								</svg>
+								
+							</summary>
+
+							<div class="accordion__content rte !tw-m-0 !tw-font-dm-sans tw-text-[16px] tw-tracking-tight">
+								{{ block.settings.row_content }}
+							</div>
+						</details>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+    </div>
+  </div>
+
+  	{% comment %} {
+		"type": "select",
+		"id": "heading_alignment",
+		"label": "Heading alignment",
+		"options": [
+			{ "value": "center", "label": "Center" },
+			{ "value": "left", "label": "Left" }
+		],
+		"default": "left"
+	}, {% endcomment %}
+</section>
+
+{% schema %}
+{
+	"name": "Product FAQ",
+	"tag": "section",
+	"class": "section",
+	"settings": [
+		{
+			"type": "color_scheme",
+			"id": "bg_color",
+			"label": "Background Color",
+			"default": "scheme-6"
+		},
+		{
+			"type": "inline_richtext",
+			"id": "heading",
+			"label": "Heading",
+			"default": "Any last questions?"
+		},
+		{
+			"type": "text",
+			"id": "button_text",
+			"label": "Button Text",
+			"default": "No? Try Grüns now➝",
+		},
+		{
+			"type": "select",
+			"id": "heading_size",
+			"label": "Heading size",
+			"options": [
+				{ "value": "h1", "label": "Large" },
+				{ "value": "h2", "label": "Medium" }
+			],
+			"default": "h1"
+		},
+		{
+			"type": "checkbox",
+			"id": "open_first_collapsible_row",
+			"label": "Open first item",
+			"default": false
+		},
+		{
+			"type": "checkbox",
+			"id": "show_mobile",
+			"label": "Show on mobile",
+			"default": false
+		},
+		{
+			"type": "range",
+			"id": "padding_top",
+			"min": 0,
+			"max": 100,
+			"step": 4,
+			"unit": "px",
+			"label": "Padding top",
+			"default": 36
+		},
+		{
+			"type": "range",
+			"id": "padding_bottom",
+			"min": 0,
+			"max": 100,
+			"step": 4,
+			"unit": "px",
+			"label": "Padding bottom",
+			"default": 36
+		},
+	],
+	"blocks": [
+		{
+		"type": "collapsible_row",
+		"name": "FAQ item",
+		"settings": [
+			{
+				"type": "text",
+				"id": "heading",
+				"label": "Question",
+				"default": "Question text"
+			},
+			{
+				"type": "richtext",
+				"id": "row_content",
+				"label": "Answer"
+			}
+		]
+		}
+  	],
+  "presets": [
+    {
+		"name": "Product FAQ",
+		"blocks": [
+			{ "type": "collapsible_row" },
+			{ "type": "collapsible_row" },
+			{ "type": "collapsible_row" }
+		]
+    }
+  ]
+}
+{% endschema %}

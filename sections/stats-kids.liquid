@@ -1,0 +1,264 @@
+<section style="background-color: {{ section.settings.section_bg_color }};" class="tw-w-full">
+    <div class="page-width tw-w-full tw-p-[5%] tw-flex tw-flex-col tw-gap-[24px] 2xl:tw-px-0">
+        <div class="tw-p-[5%] xl:tw-p-0 tw-pb-[30px] tw-flex tw-flex-col tw-items-start tw-rounded-[20px] tw-gap-[16px] xl:tw-flex-row-reverse xl:tw-gap-0 xl:tw-items-center">
+            <div class="tw-size-[332px] tw-rounded-[20px] tw-overflow-hidden tw-h-auto tw-w-full md:tw-h-[400px] tw-flex tw-items-center xl:tw-h-auto xl:tw-rounded-l-none">
+                <img src="{{ section.settings.banner_img | image_url: width: 641, height:641  }}" alt="Health and nutrition statistics banner" width="641" height="641" class="tw-w-full tw-h-auto tw-object-contain">
+            </div>
+            <div class="tw-flex tw-flex-col tw-gap-[32px] tw-w-full xl:tw-p-[2.5%] tw-items-center">
+                <div class="tw-flex tw-flex-col tw-gap-[8px]">
+                    <h3 style="color: {{ section.settings.first_box_text_color }};" class="tw-m-0 tw-font-bold tw-text-[32px] tw-text-center tw-leading-[120%] md:tw-text-[44px]">{{ section.settings.first_heading }}</h3>
+                    <h6 class="tw-m-0 tw-text-center tw-text-[18px] tw-leading-[120%] tw-tracking-tight md:tw-text-[24px]">{{ section.settings.first_subheading }}</h6>
+                </div>
+                <div class="tw-flex tw-flex-col tw-gap-4 tw-w-full md:tw-flex-row">
+                    {%- for block in section.blocks -%}
+                        {%- if block.type == 'stat_horizontal' -%}
+                            <div class="tw-flex tw-items-start tw-gap-4 tw-flex-wrap tw-justify-center md:tw-w-[50%]">
+                                <div class="tw-max-w-[133px] tw-w-full tw-flex-shrink-0 md:tw-w-auto">
+                                    <p style="color: {{ section.settings.first_box_text_color }};" class="tw-m-0 tw-text-[56px] tw-leading-[110%] md:tw-text-[100px]">
+                                        {{ block.settings.percent }}
+                                    </p>
+                                </div>
+                                <div class="tw-w-[183px] md:tw-w-auto">
+                                    <p class="tw-m-0 tw-text-[16px] tw-leading-[160%] md:tw-leading-[140%] tw-tracking-tighter tw-break-words tw-w-full tw-text-center">
+                                        {{ block.settings.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        {%- endif -%}
+                    {%- endfor -%}
+                </div>
+                <a
+                    href="#product-page-section"
+                    class="
+                        tw-inline-flex
+                        tw-items-center
+                        tw-justify-center
+                        tw-font-bold
+                        tw-px-12
+                        tw-py-3
+                        tw-rounded-full
+                        tw-no-underline
+
+                        tw-bg-[#007e40]
+                        hover:tw-bg-[#00582d]
+                        tw-text-white
+
+                        hover:tw-shadow-[0_0_0_0.5px_#000,2px_2px_0_#000]
+                        hover:tw-translate-x-1
+                        hover:tw-translate-y-1
+                        tw-shadow-[inset_0_0_0_0.5px_#000,4px_4px_0_#000]
+
+
+                        tw-transition-all
+                        tw-duration-300
+                        tw-ease-out
+
+                        md:tw-w-[50%]
+                        tw-h-[56px]
+
+                        tw-text-[20px]
+
+                        tw-leading-[120%]
+                        tw-tracking-tighter
+
+                        tw-flex-nowrap
+                        tw-text-nowrap
+                    "
+                >
+                    {{ section.settings.button_text | default: "Save 60% + Free Shipping" }}
+                </a>
+                <div class="tw-flex tw-w-full tw-justify-center tw-gap-2">
+                    <p class="tw-m-0 tw-text-[12px] tw-leading-[160%] tw-text-[rgba(0,31,16,0.5)]">
+                        <a
+                        href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9710417/"
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        class="tw-underline tw-text-[rgba(0,31,16,0.5)]"
+                        >
+                        ¹ Source
+                        </a>
+                    </p>
+
+                    <p class="tw-m-0 tw-text-[12px] tw-leading-[160%] tw-text-[rgba(0,31,16,0.5)]">
+                        <a
+                        href="https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC6453579&blobtype=pdf"
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        class="tw-underline tw-text-[rgba(0,31,16,0.5)]"
+                        >
+                        ² Source
+                        </a>
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="tw-bg-lt-yellow tw-p-[18px] tw-flex tw-flex-col tw-rounded-[20px] tw-gap-[24px]">
+            <div class="tw-flex tw-flex-col tw-gap-[8px] tw-w-full tw-justify-center tw-items-center tw-text-center">
+                <div class="md:tw-hidden tw-h-[30px]">
+                    <img src="{{ section.settings.eurofins_img | image_url: width: 234, height:50  }}" alt="Eurofins certification logo" width="234" height="50" class="tw-object-contain tw-h-full">
+                </div>
+                <h3 style="color: {{ section.settings.second_box_color }};" class="!tw-m-0 tw-text-[32px] md:tw-text-[44px] tw-leading-[110%] tw-font-bold">
+                    {{ section.settings.third_heading }}
+                </h3>
+                <p class="!tw-m-0 tw-text-[16px] xl:tw-text-[20px] tw-leading-[160%] tw-max-w-[700px]">
+                    Our gummies are regularly tested for all 21 vitamins & minerals to ensure label claims are accurate and clear of contaminants including:
+                </p>
+            </div>
+            <div class="tw-flex tw-w-full tw-justify-center tw-items-center tw-flex-col md:tw-flex-row tw-gap-[20px] md:tw-gap-[60px]">
+                <div class="tw-hidden md:tw-block">
+                    <img src="{{ section.settings.eurofins_img | image_url: width: 234, height:50  }}" alt="Eurofins certification logo" width="234" height="50" class="">
+                </div>
+                <div class="tw-flex tw-flex-col tw-gap-[4px]">
+                    <div class="tw-flex tw-items-center tw-justify-start tw-gap-[8px]">
+                        <span class="tw-flex tw-items-center tw-justify-center">
+                            {% render 'icon-polygon-x' %}
+                        </span>
+                        <p class="!tw-m-0 tw-text-[14px]">
+                            70 Different pesticides
+                        </p>
+                    </div>
+                    <div class="tw-flex tw-items-center tw-justify-start tw-gap-[8px]">
+                        <span class="tw-flex tw-items-center tw-justify-center">
+                            {% render 'icon-polygon-x' %}
+                        </span>
+                        <p class="!tw-m-0 tw-text-[14px]">
+                            4 types of heavy metals
+                        </p>
+                    </div>
+                    <div class="tw-flex tw-items-center tw-justify-start tw-gap-[8px]">
+                        <span class="tw-flex tw-items-center tw-justify-center">
+                            {% render 'icon-polygon-x' %}
+                        </span>
+                        <p class="!tw-m-0 tw-text-[14px]">
+                            16 different contaminants
+                        </p>
+                    </div>
+                    <div class="tw-flex tw-items-center tw-justify-start tw-gap-[8px]">
+                        <span class="tw-flex tw-items-center tw-justify-center">
+                            {% render 'icon-polygon-x' %}
+                        </span>
+                        <p class="!tw-m-0 tw-text-[14px]">
+                            9 Microbial contaminants
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Stats Section Kids",
+        "settings": [
+            {
+                "type": "header",
+                "content": "First Box Settings",
+            },
+            {
+                "type": "image_picker",
+                "id": "banner_img",
+                "label": "Banner Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "eurofins_img",
+                "label": "Eurofins Image"
+            },
+            {
+                "type": "color",
+                "id": "section_bg_color",
+                "label": "Section Background Color",
+                "default": "#f0f9f0"
+            },
+            {
+                "type": "color",
+                "id": "first_box_text_color",
+                "label": "First Box Text Color",
+                "default": "#007e40"
+            },
+            {
+                "type": "color",
+                "id": "second_box_color",
+                "label": "Second Box Color",
+                "default": "#007e40"
+            },
+
+            {
+                "type": "text",
+                "id": "first_heading",
+                "label": "First Heading",
+                "default": "Modern Living Leaves Our Bodies Deficient"
+            },
+            {
+                "type": "text",
+                "id": "first_subheading",
+                "label": "First Subheading",
+                "default": "Grüns is the first smart gummy that fills the gaps."
+            },
+            {
+                "type": "text",
+                "id": "third_heading",
+                "label": "Third Heading",
+                "default": "Quality You Can Trust"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "Save 60% + Free Shipping"
+            },
+        ],
+        "blocks": [
+            {
+                "type": "stat_horizontal",
+                "name": "Stat Box 1",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "percent",
+                        "label": "Percent",
+                        "default": "90%"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Description",
+                        "default": "Description text"
+                    }
+                ]
+            },
+
+        ],
+        "presets": [
+            {
+                "name": "Stats Section Kids",
+                "settings": {
+                    "first_heading": "Modern Living Leaves Our Bodies Deficient",
+                    "first_subheading": "Grüns is the first smart gummy that fills the gaps.",
+                    "third_heading": "Quality You Can Trust",
+                    "button_text": "Save 60% + Free Shipping"
+                },
+                "blocks": [
+                    {
+                        "type": "stat_horizontal",
+                        "settings": {
+                            "percent": "90%",
+                            "description": "of U.S. adults don’t meet recommended daily nutrient intake—including vitamins and minerals found in Grüns.¹"
+                        }
+                    },
+                    {
+                        "type": "stat_horizontal",
+                        "settings": {
+                            "percent": "61%",
+                            "description": "of Americans experience weekly digestive issues like bloating, abdominal pain, or irregularity.²"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

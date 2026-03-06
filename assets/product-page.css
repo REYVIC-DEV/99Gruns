@@ -1,0 +1,67 @@
+/* Product Page Styles */
+
+.section-title *, .section-description * {
+  font-size: inherit !important;
+  margin: inherit !important;
+  color: inherit !important;
+}
+
+.section-title {
+  color: var(--section-title-color);
+}
+
+.section-description {
+  color: var(--section-description-color);
+}
+
+.section-top-badge {
+  color: var(--section-badge-text-color) !important;
+}
+
+.sale-percentage {
+  background-color: var(--sale-percentage-bg-color);
+}
+
+
+.swiper-slide-thumb-active img {
+  opacity: 1 !important;
+}
+
+.option-toggle {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: #e3f2e8;
+  border-radius: 999px;
+}
+
+.option-pill {
+  position: relative;
+  cursor: pointer;
+}
+
+.option-pill input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.option-pill span {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Selected state */
+.option-pill input:checked + span {
+  background-color: #0a7a3c;
+  color: #fff;
+}
+
+.option-toggle.selling-plans {
+  /* display: none; */
+}

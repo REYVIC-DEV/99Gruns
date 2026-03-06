@@ -1,0 +1,421 @@
+<section class="tw-w-full" style="background-color: {{ section.settings.bg_color }};" data-testimonial-tabs>
+  <div class="page-width tw-p-[20px] tw-pt-[41px] tw-flex tw-flex-col tw-gap-[32px] md:tw-p-[5%] 2xl:tw-px-0">
+
+    {%- comment -%} ===== HEADER (UNCHANGED) ===== {%- endcomment -%}
+    <div class="tw-flex tw-flex-col tw-gap-[8px] tw-justify-center tw-w-full">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'star_reviews' -%}
+          <div class="tw-w-full tw-flex tw-justify-center">
+            {% render 'home-star-review',
+              rating: block.settings.star_rating,
+              star_color: block.settings.star_color,
+              review_text_mobile: block.settings.review_text_mobile,
+              review_text_desktop: block.settings.review_text_desktop,
+              font_color: block.settings.review_font_color,
+              strong_font_color: block.settings.strong_font_color
+            %}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+
+      <h3
+        style="color: {{ section.settings.h3_color }};"
+        class="!tw-m-0 tw-text-center tw-leading-[120%] tw-text-[32px] md:tw-text-[44px] tw-font-bold"
+      >
+        Join 1,000,000+ Others Filling Their Nutrition Gaps
+      </h3>
+    </div>
+
+    {%- comment -%} ===== TABS/text part ===== {%- endcomment -%}
+    <div
+      class="
+        tw-grid
+        tw-grid-cols-2
+        md:tw-grid-cols-3
+        xl:tw-grid-cols-6
+        tw-gap-[12px]
+        tw-w-full
+      "
+    >
+      {%- assign tab_index = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'testimonial_tab' -%}
+          <div
+            class="
+              tw-flex tw-justify-center tw-items-center
+              tw-rounded-full
+              !tw-border-2
+              !tw-border-black
+              tw-border-solid
+              tw-py-[10px]
+              tw-px-[18px]
+              tw-font-semibold
+              tw-text-black
+              tw-transition
+              tw-cursor-pointer
+
+              hover:[&:not(.active)]:!tw-bg-green-tint
+            "
+            data-tab-button
+            data-tab-index="{{ tab_index }}"
+          >
+            {{ block.settings.title }}
+          </div>
+          {%- assign tab_index = tab_index | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- comment -%} ===== REVIEWS ===== {%- endcomment -%}
+    <div class="tw-max-w-[1200px] tw-mx-auto">
+
+      {%- assign content_index = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'testimonial_tab' -%}
+          <div
+            class="
+              testimonial-panel
+              tw-hidden
+              tw-grid
+              tw-grid-cols-1
+              xl:tw-grid-cols-3
+              tw-gap-[24px]
+              tw-max-w-[500px]
+              xl:tw-max-w-full
+            "
+            data-tab-panel="{{ content_index }}"
+          >
+
+            <!-- Review 1 -->
+            <div class="tw-flex tw-flex-col tw-gap-[12px] tw-items-center tw-text-center">
+              {% render 'home-star-review', rating: 5, star_color: "#007e40" %}
+              <p class="!tw-m-0 tw-font-bold tw-text-[20px] tw-tracking-tighter tw-leading-[120%]">{{ block.settings.review_1_title }}</p>
+              {%- if block.settings.review_1_text != blank -%}
+                <p class="!tw-m-0 tw-text-[16px] tw-leading-[160%] tw-tracking-tighter">{{ block.settings.review_1_text }}</p>
+              {%- endif -%}
+              <p class="!tw-m-0 tw-font-semibold">{{ block.settings.author_name_1 }}</p>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="tw-flex tw-flex-col tw-gap-[12px] tw-items-center tw-text-center">
+              {% render 'home-star-review', rating: 5, star_color: "#007e40" %}
+              <p class="!tw-m-0 tw-font-bold tw-text-[20px] tw-tracking-tighter tw-leading-[120%]">{{ block.settings.review_2_title }}</p>
+              {%- if block.settings.review_2_text != blank -%}
+                <p class="!tw-m-0 tw-text-[16px] tw-leading-[160%] tw-tracking-tighter">{{ block.settings.review_2_text }}</p>
+              {%- endif -%}
+              <p class="!tw-m-0 tw-font-semibold">{{ block.settings.author_name_2 }}</p>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="tw-flex tw-flex-col tw-gap-[12px] tw-items-center tw-text-center">
+              {% render 'home-star-review', rating: 5, star_color: "#007e40" %}
+              <p class="!tw-m-0 tw-font-bold tw-text-[20px] tw-tracking-tighter tw-leading-[120%]">{{ block.settings.review_3_title }}</p>
+              {%- if block.settings.review_3_text != blank -%}
+                <p class="!tw-m-0 tw-text-[16px] tw-leading-[160%] tw-tracking-tighter">{{ block.settings.review_3_text }}</p>
+              {%- endif -%}
+              <p class="!tw-m-0 tw-font-semibold">{{ block.settings.author_name_3 }}</p>
+            </div>
+
+          </div>
+
+          {%- assign content_index = content_index | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+    </div>
+
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'video_slider' -%}
+        <div class="tw-w-full">
+          <!-- Slider -->
+          <div class="swiper slider-vid-testimonial">
+            <div class="swiper-wrapper !tw-w-[255px] !tw-h-[453px] md:!tw-w-[120px] md:!tw-h-[213px] lg:!tw-w-[166px] lg:!tw-h-[294px] xl:!tw-w-[240px] xl:!tw-h-[428px]">
+              {%- for i in (1..5) -%}
+                {%- assign video_key = 'video_' | append: i | append: '_url' -%}
+                {%- assign video_url = block.settings[video_key] -%}
+                {%- if video_url != blank -%}
+                  <div class="swiper-slide tw-flex tw-items-center tw-justify-center">
+                    <div class="tw-relative !tw-w-[255px] !tw-h-[453px] md:!tw-w-[120px] md:!tw-h-[213px] lg:!tw-w-[166px] lg:!tw-h-[294px] xl:!tw-w-[240px] xl:!tw-h-[428px] tw-rounded-[20px] tw-overflow-hidden">
+                      <iframe
+                        src="{{ video_url }}"
+                        class="tw-absolute tw-inset-0 tw-w-full tw-h-full"
+                        frameborder="0"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen>
+                      </iframe>
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+
+          <!-- Controls BELOW slider -->
+          <div class="tw-mt-[16px] tw-flex tw-items-center tw-justify-center tw-gap-[20px] md:tw-hidden">
+            <div class="swiper-button-prev-tv tw-flex tw-items-center">
+              {% render 'icon-arrow', direction: 'left', color: "#00582d", size: 32 %}
+            </div>
+
+            <div class="swiper-pagination-tv !tw-w-auto !tw-justify-center"></div>
+
+            <div class="swiper-button-next-tv tw-flex tw-items-center">
+              {% render 'icon-arrow', direction: 'right', color: "#00582d", size: 32 %}
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+    <p class="tw-text-[10px] tw-text-center">Testimonials featured in videos or other promotional materials may include individuals who have received compensation, free product, or other incentives.</p>
+  </div>
+</section>
+
+<style>
+.swiper-pagination-tv {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swiper-pagination-tv .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #cfd8d3; /* light gray/green */
+  opacity: 1;
+}
+
+.swiper-pagination-tv .swiper-pagination-bullet-active {
+  background: #00582d; /* active green */
+}
+
+</style>
+
+<script src="{{ 'video-testimonial-slider.js' | asset_url }}" defer="defer"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('[data-testimonial-tabs]');
+    if (!section) return;
+
+    const buttons = section.querySelectorAll('[data-tab-button]');
+    const panels = section.querySelectorAll('.testimonial-panel');
+
+    function activateTab(index) {
+      buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tabIndex == index);
+        btn.classList.toggle('tw-bg-green', btn.dataset.tabIndex == index);
+        btn.classList.toggle('tw-text-white', btn.dataset.tabIndex == index);
+      });
+
+      panels.forEach(panel => {
+        panel.classList.toggle('tw-hidden', panel.dataset.tabPanel != index);
+      });
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activateTab(btn.dataset.tabIndex);
+      });
+    });
+
+    // Activate first tab by default
+    activateTab(0);
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Video Text Testimonials",
+  "settings": [
+    {
+      "type": "color",
+      "id": "h3_color",
+      "label": "H3 Color",
+      "default": "#007e40"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#DFEFE7FF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "star_reviews",
+      "name": "Star Reviews",
+      "settings": [
+        {
+          "type": "range",
+          "id": "star_rating",
+          "label": "Star Rating",
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "default": 5
+        },
+        {
+          "type": "color",
+          "id": "star_color",
+          "label": "Star Color",
+          "default": "#007E40"
+        },
+        {
+          "type": "richtext",
+          "id": "review_text_mobile",
+          "label": "Review Text (Mobile)",
+          "default": "<p>4.8 stars</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "review_text_desktop",
+          "label": "Review Text (Desktop)",
+          "default": "<p>4.8 stars</p>"
+        },
+        {
+          "type": "color",
+          "id": "review_font_color",
+          "label": "Review Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "strong_font_color",
+          "label": "Strong Text Color",
+          "default": "#007e40"
+        }
+      ]
+    },
+    {
+      "type": "testimonial_tab",
+      "name": "Testimonial Tab",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tab Title" },
+
+        { "type": "text", "id": "review_1_title", "label": "Review 1 Title" },
+        { "type": "textarea", "id": "review_1_text", "label": "Review 1 Text" },
+        { "type": "text", "id": "author_name_1", "label": "Author 1" },
+
+        { "type": "text", "id": "review_2_title", "label": "Review 2 Title" },
+        { "type": "textarea", "id": "review_2_text", "label": "Review 2 Text" },
+        { "type": "text", "id": "author_name_2", "label": "Author 2" },
+
+        { "type": "text", "id": "review_3_title", "label": "Review 3 Title" },
+        { "type": "textarea", "id": "review_3_text", "label": "Review 3 Text" },
+        { "type": "text", "id": "author_name_3", "label": "Author 3" }
+      ]
+    },
+    {
+      "type": "video_slider",
+      "name": "Video Slider",
+      "settings": [
+        { "type": "text", "id": "video_1_url", "label": "Video 1 URL" },
+        { "type": "text", "id": "video_2_url", "label": "Video 2 URL" },
+        { "type": "text", "id": "video_3_url", "label": "Video 3 URL" },
+        { "type": "text", "id": "video_4_url", "label": "Video 4 URL" },
+        { "type": "text", "id": "video_5_url", "label": "Video 5 URL" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Text Testimonials",
+      "blocks": [
+        { "type": "star_reviews" },
+
+        {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Taste",
+            "review_1_title": "10/10 would recommend. The convenience and taste are huge! Like mixed berries!",
+            "review_1_text": "Plus not having to clean a shaker bottle or extra dishes for greens stuff in powder form, is absolutely excellent!",
+            "author_name_1": "Dustin O.",
+            "review_2_title": "These gummies are shockingly delicious, like strawberries!",
+            "review_2_text": "I hate subscriptions because I feel like they are a trap so I canceled it before the gummies even arrived. We quickly decided to resubscribe because we love Grüns so much! A bonus is my kids love them too!",
+            "author_name_2": "Kate S.",
+            "review_3_title": "A delicious adventure for your taste buds.",
+            "review_3_text": "These gummy bears are more than just a treat; they’re a flavorful escape. With a burst of mouthwatering flavors, every bite is an invitation to a tasteful journey. Grüns makes healthy eating an indulgent experience.",
+            "author_name_3": "Kevin M."
+          }
+        },
+        {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Value",
+            "review_1_title": "These gummies are amazing!",
+            "review_1_text": "Grüns has replaced multiple vitamins and supplements as they are all included in just one yummy little Grüns pack! (For WAY less than I was paying before). Best decision I ever made switching!! If you’re on the fence, JUMP! You will not regret your decision!",
+            "author_name_1": "Rebecca D.",
+            "review_2_title": "The benefits of eating these gummies daily is stacked.",
+            "review_2_text": "I used to pay so much for multiple supplements to get all of the same benefits that Grüns gives me in a simple snack pack.",
+            "author_name_2": "Jeremy H.",
+            "review_3_title": "I was super skeptical. These gummies actually do taste really yummy",
+            "review_3_text": "and they’re easy to throw in a packet and take with me so I can enjoy them anytime. I also stopped buying separate probiotic gummies, b12 gummies, and multivitamin gummies. I just take these now and it’s easier for me to manage.",
+            "author_name_3": "Jamie W."
+          }
+        },
+        {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "vs. Powders",
+            "review_1_title": "Grüns has been the one thing I’ve been able to stick to",
+            "review_1_text": "I’ve tried a few green powders over the years. The issue has never been nutritive content. It’s always been an issue of consistency like many things. Grüns has been the one thing I’ve been able to stick to because they are so easy to consume and taste wonderful (just like gummy bears).",
+            "author_name_1": "Samuel L.",
+            "review_2_title": "WOW! I’ve tried a ton of green “things” over the years and I have to say, Grüns FOR THE WIN!",
+            "review_2_text": "I was taking AG1 but even with their monthly subscription discount it was still $94 a month and the drink was definitely gritty/chalky. Grüns literally tastes like fruit snacks I ate as a kid. And there isn’t a bad aftertaste either! On top of that, they are super convenient, half the price of what I was paying with AG1, and offer the same benefits and then some! P.S. I never do reviews, but these are amazing!",
+            "author_name_2": "Bradley O.",
+            "review_3_title": "Grüns is exactly what I needed.",
+            "review_3_text": "I’ve been choking on Athletic Greens for the last few years and am glad those days are over. I look forward to taking Grüns every day not only because they taste great but also because I know they’re good for me.",
+            "author_name_3": "Jaxon S."
+          }
+        },
+        {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Benefits",
+            "review_1_title": "Grüns really does taste great! More importantly, I feel great.",
+            "review_1_text": "The prebiotics do their job, but not aggressively, and I feel like my overall digestion has improved. This is huge for someone who suffers from chronic IBS! I feel like I’m already seeing improvements in my skin too. They are definitely part of my daily routine.",
+            "author_name_1": "Susan U.",
+            "review_2_title": "If you are serious about changing your life, start here. The product is AMAZING!",
+            "review_2_text": "It provides clean feeling energy and mental focus in a good tasting gummy bear that satisfies a sweet tooth craving without the sugar crash.",
+            "author_name_2": "Jeremy C.",
+            "review_3_title": "My bowel movements are normal for the 1st time in 15 years!",
+            "review_3_text": "",
+            "author_name_3": "Wendy B."
+          }
+        },
+        {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Ingredients",
+            "review_1_title": "\"I can’t stop raving about Grüns to my friends. Definitely give them a try!\"",
+            "review_1_text": "Pharmacist approved! Most other gummies on the market have only a few vitamins, but there are no other products like this with full spectrum vitamins in gummy form! I can’t stop raving about Grüns to my friends. Definitely give them a try!",
+            "author_name_1": "Mercedes F.",
+            "review_2_title": "1000/10. Truly exceeded my expectations!",
+            "review_2_text": "Love the taste, love how they make me feel, and so impressed by the ingredients list! Definitely will be taking these on vacation with me (bye bye green powder)!",
+            "author_name_2": "Gizelle C.",
+            "review_3_title": "Grüns are the tastiest nutritional gummies I’ve ever had.",
+            "review_3_text": "They’re more convenient, less messy, and more flavorful than green powders. They are easy to have on the go, so it’s easy to build the daily habit of taking them. I’ve felt great since I started taking Grüns! So much nutrition packed into an easy habit. Do yourself a favor and get a subscription. You won’t regret it!",
+            "author_name_3": "Matthew G."
+          }
+        },
+        {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Convenience",
+            "review_1_title": "\"so easy to grab and eat on my way to the billion things I have to do as a mom\"",
+            "review_1_text": "Portable! Love the flavor and it’s so easy to grab and eat on my way to the billion things I have to do as a mom. Easy way to get my nutrients in!",
+            "author_name_1": "Kelli L.",
+            "review_2_title": "\"Gruns has genuinely made a comprehensive daily nutrition solution enjoyable and accessible.\"",
+            "review_2_text": "I've been using Gruns Daily Gummies for a few weeks, and I'm hooked! The convenience of getting 60 nutrient-dense ingredients in a tasty gummy is unbeatable. They make meeting my daily nutrient needs a breeze, and the blend also supports gut health. I've noticed increased energy levels and an overall sense of vitality. It's perfect for on-the-go nutrition. Gruns has genuinely made a comprehensive daily nutrition solution enjoyable and accessible. Highly recommend!",
+            "author_name_2": "Crystal H.",
+            "review_3_title": "It’s wild I WANT to take Grüns and don’t forget.",
+            "review_3_text": "I love that it's a little pack of gummies because taking just 2 gummies before Grüns was never satisfying. And that’s before you get to all the health benefits.",
+            "author_name_3": "Brittany A."
+          }
+        },
+        { "type": "video_slider" }
+      ]
+    }
+  ]
+}
+{% endschema %}

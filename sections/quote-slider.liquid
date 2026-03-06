@@ -1,0 +1,185 @@
+<section>
+  <div class="page-width tw-pt-[5%] tw-flex tw-flex-col tw-gap-[16px]">
+    <!-- Slider main container -->
+    <div class="swiper quote-slider tw-w-full">
+
+
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper !tw-w-[300px] lg:!tw-w-[500px] !tw-m-0">
+        <!-- Slides -->
+
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+
+            {% comment %} content {% endcomment %}
+            <div class="tw-flex tw-flex-col tw-gap-[16px] tw-justify-between tw-items-center tw-text-center">
+              <p class="tw-m-0 tw-text-[14px] md:tw-text-[16px] tw-tracking-tighter tw-leading-[160%]"> {{ block.settings.quote | escape }} </p>
+              <img src="{{ block.settings.logo | image_url: height:30  }}" alt="Publication logo" width="auto" height="30" class="tw-object-contain">
+            </div>
+          </div>
+        {% endfor %}
+      
+      
+      </div>
+      
+      <!-- If we need pagination -->
+      <div class="swiper-button-prev quote-prev">
+        {% render 'icon-arrow', direction: 'left', color: section.settings.arrow_color, size: section.settings.arrow_size %}
+      </div>
+      <div class="swiper-button-next quote-next">
+        {% render 'icon-arrow', direction: 'right', color: section.settings.arrow_color, size: section.settings.arrow_size %}
+      </div>
+
+      <div class="fade-left tw-w-[44px] md:tw-w-[120px]">
+        {% comment %} fade left {% endcomment %}
+      </div>
+      <div class="fade-right tw-w-[44px] md:tw-w-[120px]">
+        {% comment %} fade right {% endcomment %}
+      </div>
+    
+    </div>
+    <div class="quote-pagination"></div>
+  </div>
+</section>
+
+<script src="{{ 'quote-slider.js' | asset_url }}" defer="defer"></script>
+
+<style>
+  .quote-pagination{
+    display:flex;
+    justify-content:center;
+  }
+
+  .swiper-pagination-bullet{
+    height: 10px !important;
+    width: 10px !important;
+  }
+  .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background: #0a1912 !important;
+  }
+/* Quote slider arrows – FINAL style */
+.quote-slider .swiper-button-prev,
+.quote-slider .swiper-button-next {
+  top: 90%;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  background: #ffffff;
+  border: 2px solid #000000; /* thicker border */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0; /* IMPORTANT: remove inner spacing */
+
+  cursor: pointer;
+
+  border-bottom-width: 5px;       /* thicker bottom */
+  border-right-width: 5px;        /* thicker right */
+  padding: 0.5em;
+}
+
+/* Remove default Swiper arrows */
+.quote-slider .swiper-button-prev::after,
+.quote-slider .swiper-button-next::after {
+  display: none;
+}
+
+/* Arrow icon – visually stronger */
+.quote-slider .swiper-button-prev svg,
+.quote-slider .swiper-button-next svg {
+  width: 24px;   /* slightly larger than 24 */
+  height: 24px;
+  display: block;
+}
+
+
+.fade-left {
+  position: absolute;
+  display:block !important;
+  top: 0;
+  left: 0;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0) 100%
+  );
+  
+  z-index: 5;
+}
+.fade-right {
+  position: absolute;
+  display:block !important;
+  top: 0;
+  right: 0;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,1) 100%
+  );
+  
+  z-index: 5;
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Quote Slider",
+  "settings": [
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "arrow_size",
+      "label": "Arrow Size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "I’ll be honest that I was a little skeptical about the taste, but it surprised me in the best way."
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Publication logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quote Slider",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}

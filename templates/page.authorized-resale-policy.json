@@ -1,0 +1,38 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "autorized_resale_policy_MHCGiC": {
+      "type": "autorized-resale-policy",
+      "name": "Authorized Resale Policy",
+      "settings": {
+        "main_title": "Authorized Resale Policy",
+        "subheading": "Grüns (the “Brand Owner”) hereby adopts this Resale Policy (this “Policy”) and requires that each person, firm or entity (as applicable, a “Reseller”) that purchases Brand Owner’s products (the “Products”) for resale or other distribution agree to comply with this Policy.",
+        "policy_compliance": "Any Reseller that fails to comply with this Policy will be deemed an unauthorized reseller of the Products, and as such, shall have no right to: (i) sell the Products, (ii) use Brand Owner’s intellectual property, including any of its trademarks or copyrights, or (iii) offer Brand Owner’s consumer warranty applicable to any of the Products.",
+        "reseller_policy_compliance": "<p>Applicability. This Policy applies to all resales of the Products. Regardless as to where the Products were acquired, either directly from the Brand Owner, through an authorized distributor, or some other procurement method, a Reseller must comply with the terms of this Policy.  </p><p>Sales to End Users Only. Unless otherwise agreed with Brand Owner in writing, Reseller may only purchase Products for resale to consumers and end user customers, and Reseller may not resell Products to other Resellers, distributors or for further distribution in any manner.</p><p>No Sales on Online Marketplaces. Without the Brand Owner’s express written consent, Reseller may not advertise or sell the Products online on any e-commerce platform, specifically including, but not limited to, Amazon, Temu, eBay, and Walmart. The reseller may sell Products on its own website.</p><p>Handling and Storage. Reseller agrees to handle and store the Products in a safe manner and in compliance with Brand Owner’s storage and handling guidelines.  Reseller will ensure that any Products it purchased are stored in secure, climate-controlled warehouses.</p><p>Product Packaging and Display.  Reseller shall sell Products in their original packaging. Relabeling, repackaging (including the separation of bundled Products or the bundling of Products), and other alterations to Products or their packaging are not permitted. Tampering with, defacing, or otherwise altering any serial number, UPC code, batch or lot code, SKU or other identifying information on Products or their packaging is prohibited. Reseller may not remove, translate, or modify the contents of any label or literature on or accompanying the Products. Reseller shall not advertise, market, display, or demonstrate non-Brand Owner Products together with the Products in a manner that would create the impression that the non-Brand Owner Products are made by, endorsed by, or associated with Brand Owner.</p><p>Trademarks; Copyrights. Resellers that comply with this Policy have a limited, non-exclusive, non-sublicensable, revocable license to use Brand Owner’s trademarks and copyrights in connection with the sale of the Products. Reseller shall not alter, modify, or change any trademark or copyright, nor shall Reseller use any trademark or copyright other than for the promotion and sale of the Products, nor shall Reseller use any trademark or copyright in any manner that negatively impacts such trademark or copyright or the Brand Owner. Failure to comply with the Policy will result in the automatic revocation of the license granted herein and a total forfeiture of the rights granted herein. Brand Owner reserves the right to revoke this license at any time for any or no reason.</p>",
+        "bottom_text": "RESELLERS WHO FAIL TO COMPLY WITH THE FOREGOING TERMS FORFEIT THE RIGHT TO SELL THE PRODUCTS.",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "autorized_resale_policy_MHCGiC"
+  ]
+}

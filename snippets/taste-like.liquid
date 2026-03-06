@@ -1,0 +1,72 @@
+{% assign blocks = blocks %}
+{% assign taste_like_img_1 = taste_like_img_1 %}
+{% assign taste_like_emoji_1 = taste_like_emoji_1 %}
+{% assign taste_like_text_1 = taste_like_text_1 %}
+{% assign taste_like_img_2 = taste_like_img_2 %}
+{% assign taste_like_emoji_2 = taste_like_emoji_2 %}
+{% assign taste_like_text_2 = taste_like_text_2 %}
+{% assign taste_like_img_3 = taste_like_img_3 %}
+{% assign taste_like_emoji_3 = taste_like_emoji_3 %}
+{% assign taste_like_text_3 = taste_like_text_3 %}
+<section class="tw-w-full tw-flex tw-flex-col tw-gap-4">
+    <h4 class="!tw-m-0 tw-text-[24px] tw-text-[#001f10] tw-font-semibold tw-text-center">Tastes Like</h4>
+    <div class="tw-w-full tw-flex tw-justify-between tw-gap-4">
+        <div class="tw-flex tw-flex-col tw-flex-1 tw-items-center">
+            <div class="tw-p-[12px] tw-w-[72px] tw-h-[72px] tw-rounded-full tw-bg-[#DAECE3] tw-flex tw-items-center tw-justify-center tw-mb-2">
+                {% if taste_like_img_1 %}
+                    <img src="{{ taste_like_img_1 | image_url }}" alt="{{ taste_like_img_1.alt }}" width="{{ taste_like_img_1.width }}" height="{{ taste_like_img_1.height }}" class="tw-w-full tw-h-auto tw-object-contain">
+                {% elsif taste_like_emoji_1 != blank %}
+                    <div class="tw-text-[40px] tw-text-center">{{ taste_like_emoji_1 }}</div>
+                {% endif %}
+            </div>
+            {% if taste_like_text_1 != blank %}
+                <h6 class="!tw-m-0 tw-text-center tw-text-[#001F10] tw-text-[18px] tw-font-semibold">{{ taste_like_text_1 }}</h6>
+            {% endif %}
+        </div>
+        <div class="tw-flex tw-flex-col tw-flex-1 tw-items-center">
+            <div class="tw-p-[12px] tw-w-[72px] tw-h-[72px] tw-rounded-full tw-bg-[#DAECE3] tw-flex tw-items-center tw-justify-center tw-mb-2">
+                {% if taste_like_img_2 %}
+                    <img src="{{ taste_like_img_2 | image_url }}" alt="{{ taste_like_img_2.alt }}" width="{{ taste_like_img_2.width }}" height="{{ taste_like_img_2.height }}" class="tw-w-full tw-h-auto tw-object-contain">
+                {% elsif taste_like_emoji_2 != blank %}
+                    <div class="tw-text-[40px] tw-text-center">{{ taste_like_emoji_2 }}</div>
+                {% endif %}
+            </div>
+            {% if taste_like_text_2 != blank %}
+                <h6 class="!tw-m-0 tw-text-center tw-text-[#001F10] tw-text-[18px] tw-font-semibold">{{ taste_like_text_2 }}</h6>
+            {% endif %}
+        </div>
+        <div class="tw-flex tw-flex-col tw-flex-1 tw-items-center">
+            <div class="tw-p-[12px] tw-w-[72px] tw-h-[72px] tw-rounded-full tw-bg-[#DAECE3] tw-flex tw-items-center tw-justify-center tw-mb-2">
+                {% if taste_like_img_3 %}
+                    <img src="{{ taste_like_img_3 | image_url }}" alt="{{ taste_like_img_3.alt }}" width="{{ taste_like_img_3.width }}" height="{{ taste_like_img_3.height }}" class="tw-w-full tw-h-auto tw-object-contain">
+                {% elsif taste_like_emoji_3 != blank %}
+                    <div class="tw-text-[40px] tw-text-center">{{ taste_like_emoji_3 }}</div>
+                {% endif %}
+            </div>
+            {% if taste_like_text_3 != blank %}
+                <h6 class="!tw-m-0 tw-text-center tw-text-[#001F10] tw-text-[18px] tw-font-semibold">{{ taste_like_text_3 }}</h6>
+            {% endif %}
+        </div>
+    </div>
+    <div class="">
+        <div class="tw-flex tw-flex-col tw-items-start tw-gap-[10px]">
+            {%- for block in blocks -%}
+                {%- case block.type -%}
+                    {%- when 'taste-like' -%}
+                    <div class="tw-flex tw-items-center tw-gap-[12px]">
+                        <div class="tw-p-[12px] tw-w-[44px] tw-h-[44px] tw-rounded-full tw-bg-[#DAECE3] tw-flex tw-items-center tw-justify-center tw-mb-2">
+                            {%- if block.settings.image -%}
+                                    <img src="{{ block.settings.image | image_url: width: 44, height: 44 }}" alt="{{ block.settings.image.alt }}" width="48" height="48" class="tw-w-full tw-h-auto tw-object-contain">
+                            {%- elsif block.settings.emoji != blank -%}
+                                    <div class="tw-text-[24px] tw-text-center">{{ block.settings.emoji }}</div>
+                            {%- endif -%}
+                        </div>
+                        {%- if block.settings.title != blank -%}
+                            <p class="!tw-m-0 tw-text-center tw-text-[#0a2704] tw-text-[16px]">{{ block.settings.title }}</p>
+                        {%- endif -%}
+                    </div>
+                {%- endcase -%}
+            {%- endfor -%}
+        </div>
+    </div>
+</section>

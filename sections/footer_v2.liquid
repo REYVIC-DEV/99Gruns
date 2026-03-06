@@ -1,0 +1,616 @@
+<style>
+	/* chevron rotation */
+	.border-accordion.open .accordion-icon {
+	transform: rotate(180deg);
+	transition: transform 0.3s ease-in-out;
+	}
+
+	.border-accordion {
+		border-top: 1px solid #ffffff;
+		border-bottom: 1px solid #ffffff; 
+		display: inline-block; 
+		opacity: 0.95;"
+	}
+
+	.border-accordion-2 {
+		border-bottom: 1px solid #ffffff; 
+		display: inline-block; 
+		opacity: 0.95;"
+	}
+
+	.section-{{ section.id }}-padding {
+		padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+		padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+	}
+
+	@media screen and (min-width: 750px) {
+		.section-{{ section.id }}-padding {
+			padding-top: {{ section.settings.padding_top }}px;
+			padding-bottom: {{ section.settings.padding_bottom }}px;
+		}
+	}
+
+
+	@media screen and (min-width: 750px) {
+		.border-accordion{
+			border: 0px;
+		}
+		.border-accordion-2{
+			border: 0px;
+		}
+	}
+</style>
+
+<footer class="color-{{ section.settings.footer_bg }}">
+	<div class="page-width section-{{ section.id }}-padding">
+		<div class="tw-w-full tw-flex tw-flex-col md:tw-flex-row tw-justify-between">
+
+			{%- comment -%} NEWSLETTER {%- endcomment -%}
+			{% for block in section.blocks %}
+				{% if block.type == 'newsletter' %}
+				<div class="tw-mb-[40px] md:tw-mb-0">
+					<h1 class="tw-text-[#ffcc2e] tw-font-semibold tw-font-dm-sans tw-mb-[16px] tw-text-[24px] tw-mt-[5px] tw-tracking-tight">
+					{{ block.settings.heading }}
+					</h1>
+
+					<form method="post" action="/contact">
+					<input type="hidden" name="form_type" value="customer">
+					<input type="hidden" name="contact[tags]" value="newsletter">
+
+					<div class="tw-flex tw-gap-2">
+						<input
+						type="email"
+						name="contact[email]"
+						placeholder="{{ block.settings.email_placeholder }}"
+						required
+						class="tw-h-[52px] tw-pl-[16px] tw-text-[18px] tw-border tw-w-full"
+						>
+						<button
+						type="submit"
+						class="tw-h-[52px] tw-bg-[#ffc62d] tw-px-[12px] tw-text-[22px] tw-border"
+						>
+						➝
+						</button>
+					</div>
+					</form>
+				</div>
+				{% endif %}
+			{% endfor %}
+
+			{%- comment -%} LEARN LINKS {%- endcomment -%}
+			{% for block in section.blocks %}
+				{% if block.type == 'Learn_links' %}
+					<div class="border-accordion">
+						<div
+							type="button"
+							class="accordion-trigger tw-w-full tw-flex tw-items-center tw-justify-between md:tw-pointer-events-none tw-pb-[20px] tw-px-0">
+
+							{% render 'icon-learn' %}
+
+							<svg
+								aria-hidden="true"
+								width="24"
+								height="24"
+								viewBox="0 0 10 6"
+								class="accordion-icon tw-transition-transform tw-duration-300 md:tw-hidden tw-translate-y-[10px]"
+							>
+							<path
+								d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+								fill="#ffffff"
+							/>
+							</svg>
+						</div>
+
+					<ul class="tw-max-h-0 tw-overflow-hidden md:tw-overflow-visible tw-transition-all tw-duration-500 md:tw-max-h-full md:tw-block tw-list-none tw-m-0 tw-p-0">
+						<div class="tw-pr-10 tw-pb-[70px] md:tw-p-0">
+							{% for link in block.settings.learn_links_footer.links %}
+							<li class="md:tw-py-[0px] tw-py-[8px]">
+								<a
+								href="{{ link.url }}"
+								class="tw-no-underline tw-text-white hover:tw-text-[#ffc62d] tw-font-medium tw-font-dm-sans tw-text-[18px] md:tw-text-[14px] tw-tracking-tight"
+								>
+								{{ link.title }}
+								</a>
+							</li>
+							{% endfor %}
+						</div>
+					</ul>
+
+
+					</div>
+				{% endif %}
+			{% endfor %}
+
+			{%- comment -%} CONNECT LINKS {%- endcomment -%}
+			{% for block in section.blocks %}
+				{% if block.type == 'connect_links' %}
+					<div class="border-accordion-2">
+						<div
+							type="button"
+							class="accordion-trigger tw-w-full tw-flex tw-items-center tw-justify-between md:tw-pointer-events-none tw-pb-[20px] tw-px-0">
+
+							{% render 'icon-connect' %}
+
+							<svg
+								aria-hidden="true"
+								width="24"
+								height="24"
+								viewBox="0 0 10 6"
+								class="accordion-icon tw-transition-transform tw-duration-300 md:tw-hidden tw-translate-y-[10px]"
+							>
+							<path
+								d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+								fill="#ffffff"
+							/>
+							</svg>
+						</div>
+
+						<ul class="tw-max-h-0 tw-overflow-hidden md:tw-overflow-visible tw-transition-all tw-duration-500 md:tw-max-h-full md:tw-block tw-list-none tw-m-0 tw-p-0">
+							<div class="tw-pr-10 tw-pb-[70px] md:tw-p-0">
+								{% for link in block.settings.connect_links_footer.links %}
+								<li class="md:tw-py-[0px] tw-py-[8px]">
+									<a
+									href="{{ link.url }}"
+									class="tw-no-underline tw-text-white hover:tw-text-[#ffc62d] tw-font-medium tw-font-dm-sans tw-text-[18px] md:tw-text-[14px] tw-tracking-tight"
+									>
+									{{ link.title }}
+									</a>
+								</li>
+								{% endfor %}
+							</div>
+						</ul>
+
+					</div>
+				{% endif %}
+			{% endfor %}
+
+			{%- comment -%} USNACKS LINKS {%- endcomment -%}
+			{% for block in section.blocks %}
+				{% if block.type == 'usnacks_links' %}
+					<div>
+						<div
+							type="button"
+							class="accordion-trigger tw-w-full tw-flex tw-items-center tw-justify-between md:tw-pointer-events-none tw-pt-[15px] tw-pb-[20px] tw-px-0">
+
+							{% render 'icon-logo-usnacks' %}
+
+							<svg
+								aria-hidden="true"
+								width="24"
+								height="24"
+								viewBox="0 0 10 6"
+								class="accordion-icon tw-transition-transform tw-duration-300 md:tw-hidden"
+							>
+							<path
+								d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+								fill="#ffffff"
+							/>
+							</svg>
+						</div>
+
+						<ul class="tw-max-h-0 tw-overflow-hidden md:tw-overflow-visible tw-transition-all tw-duration-500 md:tw-max-h-full md:tw-block tw-list-none tw-m-0 tw-p-0">
+							<div class="tw-pr-10 tw-pb-[70px] md:tw-p-0">
+								{% for link in block.settings.usnacks_links_footer.links %}
+								<li  class="md:tw-py-[0px] tw-py-[8px]">
+									<a
+									href="{{ link.url }}"
+									class="tw-no-underline tw-text-white hover:tw-text-[#ffc62d] tw-font-medium tw-font-dm-sans tw-text-[18px] md:tw-text-[14px] tw-tracking-tight"
+									>
+									{{ link.title }}
+									</a>
+								</li>
+								{% endfor %}
+							</div>
+						</ul>
+
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+
+		<div class="tw-mt-[40px] tw-flex tw-flex-col md:tw-flex-row tw-justify-center md:tw-justify-start tw-items-center">
+			{% for block in section.blocks %}
+				{% if block.type == 'social_links' %}
+					<div class="tw-w-full md:tw-w-[255px]">
+						{% if block.settings.logo_image_picker != blank %}
+							<img
+							src="{{ block.settings.logo_image_picker | image_url }}"
+							alt="Phone"
+							width="full"
+							height="90"
+							>
+						{% else %}
+							{% render 'icon-logo' %}
+						{% endif %}
+					</div>
+
+
+					<div class="tw-flex tw-gap-3 md:tw-ml-[34px] tw-justify-between tw-items-start">
+						<div>
+							<a 
+								href="{{ block.settings.instagram_link }}" 
+								target="_blank"
+  								rel="noopener"
+  								aria-label="Instagram">
+							{% render 'icon-instagram' %}
+							</a>
+						</div>
+						<div>
+							<a 
+								href="{{ block.settings.tiktok_link }}" 
+								target="_blank"
+  								rel="noopener"
+  								aria-label="Tiktok">
+							{% render 'icon-tiktok' %}
+							</a>
+						</div>
+						<div>
+							<a 
+								href="{{ block.settings.youtube_link }}" 
+								target="_blank"
+  								rel="noopener"
+  								aria-label="Youtube">
+							{% render 'icon-youtube' %}
+							</a>
+						</div>
+						<div>
+							<a 
+								href="{{ block.settings.facebook_link }}" 
+								target="_blank"
+  								rel="noopener"
+  								aria-label="Facebook">
+							{% render 'icon-facebook' %}
+							</a>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+
+		<div class="tw-mt-[40px] tw-pb[20px] md:tw-pb[60px] tw-mb-0">
+			{% for block in section.blocks %}
+				{% if block.type == 'copyright' %}
+					<div class="tw-flex tw-flex-col md:tw-flex-row tw-justify-start tw-items-center tw-gap-[12px] tw-mb-8 md:tw-max-w-[75%]">
+						<div style="
+								border: 1px solid #ffffff;
+								padding: 10px;
+								display: inline-block;
+								opacity: 0.95;
+							">
+							<p class="tw-text-white tw-text-[10px] tw-font-medium tw-leading-[14px] tw-m-0 tw-opacity-70">{{ block.settings.left_text }}</p>
+						</div>
+						<div style="
+								border: 1px solid #ffffff;
+								padding: 10px;
+								display: inline-block;
+								opacity: 0.95;
+							">
+							<p class="tw-text-white tw-text-[10px] tw-font-medium tw-leading-[14px] tw-m-0 tw-opacity-70">{{ block.settings.right_text }}</p>
+						</div>
+					</div>
+
+					<div class="tw-flex tw-flex-col md:tw-flex-row tw-flex-wrap md:tw-flex-nowrap tw-justify-between tw-items-center tw-gap-6">
+						{%- assign refund = shop.refund_policy -%}
+						{%- assign privacy = shop.privacy_policy -%}
+						{%- assign tos = shop.terms_of_service -%}
+						{%- assign shipping = shop.shipping_policy -%}
+
+						<div>
+							<span class="tw-text-white tw-font-medium tw-font-dm-sans tw-text[14px] md:tw-text-[10px] tw-tracking-tight">&copy; Copyright {{ 'now' | date: '%Y' }}, </span>
+							<a href="{{ routes.root_url }}" class="tw-no-underline tw-text-white tw-font-medium tw-font-dm-sans tw-text[14px] md:tw-text-[10px] tw-leading-[19.6px]">
+								{{ shop.name }}
+							</a>
+						</div>
+
+						<div class="tw-flex tw-flex-row tw-flex-wrap tw-justify-center tw-gap-6 tw-leading-[10px] md:tw-justify-start md:tw-flex-nowrap">
+							{% if refund %}
+								<a
+									href="{{ section.settings.refund_policy_link }}" 
+									target="_blank"
+									rel="noopener"
+									class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-medium tw-font-dm-sans tw-text-[10px] tw-transition-colors tw-duration-300 tw-ease-in-out"
+								>{{ refund.title | escape }}</a>
+							{% else %}
+								<a
+									href="{{ refund.url }}"
+									target="_blank"
+									rel="noopener"
+									class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-medium tw-font-dm-sans tw-text-[10px] tw-transition-colors tw-duration-300 tw-ease-in-out"
+								>{{ refund.title | escape }}</a>
+							{%endif%}
+							{% if privacy %}
+								<a
+									href="{{ section.settings.privacy_policy_link }} }}"
+									target="_blank"
+									rel="noopener"
+									class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-medium tw-font-dm-sans tw-text-[10px] tw-transition-colors tw-duration-300 tw-ease-in-out"
+								>{{ privacy.title | escape }}</a>
+							{% else %}
+								<a
+									href="{{ privacy.url }}"
+									target="_blank"
+									rel="noopener"
+									class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-medium tw-font-dm-sans tw-text-[10px] tw-transition-colors tw-duration-300 tw-ease-in-out"
+								>{{ privacy.title | escape }}</a>
+							{%endif%}
+							{% if tos %}
+								<a
+									href="{{section.settings.terms_service_link }}"
+									target="_blank"
+									rel="noopener"
+									class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-medium tw-font-dm-sans tw-text-[10px] tw-transition-colors tw-duration-300 tw-ease-in-out"
+								>{{ tos.title | escape }}</a>
+							{% else %}
+								<a
+									href="{{ tos.url }}"
+									target="_blank"
+									rel="noopener"
+									class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-medium tw-font-dm-sans tw-text-[10px] tw-transition-colors tw-duration-300 tw-ease-in-out"
+								>{{ tos.title | escape }}</a>
+							{%endif%}
+							{% if shipping %}
+								<a 
+									href="{{ section.settings.shipping_policy }}"
+									target="_blank"
+									rel="noopener"
+									class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-medium tw-font-dm-sans tw-text-[10px] tw-transition-colors tw-duration-300 tw-ease-in-out"
+								>{{ shipping.title | escape }}</a>
+							{% else %}
+								<a
+									href="{{ shipping.url }}"
+									target="_blank"
+									rel="noopener"
+									class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-medium tw-font-dm-sans tw-text-[10px] tw-transition-colors tw-duration-300 tw-ease-in-out"
+								>{{ shipping.title | escape }}</a>
+							{%endif%}
+								<small class="tw-flex tw-flex-row tw-justify-center tw-relative tw-top-[-2px] tw-items-center">
+									<a
+										href="#"
+										target="_blank"
+										rel="noopener"
+										class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-light tw-font-dm-sans tw-text-[10px] tw-flex tw-transition-colors tw-duration-300 tw-ease-in-out tw-cursor-pointer tw-items-center"
+									>
+										My Privacy Choices
+										<img 
+										src="{{ 'datagrail-dnsos-toggle-icon.webp' | asset_url }}"
+										width="30"
+										height="17"
+										alt="California Consumer Privacy Act (CCPA) Opt-Out Icon"
+										class="tw-inline-block"
+										>
+									</a>
+								</small>
+								<a
+									href="{{ section.settings.resale_policy }}"
+									target="_blank"
+									rel="noopener"
+									class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-light tw-font-dm-sans tw-text-[10px] tw-transition-colors tw-duration-300 tw-ease-in-out"
+								>Authorized Resale Policy</a>
+								<a
+									href="#"
+									target="_blank"
+									rel="noopener"
+									class="tw-no-underline hover:tw-text-[#ffc62d] tw-text-white tw-font-light tw-font-dm-sans tw-text-[10px] tw-transition-colors tw-duration-300 tw-ease-in-out"
+								>Accessibility</a>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</footer>
+
+{% schema %}
+	{
+		"name": "Footer",
+		"settings": [
+			{
+				"type": "color_scheme",
+				"id": "footer_bg",
+				"label": "Footer Background Color",
+				"default": "scheme-2"
+			},
+			{
+				"type": "text",
+				"id": "refund_policy_link",
+				"label": "Refund Policy Link",
+				"default": "https://admin.shopify.com/store/gruns-daily-nutrition-dev/settings/legal/refund",
+				"placeholder": "Refund Policy Link"
+			},
+			{
+				"type": "text",
+				"id": "privacy_policy_link",
+				"label": "Privacy Policy Link",
+				"default": "https://admin.shopify.com/store/gruns-daily-nutrition-dev/settings/legal/privacy",
+				"placeholder": "Privacy Policy Link"
+			},
+			{
+				"type": "text",
+				"id": "terms_service_link",
+				"label": "Terms of Service Link",
+				"default": "https://admin.shopify.com/store/gruns-daily-nutrition-dev/settings/legal/terms-of-service",
+				"placeholder": "Terms of Service Link"
+			},
+			{
+				"type": "text",
+				"id": "shipping_policy",
+				"label": "Shipping Policy Link",
+				"default": "https://admin.shopify.com/store/gruns-daily-nutrition-dev/settings/legal/shipping",
+				"placeholder": "Shipping Policy Link"
+			},
+			{
+				"type": "text",
+				"id": "resale_policy",
+				"label": "Authorized Resale Policy Link",
+				"default": "https://gruns-daily-nutrition-dev.myshopify.com/pages/authorized-resale-policy",
+				"placeholder": "Authorized Resale Policy Link"
+			},
+			{
+				"type": "header",
+				"content": "Section Padding",
+			},
+			{
+				"type": "range",
+				"id": "padding_top",
+				"min": 0,
+				"max": 100,
+				"step": 4,
+				"unit": "px",
+				"label": "Padding top",
+				"default": 36
+			},
+			{
+				"type": "range",
+				"id": "padding_bottom",
+				"min": 0,
+				"max": 100,
+				"step": 4,
+				"unit": "px",
+				"label": "Padding bottom",
+				"default": 36
+			}
+		],
+		"blocks": [
+			{
+				"name": "Newsletter",
+				"type": "newsletter",
+				"settings": [
+					{
+						"type": "text",
+						"id": "heading",
+						"label": "Title",
+						"default": "Don't miss out on any Grüns updates"
+					},
+					{
+						"type": "text",
+						"id": "email_placeholder",
+						"label": "Email Placeholder Text",
+						"default": "Email Address",
+					},
+				]	
+			},
+			{
+				"name": "Learn",
+				"type": "Learn_links",
+				"settings": [
+					{
+						"type": "link_list",
+						"id": "learn_links_footer",
+						"label": "Learn Links",
+					}
+				]
+			},
+			{
+				"name": "Connect",
+				"type": "connect_links",
+				"settings": [
+					{
+						"type": "link_list",
+						"id": "connect_links_footer",
+						"label": "Connect Links",
+					}
+				]
+			},
+			{
+				"name": "Usnacks",
+				"type": "usnacks_links",
+				"settings": [
+					{
+						"type": "link_list",
+						"id": "usnacks_links_footer",
+						"label": "Usnacks Links",
+					}
+				]
+			},
+			{
+				"name":"Social Links",
+				"type": "social_links",
+				"settings": [
+					{
+						"type": "header",
+						"content": "Logo Picker",
+					},
+					{
+						"type": "image_picker",
+						"id": "logo_image_picker",
+						"label": "Logo Image Picker"
+					},
+					{
+						"type": "header",
+						"content": "Social Links",
+					},
+					{
+						"type": "text",
+						"id": "instagram_link",
+						"label": "Instagram Link",
+						"default": "https://www.instagram.com/grunsdaily",
+					},
+					{
+						"type": "text",
+						"id": "tiktok_link",
+						"label": "Tiktok Link",
+						"default": "https:/tiktok.com/@grunsdaily",
+					},
+					{
+						"type": "text",
+						"id": "youtube_link",
+						"label": "Youtube Link",
+						"default": "https://www.youtube.com/@grunsdaily",
+					},
+					{
+						"type": "text",
+						"id": "facebook_link",
+						"label": "Facebook Link",
+						"default": "https://www.facebook.com/grunsdaily",
+					}
+				]
+			},
+			{
+				"name": "Copyright",
+				"type": "copyright",
+				"settings": [
+					{
+						"type": "text",
+						"id": "left_text",
+						"label": "Left Statement Text",
+						"default": "*These statements have not been evaluated by the Food and Drug Administration. Sources for information on this site include the CDC and studies performed by Harris Interactive. This product is not intended to diagnose, treat, cure or prevent any disease.",
+					},
+					{
+						"type": "text",
+						"id": "right_text",
+						"label": "Right Statement Text",
+						"default": "**Offer assumes customer has received and uses promotional SMS discount reserved for new customers only.",
+					},
+				]
+			}
+		],
+		"presets": [
+			{
+				"name": "Default",
+				"settings": {
+					"footer_bg": "scheme-2",
+				},
+				"blocks": [
+					{
+						"type": "newsletter"
+					},
+					{
+						"type": "Learn_links"
+					},
+					{
+						"type": "connect_links"
+					},
+					{
+						"type": "usnacks_links"
+					},
+					{
+						"type": "social_links"
+					},
+					{
+						"type": "copyright"
+					}
+				]
+			}
+		]
+	}
+{% endschema %}

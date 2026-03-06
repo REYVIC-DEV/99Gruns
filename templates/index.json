@@ -1,0 +1,641 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "home_hero_banner_KUBCbL": {
+      "type": "home-hero-banner",
+      "blocks": {
+        "star_reviews_NMX7mf": {
+          "type": "star_reviews",
+          "settings": {
+            "star_rating": 5,
+            "star_color": "#007e40",
+            "review_text_mobile": "<p><strong>4.8</strong>stars |<strong>75K+</strong>reviews |<strong>1M+</strong>members</p>",
+            "review_text_desktop": "<p><strong>4.8</strong>stars from<strong>75,000</strong>reviews |<strong>1,000,000+</strong>members</p>",
+            "review_font_color": "#000000",
+            "strong_font_color": "#007e40"
+          }
+        }
+      },
+      "block_order": [
+        "star_reviews_NMX7mf"
+      ],
+      "name": "Home Hero Banner",
+      "settings": {
+        "hero-image": "shopify://shop_images/hero.png",
+        "sale-badge": "shopify://shop_images/new_years_60.png",
+        "title_row_1": "Nutrition for real life,",
+        "title_row_2": "Not just resolutions",
+        "description_mobile": "Comprehensive nutrition with 60+ ingredients to help you feel your best. Delicious, convenient, and easy to stick to.",
+        "description_desktop": "Comprehensive nutrition with 60+ ingredients to help you feel your best. Delicious, convenient, and easy to stick to (unlike the rest of your resolutions).",
+        "highlight_color_1": "#000000",
+        "highlight_color_2": "#007e40",
+        "button_text": "Save 60% + Free Shipping",
+        "refund_policy_link": ""
+      }
+    },
+    "quote_slider_YR9EL8": {
+      "type": "quote-slider",
+      "blocks": {
+        "slide_eBRADP": {
+          "type": "slide",
+          "settings": {
+            "quote": "In eight years of testing powders, pills, and potions, there's only one that I liked enough to then spend my own money on: Grüns superfood gummies.",
+            "logo": "shopify://shop_images/logo-bonappetit.png"
+          }
+        },
+        "slide_fYrVQH": {
+          "type": "slide",
+          "settings": {
+            "quote": "If you know you’re not getting all of the vitamins and nutrients you need from your diet, adding Grüns in is a no-brainer.",
+            "logo": "shopify://shop_images/logo-glamour.png"
+          }
+        },
+        "slide_iC7FCX": {
+          "type": "slide",
+          "settings": {
+            "quote": "I’ll be honest that I was a little skeptical about the taste, but it surprised me in the best way.",
+            "logo": "shopify://shop_images/logo-womenshealth.png"
+          }
+        },
+        "slide_mDUkeT": {
+          "type": "slide",
+          "settings": {
+            "quote": "A multivitamin that doesn’t taste bad? Count us in.",
+            "logo": "shopify://shop_images/logo-theskimm.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_eBRADP",
+        "slide_fYrVQH",
+        "slide_iC7FCX",
+        "slide_mDUkeT"
+      ],
+      "name": "Quote Slider",
+      "settings": {
+        "arrow_color": "#000000",
+        "arrow_size": 24
+      }
+    },
+    "home_services_i9B66G": {
+      "type": "home-services",
+      "blocks": {
+        "service_container_rzmNXi": {
+          "type": "service-container",
+          "name": "Service Container Top",
+          "settings": {
+            "image_1": "shopify://shop_images/Icon-Gut.svg",
+            "title_1": "Gut Health",
+            "description_1": "Prebiotics feed good bacteria to boost nutrient absorption and digestion.",
+            "image_2": "shopify://shop_images/Icon-shield.svg",
+            "title_2": "Immunity",
+            "description_2": "Immune support and occasional stress support from Vitamin C, D, Zinc, antioxidants, and adaptogens."
+          }
+        },
+        "service_container_dMcYec": {
+          "type": "service-container",
+          "name": "Service Container Bottom",
+          "settings": {
+            "image_1": "shopify://shop_images/Icon-bicep.svg",
+            "title_1": "Energy & Body",
+            "description_1": "Support recovery, strength, weight management, and metabolism.",
+            "image_2": "shopify://shop_images/Icon-brain.svg",
+            "title_2": "Brain Health",
+            "description_2": "B-Vitamins, Vitamin C, and Vitamin D support brain health."
+          }
+        }
+      },
+      "block_order": [
+        "service_container_rzmNXi",
+        "service_container_dMcYec"
+      ],
+      "name": "Home Services",
+      "settings": {
+        "heading": "Transform Your Health",
+        "subheading": "Over 35,000 research publications support the ingredients in Grüns.",
+        "heading_color": "#007e40",
+        "image": "shopify://shop_images/BearWithStaticShadow.png",
+        "service_text_color": "#007e40"
+      }
+    },
+    "stats_mnNQJc": {
+      "type": "stats",
+      "blocks": {
+        "stat_horizontal_Q4MeTz": {
+          "type": "stat_horizontal",
+          "settings": {
+            "percent": "90%",
+            "description": "of U.S. adults don’t meet recommended daily nutrient intake—including vitamins and minerals found in Grüns.¹"
+          }
+        },
+        "stat_horizontal_6mxr8H": {
+          "type": "stat_horizontal",
+          "settings": {
+            "percent": "61%",
+            "description": "of Americans experience weekly digestive issues like bloating, abdominal pain, or irregularity.²"
+          }
+        },
+        "stat_vertical_X3tGLm": {
+          "type": "stat_vertical",
+          "settings": {
+            "percent": "95%",
+            "description": "of users take Grüns at least 4-6x per week with 80% taking Grüns daily.*"
+          }
+        },
+        "stat_vertical_DirRpc": {
+          "type": "stat_vertical",
+          "settings": {
+            "percent": "67%",
+            "description": "say their overall health and well-being have improved.*"
+          }
+        },
+        "stat_vertical_cGfDbX": {
+          "type": "stat_vertical",
+          "settings": {
+            "percent": "67%",
+            "description": "experienced better, more regular digestion.*"
+          }
+        },
+        "stat_vertical_d36m84": {
+          "type": "stat_vertical",
+          "settings": {
+            "percent": "52%",
+            "description": "feel more energized throughout the day.*"
+          }
+        }
+      },
+      "block_order": [
+        "stat_horizontal_Q4MeTz",
+        "stat_horizontal_6mxr8H",
+        "stat_vertical_X3tGLm",
+        "stat_vertical_DirRpc",
+        "stat_vertical_cGfDbX",
+        "stat_vertical_d36m84"
+      ],
+      "name": "Stats Section",
+      "settings": {
+        "banner_img": "shopify://shop_images/gummyinhand-img1.jpg",
+        "eurofins_img": "shopify://shop_images/euroquad_RGB_-transparent.png",
+        "first_box_color": "#007e40",
+        "second_box_color": "#007e40",
+        "first_heading": "Modern Living Leaves Our Bodies Deficient",
+        "first_subheading": "Grüns is the first smart gummy that fills the gaps.",
+        "second_heading": "Snackable, Packable, Tested",
+        "second_paragraph": "We know Grüns is delicious and convenient, but we wanted to understand what happens after the honeymoon. Here's what thousands of customers reported after 3 months of Grüns.",
+        "third_heading": "Quality You Can Trust",
+        "button_text": "Save 60% + Free Shipping"
+      }
+    },
+    "product_page_pBnpGc": {
+      "type": "product-page",
+      "blocks": {
+        "selling_plan_rBBHLQ": {
+          "type": "selling_plan",
+          "settings": {
+            "plan_name": "One Person",
+            "plan_description": "Perfect for individual use",
+            "gummies_per_month": 224
+          }
+        },
+        "selling_plan_A8ag7t": {
+          "type": "selling_plan",
+          "settings": {
+            "plan_name": "Two Person",
+            "plan_description": "Perfect for individual use",
+            "gummies_per_month": 448
+          }
+        },
+        "section_top_badge_cRYQDP": {
+          "type": "section_top_badge",
+          "settings": {
+            "badge_text": "3rd-Party Tested",
+            "badge_text_color": "#00582d"
+          }
+        },
+        "section_title_pw9zC9": {
+          "type": "section_title",
+          "settings": {
+            "section_title": "<h2><strong>Limited Time New Year's Offer! Save Up To 52% on First Order!</strong></h2>",
+            "title_color": "#00582d"
+          }
+        },
+        "section_description_qVRcHj": {
+          "type": "section_description",
+          "settings": {
+            "section_description": "<p>60+ whole-food nutrients in easy, great-tasting gummies backed by real results and a 30-day guarantee.</p>",
+            "description_color": "#000000"
+          }
+        },
+        "product_accordion_TwxHgA": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Why Grüns?",
+            "accordion_content": "<p>It's simple!</p><p><br/><strong>Comprehensive:</strong> Nutrition that works. Grüns replaces handfuls of health products at a fraction of the cost.<br/><br/><strong>Delicious:</strong> A habit that tastes so good, you'll actually want to keep it.<br/><br/><strong>Portable:</strong> Designed to fit whenever and wherever you want your nutrition. Just grab and go.<br/><br/><strong>No Mess, No Stress: </strong>No more gagging on pills, sloshing chalky powders, or cleaning messy counters.</p>"
+          }
+        },
+        "product_accordion_nbYeM3": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Ingredients & Allergies",
+            "accordion_content": "<p><span style=\"text-decoration:underline\"><strong>Ingredients</strong></span><br/>Grüns contains over 20 vitamins & minerals including Vitamin A, Vitamin B6, Vitamin B12, Vitamin C, Vitamin D3, Vitamin E, Vitamin K2, Biotin, Folate, Niacin, Pantothenic Acid, Vitamin B2, Thiamine, Chromium, Copper, Iodine, Manganese, Molybdenum, Selenium, Zinc, and Iron.</p><p><br/>Grüns also contains dozens of organic and key nutrient ingredients such as whole food fruits, vegetables, super mushrooms, prebiotics, adaptogens, and antioxidants. This long list includes organic alfalfa, organic kale, organic parsley, organic spinach, organic broccoli, organic cabbage, organic spirulina, organic astragalus, organic wheatgrass, organic chlorella, organic oat grass, organic beet, organic barley grass powder (gluten free), organic lemon, organic apple, organic blueberry, organic raspberry, organic strawberry, organic tomato, acai, acerola, amla, cranberry, goji, jabuticaba, mangosteen, maqui, pomegranate, shiitake mushroom powder, and inulin.<br/><br/>Grüns are gluten-free, dairy-free, nut-free, vegan, non-GMO, and contain no synthetic sweeteners, no synthetic dyes.</p><p><br/>Lastly, Grüns has a pectin base which is a fruit fiber. No gelatin.<br/><br/><span style=\"text-decoration:underline\"><strong>Allergies</strong></span><br/>Grüns is plant-based and vegan. These gummies are free from gluten, dairy, and nuts. No synthetic sweeteners, no synthetic dyes.</p>"
+          }
+        },
+        "product_accordion_Hf3JAH": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Low Sugar vs. Sugar-Free",
+            "accordion_content": ""
+          }
+        },
+        "product_accordion_EN4wnF": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Science & Certifications",
+            "accordion_content": "<p><span style=\"text-decoration:underline\"><strong>Clinically Tested</strong></span><br/>We put Grüns to the test in 2025 through a gold standard clinical study: randomized, double blind, and placebo controlled. Here were the results—your body absorbs the nutrients. Participants showed meaningful increases in key nutrients, measured in the blood. It’s validation that gummies aren’t just convenient. They’re effective.</p><p><br/></p><p><span style=\"text-decoration:underline\"><strong>Third Party Testing</strong></span></p><p>Every lot of our products undergo rigorous testing to ensure quality and purity across label claims, heavy metals, and microbial contaminants. In addition, we regularly conduct testing with Eurofins Scientific, a global leader in laboratory testing, to validate that our gummies meet label claims across 21 vitamins and minerals and surpass quality and safety standards across 99 pesticides, heavy metals, and microbial contaminants.</p><p><br/><span style=\"text-decoration:underline\"><strong>Certifications</strong></span><br/>Manufactured in NSF, GMP, and FDA registered facilities in the U.S. & Canada, and thoroughly tested for heavy metals and contaminants.</p>"
+          }
+        },
+        "product_accordion_GNcTB3": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Directions",
+            "accordion_content": "<p>Each large pouch of Grüns contains 28 individual packs. Grab a single pack daily and enjoy the small handful of green gummy bears inside for comprehensive nutrition.<br/><br/></p>"
+          }
+        },
+        "product_accordion_PyAfCj": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Benefits",
+            "accordion_content": "<p>Grüns supports digestion, immune health, energy metabolism, and normal cognitive function — plus nutrients that help maintain healthy hair, skin, and nails — all in one convenient and delicious daily pack of gummies. Our hope is this tasty daily habit can replace a big shelf in your medicine cabinet.<br/><br/></p>"
+          }
+        },
+        "star_reviews_qK7eHf": {
+          "type": "star_reviews",
+          "settings": {
+            "star_rating": 5,
+            "star_color": "#007e40",
+            "review_text_mobile": "<p>Based on 1000+ reviews</p>",
+            "review_text_desktop": "<p>Based on 1000+ reviews</p>",
+            "review_font_color": "#000000",
+            "strong_font_color": "#007e40"
+          }
+        },
+        "taste_like_3agHD6": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🥦",
+            "title": "Whole Veggies"
+          }
+        },
+        "taste_like_7TiJJB": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🍇",
+            "title": "Whole Fruits"
+          }
+        },
+        "taste_like_PaMgP6": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "💊",
+            "title": "Vitamins and Minerals"
+          }
+        },
+        "taste_like_JmxVt6": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🧠",
+            "title": "Adaptogens"
+          }
+        },
+        "taste_like_EN7EPB": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🌿",
+            "title": "Herbs"
+          }
+        },
+        "taste_like_K8xQge": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🛡️",
+            "title": "Antioxidants"
+          }
+        },
+        "taste_like_m9WWzp": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🦠",
+            "title": "Prebiotics"
+          }
+        },
+        "taste_like_GtFJeU": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🍄",
+            "title": "Super Mushrooms"
+          }
+        }
+      },
+      "block_order": [
+        "selling_plan_rBBHLQ",
+        "selling_plan_A8ag7t",
+        "section_top_badge_cRYQDP",
+        "section_title_pw9zC9",
+        "section_description_qVRcHj",
+        "product_accordion_TwxHgA",
+        "product_accordion_nbYeM3",
+        "product_accordion_Hf3JAH",
+        "product_accordion_EN4wnF",
+        "product_accordion_GNcTB3",
+        "product_accordion_PyAfCj",
+        "star_reviews_qK7eHf",
+        "taste_like_3agHD6",
+        "taste_like_7TiJJB",
+        "taste_like_PaMgP6",
+        "taste_like_JmxVt6",
+        "taste_like_EN7EPB",
+        "taste_like_K8xQge",
+        "taste_like_m9WWzp",
+        "taste_like_GtFJeU"
+      ],
+      "name": "Product Page",
+      "settings": {
+        "selected-product": "adult-gruns-gummy-bear",
+        "sale_percentage_badge_bg_color": "#007e40",
+        "kids": false,
+        "diet_picker_main_bg": "#e3f2e8",
+        "diet_picker_active_bg": "#007e40",
+        "diet_picker_text_color": "#000000",
+        "start_now_button_bg_color": "#007e40",
+        "start_now_button_hover_bg_color": "#00582d",
+        "start_now_button_text_color": "#ffffff",
+        "discount_text": "<p><span style=\"text-decoration:underline\"><strong>New Year's Discount Auto-Applied ✅</strong></span></p>",
+        "discount_text_bg_color": "#ffe89f",
+        "discount_text_color": "#000000",
+        "show_discount_text": true,
+        "accordion-label": "<p>HSA/FSA Eligible with Truemed. <span style=\"text-decoration:underline\"><strong>Learn More</strong></span>.</p>",
+        "accordion-color": "#002613",
+        "taste-like-emoji-1": "🍃",
+        "taste-like-title-1": "Fresh & Light",
+        "taste-like-emoji-2": "🍓",
+        "taste-like-title-2": "Strawberry",
+        "taste-like-emoji-3": "🥬",
+        "taste-like-title-3": "Sweet Greens"
+      }
+    },
+    "video_text_testimonials_zTmCWU": {
+      "type": "video-text-testimonials",
+      "blocks": {
+        "video_slider_dED7MV": {
+          "type": "video_slider",
+          "settings": {
+            "video_1_url": "https://player.vimeo.com/video/1026964420",
+            "video_2_url": "https://player.vimeo.com/video/1026964348",
+            "video_3_url": "https://player.vimeo.com/video/1026964397",
+            "video_4_url": "https://player.vimeo.com/video/1026964436",
+            "video_5_url": "https://player.vimeo.com/video/1026964479"
+          }
+        },
+        "star_reviews_8HjG7q": {
+          "type": "star_reviews",
+          "settings": {
+            "star_rating": 5,
+            "star_color": "#007e40",
+            "review_text_mobile": "<p>4.8 stars</p>",
+            "review_text_desktop": "<p>4.8 stars</p>",
+            "review_font_color": "#000000",
+            "strong_font_color": "#007e40"
+          }
+        },
+        "testimonial_tab_gAnUnr": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Taste",
+            "review_1_title": "10/10 would recommend. The convenience and taste are huge! Like mixed berries!",
+            "review_1_text": "Plus not having to clean a shaker bottle or extra dishes for greens stuff in powder form, is absolutely excellent!",
+            "author_name_1": "Dustin O.",
+            "review_2_title": "These gummies are shockingly delicious, like strawberries!",
+            "review_2_text": "I hate subscriptions because I feel like they are a trap so I canceled it before the gummies even arrived. We quickly decided to resubscribe because we love Grüns so much! A bonus is my kids love them too!",
+            "author_name_2": "Kate S.",
+            "review_3_title": "A delicious adventure for your taste buds.",
+            "review_3_text": "These gummy bears are more than just a treat; they’re a flavorful escape. With a burst of mouthwatering flavors, every bite is an invitation to a tasteful journey. Grüns makes healthy eating an indulgent experience.",
+            "author_name_3": "Kevin M."
+          }
+        },
+        "testimonial_tab_YckdWe": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Value",
+            "review_1_title": "These gummies are amazing!",
+            "review_1_text": "Grüns has replaced multiple vitamins and supplements as they are all included in just one yummy little Grüns pack! (For WAY less than I was paying before). Best decision I ever made switching!! If you’re on the fence, JUMP! You will not regret your decision!",
+            "author_name_1": "Rebecca D.",
+            "review_2_title": "The benefits of eating these gummies daily is stacked.",
+            "review_2_text": "I used to pay so much for multiple supplements to get all of the same benefits that Grüns gives me in a simple snack pack.",
+            "author_name_2": "Jeremy H.",
+            "review_3_title": "I was super skeptical. These gummies actually do taste really yummy",
+            "review_3_text": "and they’re easy to throw in a packet and take with me so I can enjoy them anytime. I also stopped buying separate probiotic gummies, b12 gummies, and multivitamin gummies. I just take these now and it’s easier for me to manage.",
+            "author_name_3": "Jamie W."
+          }
+        },
+        "testimonial_tab_g9Aq49": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "vs. Powders",
+            "review_1_title": "Grüns has been the one thing I’ve been able to stick to",
+            "review_1_text": "I’ve tried a few green powders over the years. The issue has never been nutritive content. It’s always been an issue of consistency like many things. Grüns has been the one thing I’ve been able to stick to because they are so easy to consume and taste wonderful (just like gummy bears).",
+            "author_name_1": "Samuel L.",
+            "review_2_title": "WOW! I’ve tried a ton of green “things” over the years and I have to say, Grüns FOR THE WIN!",
+            "review_2_text": "I was taking AG1 but even with their monthly subscription discount it was still $94 a month and the drink was definitely gritty/chalky. Grüns literally tastes like fruit snacks I ate as a kid. And there isn’t a bad aftertaste either! On top of that, they are super convenient, half the price of what I was paying with AG1, and offer the same benefits and then some! P.S. I never do reviews, but these are amazing!",
+            "author_name_2": "Bradley O.",
+            "review_3_title": "Grüns is exactly what I needed.",
+            "review_3_text": "I’ve been choking on Athletic Greens for the last few years and am glad those days are over. I look forward to taking Grüns every day not only because they taste great but also because I know they’re good for me.",
+            "author_name_3": "Jaxon S."
+          }
+        },
+        "testimonial_tab_cmPAnj": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Benefits",
+            "review_1_title": "Grüns really does taste great! More importantly, I feel great.",
+            "review_1_text": "The prebiotics do their job, but not aggressively, and I feel like my overall digestion has improved. This is huge for someone who suffers from chronic IBS! I feel like I’m already seeing improvements in my skin too. They are definitely part of my daily routine.",
+            "author_name_1": "Susan U.",
+            "review_2_title": "If you are serious about changing your life, start here. The product is AMAZING!",
+            "review_2_text": "It provides clean feeling energy and mental focus in a good tasting gummy bear that satisfies a sweet tooth craving without the sugar crash.",
+            "author_name_2": "Jeremy C.",
+            "review_3_title": "My bowel movements are normal for the 1st time in 15 years!",
+            "review_3_text": "",
+            "author_name_3": "Wendy B."
+          }
+        },
+        "testimonial_tab_dwcCqD": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Ingredients",
+            "review_1_title": "\"I can’t stop raving about Grüns to my friends. Definitely give them a try!\"",
+            "review_1_text": "Pharmacist approved! Most other gummies on the market have only a few vitamins, but there are no other products like this with full spectrum vitamins in gummy form! I can’t stop raving about Grüns to my friends. Definitely give them a try!",
+            "author_name_1": "Mercedes F.",
+            "review_2_title": "1000/10. Truly exceeded my expectations!",
+            "review_2_text": "Love the taste, love how they make me feel, and so impressed by the ingredients list! Definitely will be taking these on vacation with me (bye bye green powder)!",
+            "author_name_2": "Gizelle C.",
+            "review_3_title": "Grüns are the tastiest nutritional gummies I’ve ever had.",
+            "review_3_text": "They’re more convenient, less messy, and more flavorful than green powders. They are easy to have on the go, so it’s easy to build the daily habit of taking them. I’ve felt great since I started taking Grüns! So much nutrition packed into an easy habit. Do yourself a favor and get a subscription. You won’t regret it!",
+            "author_name_3": "Matthew G."
+          }
+        },
+        "testimonial_tab_q9jrNr": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Convenience",
+            "review_1_title": "\"so easy to grab and eat on my way to the billion things I have to do as a mom\"",
+            "review_1_text": "Portable! Love the flavor and it’s so easy to grab and eat on my way to the billion things I have to do as a mom. Easy way to get my nutrients in!",
+            "author_name_1": "Kelli L.",
+            "review_2_title": "\"Gruns has genuinely made a comprehensive daily nutrition solution enjoyable and accessible.\"",
+            "review_2_text": "I've been using Gruns Daily Gummies for a few weeks, and I'm hooked! The convenience of getting 60 nutrient-dense ingredients in a tasty gummy is unbeatable. They make meeting my daily nutrient needs a breeze, and the blend also supports gut health. I've noticed increased energy levels and an overall sense of vitality. It's perfect for on-the-go nutrition. Gruns has genuinely made a comprehensive daily nutrition solution enjoyable and accessible. Highly recommend!",
+            "author_name_2": "Crystal H.",
+            "review_3_title": "It’s wild I WANT to take Grüns and don’t forget.",
+            "review_3_text": "I love that it's a little pack of gummies because taking just 2 gummies before Grüns was never satisfying. And that’s before you get to all the health benefits.",
+            "author_name_3": "Brittany A."
+          }
+        }
+      },
+      "block_order": [
+        "video_slider_dED7MV",
+        "star_reviews_8HjG7q",
+        "testimonial_tab_gAnUnr",
+        "testimonial_tab_YckdWe",
+        "testimonial_tab_g9Aq49",
+        "testimonial_tab_cmPAnj",
+        "testimonial_tab_dwcCqD",
+        "testimonial_tab_q9jrNr"
+      ],
+      "name": "Video Text Testimonials",
+      "settings": {
+        "h3_color": "#007e40",
+        "bg_color": "#dfefe7"
+      }
+    },
+    "section7_AWebPf": {
+      "type": "section7",
+      "name": "Horizontal Text with Customizable Image",
+      "settings": {
+        "heading": "Us vs. Them",
+        "heading_color": "#007e40",
+        "heading_font_size": 44,
+        "heading_font_size_mobile": 32,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "text": "Not overhyped or overpriced. Just comprehensive nutrition made enjoyable and for everyone.",
+        "text_color": "#001f10",
+        "text_font_size": 20,
+        "text_font_size_mobile": 18,
+        "image": "shopify://shop_images/UsVsThem_Adults.webp",
+        "image_mobile": "shopify://shop_images/OGAdults-ComparisonTable-Mobile.webp",
+        "image_alt": "Image description",
+        "bg_color": "#ffffff"
+      }
+    },
+    "section8_fzeCUb": {
+      "type": "section8",
+      "name": "Two Headlines with Button",
+      "settings": {
+        "heading_line1": "Want To Join The 10% of People",
+        "heading_line2_before": "Who Are",
+        "heading_line2_em": "Nutrient Sufficient?",
+        "heading_color": "#ffffff",
+        "heading_em_color": "#ffffff",
+        "heading_font_size": 36,
+        "heading_font_size_mobile": 24,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "button_label": "Get Your Grüns",
+        "button_link": "",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffcc2e",
+        "button_gap": 8,
+        "bg_color": "#0a1912"
+      }
+    },
+    "featured_person_pW8DCi": {
+      "type": "featured-person",
+      "name": "Featured Person",
+      "settings": {
+        "quote": "“I love that it makes better health accessible to everyone”",
+        "qoute_body": "“As a former pro athlete, I've always looked for ways to stay sharp, feel my best, and fuel my body without overcomplicating it. Grüns uses clean ingredients that actually deliver, and I love that it makes better health accessible to everyone, whether you're training at the highest level or just trying to make good choices every day.”",
+        "author_name": "Shaun White",
+        "achievements": "3x Olympic Gold Medalist, Snowboarding Icon",
+        "button_text": "Shop Grüns",
+        "info": "<em>Shaun White is a paid spokesperson and investor in Grüns. He also still rips and loves taking Grüns to the slopes with him.</em>"
+      }
+    },
+    "faq_rt7pnd": {
+      "type": "faq",
+      "blocks": {
+        "collapsible_row_LLUkPm": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When will my gummies arrive?",
+            "row_content": "<p>We're fast! Orders typically ship within 24 hours and on average arrive 2 days later. You could be snacking on these delicious gummies and enjoying improved health just 3 days from now.</p>"
+          }
+        },
+        "collapsible_row_pHzypi": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What's inside each order? What am I getting?",
+            "row_content": "<p>All of our gummies ship in a larger 8.5\" x 10\" pouch that contains 28 daily sachets. Sachet is a fancy word for our snack pack. Our snack packs each contain a small handful of gummies for you to enjoy daily. So if you're ordering for yourself, you'll get 28 daily snack packs inside a larger pouch. We recommend ordering on subscription. You get better pricing, and we'll make sure you're always stocked up on your healthiest habit.</p>"
+          }
+        },
+        "collapsible_row_HQwVeA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When will I feel something?",
+            "row_content": "<p>The timeline for experiencing the benefits of Grüns can vary from person to person. Some individuals may notice improvements within days or weeks, while for others, it may be more gradual. Consistent daily use is essential for the best results.</p>"
+          }
+        },
+        "collapsible_row_48UjaP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do you handle returns or exchanges?",
+            "row_content": "<p>We want you to have the best experience with Grüns. We offer a simple 30-day guarantee on your first order. Refunds include the full value of your order (less a $5 handling fee and original shipping costs), and exchanges are free. We accept all refund requests within our policy with no hassle. If you have any questions about our guarantee, our Grüns Care Bears are always happy to help at <a href=\"mailto:care@gruns.co\"><span style=\"text-decoration:underline\">care@gruns.co</span></a>. This policy applies only to your initial purchase.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_LLUkPm",
+        "collapsible_row_pHzypi",
+        "collapsible_row_HQwVeA",
+        "collapsible_row_48UjaP"
+      ],
+      "name": "Product FAQ",
+      "settings": {
+        "bg_color": "",
+        "heading": "Any last questions?",
+        "button_text": "No? Try Grüns now➝",
+        "heading_size": "h1",
+        "open_first_collapsible_row": false,
+        "show_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "home_hero_banner_KUBCbL",
+    "quote_slider_YR9EL8",
+    "home_services_i9B66G",
+    "stats_mnNQJc",
+    "product_page_pBnpGc",
+    "video_text_testimonials_zTmCWU",
+    "section7_AWebPf",
+    "section8_fzeCUb",
+    "featured_person_pW8DCi",
+    "faq_rt7pnd"
+  ]
+}

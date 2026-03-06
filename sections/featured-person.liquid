@@ -1,0 +1,137 @@
+<style>
+	.border-image{
+		border: 2px solid #000000
+	}
+</style>
+
+<section>
+	<div class="page-width tw-flex tw-flex-col lg:tw-flex-row md:tw-justify-between tw-gap-6 md:tw-gap-8 lg:tw-gap-[80px] tw-py-[70px]">
+		<div class="tw-max-w-[367px] md:tw-max-w-[700px]">
+			{% if section.settings.image_selector != blank %}
+				<img
+					src="{{ section.settings.image_selector | image_url }}"
+					alt="Phone"
+					width="full"
+					height="600"
+					class="tw-w-[375px] tw-h-[365px] md:tw-w-[650px] lg:tw-w-[600px] md:tw-h-[600px] tw-shadow-[inset_0_0_0_0.5px_#000,5px_5px_0_#000] tw-rounded-[20px] border-image"
+				>
+			{% else %}
+				<img
+					src="{{ 'Lifestyle-ShaunWhite.webp' | asset_url }}"
+					alt="Featured Picture"
+					width="full"
+					height="600"
+					class="tw-w-[375px] tw-h-[365px] md:tw-w-[650px] lg:tw-w-[600px] md:tw-h-[600px] tw-shadow-[inset_0_0_0_0.5px_#000,5px_5px_0_#000] tw-rounded-[20px] border-image"
+				>
+			{% endif %}
+		</div>
+
+		<div class="tw-flex tw-flex-col tw-w-full tw-items-start tw-justify-between tw-gap-8 lg:tw-py-[25px]">
+			<h2 class="tw-text-[32px] md:tw-text-[44px] tw-font-dm-sans tw-font-bold tw-my-0">{{ section.settings.quote }}</h2>
+			<p class="tw-text-[18px] tw-font-dm-sans tw-my-0">{{ section.settings.qoute_body }}</p>
+
+			<div class="tw-leading-none">
+				<h4 class="tw-text-[24px] tw-font-dm-sans tw-font-bold tw-my-0">{{ section.settings.author_name }}</h4>
+				<p class="tw-text-[14px] md:tw-text-[16px] tw-font-dm-sans tw-my-0">{{ section.settings.achievements }}</p>
+			</div>
+
+			<div class="tw-flex tw-flex-col tw-justify-start !tw-items-start tw-gap-4">
+				<a
+					class="
+						tw-hidden
+						md:tw-inline-flex
+						tw-items-center
+						tw-justify-center
+						tw-font-semibold
+						tw-px-12
+						tw-py-3
+						tw-rounded-full
+						tw-no-underline
+
+						tw-bg-[#007e40]
+						hover:tw-bg-[#00582d]
+						tw-text-[20px]
+						tw-text-white
+						tw-font-dm-sans
+						tw-tracking-tight
+
+						hover:tw-shadow-[0_0_0_0.5px_#000,2px_2px_0_#000]
+						hover:tw-translate-x-1
+						hover:tw-translate-y-1
+						tw-shadow-[inset_0_0_0_0.5px_#000,4px_4px_0_#000]
+
+
+						tw-transition-all
+						tw-duration-300
+						tw-ease-out
+
+						tw-w-full
+						md:tw-w-[248px]
+						lg:tw-mx-0
+						md:tw-flex-nowrap
+						md:tw-text-nowrap
+					"
+				>
+					{{ section.settings.button_text }}
+				</a>
+
+				<em class="tw-text-[14px] tw-font-dm-sans tw-my-0 tw-text-black">{{ section.settings.info }}</em>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% schema %}
+	{
+		"name": "Featured Person",
+		"settings": [
+			{
+				"type": "image_picker",
+				"id": "image_selector",
+				"label": "Image Picker"
+			},
+			{
+				"type": "inline_richtext",
+				"id": "quote",
+				"label": "Quote Title",
+				"default": "“I love that it makes better health accessible to everyone”",
+			},
+			{
+				"type": "text",
+				"id": "qoute_body",
+				"label": "Qoute Body",
+				"default": "“As a former pro athlete, I've always looked for ways to stay sharp, feel my best, and fuel my body without overcomplicating it. Grüns uses clean ingredients that actually deliver, and I love that it makes better health accessible to everyone, whether you're training at the highest level or just trying to make good choices every day.”"
+			},
+			{
+				"type": "text",
+				"id": "author_name",
+				"label": "Author Name",
+				"default": "Shaun White"
+			},
+			{
+				"type": "text",
+				"id": "achievements",
+				"label": "Achievements",
+				"default": "3x Olympic Gold Medalist, Snowboarding Icon",
+			},
+			{
+				"type": "text",
+				"id": "button_text",
+				"label": "Button Text",
+				"default": "Shop Grüns",
+			},
+			{
+				"type": "inline_richtext",
+				"id": "info",
+				"label": "Info",
+				"default": "<em>Shaun White is a paid spokesperson and investor in Grüns. He also still rips and loves taking Grüns to the slopes with him.</em>",
+			},
+		],
+		"presets": [
+			{
+				"name": "Featured Person"
+			}
+		]
+	}
+{% endschema %}

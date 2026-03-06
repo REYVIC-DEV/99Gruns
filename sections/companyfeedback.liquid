@@ -1,0 +1,110 @@
+{% schema %}
+{
+  "name": "Companyfeedback",
+  "settings": [
+    {
+      "type": "text",
+      "id": "left_text",
+      "label": "Left Container Text",
+      "default": "Left container heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Container Image"
+    },
+    {
+      "type": "text",
+      "id": "right_text",
+      "label": "Right Container Text",
+      "default": "Right container heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Container Image"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size (px)",
+      "min": 12,
+      "max": 48,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "mobile_img_height",
+      "label": "Mobile Image Height (px)",
+      "min": 40,
+      "max": 120,
+      "step": 1,
+      "default": 53
+    },
+    {
+      "type": "range",
+      "id": "text_padding_x",
+      "label": "Text Horizontal Padding (px)",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Companyfeedback",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+
+
+<section class="tw-container tw-mx-auto tw-px-1 tw-py-10 md:tw-px-12 md:tw-py-20">
+  <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-8">
+    
+    <!-- Left Container -->
+    <div class="tw-flex tw-flex-col tw-items-center tw-text-center">
+      <p style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.font_size }}px; padding-left: {{ section.settings.text_padding_x }}px; padding-right: {{ section.settings.text_padding_x }}px;">
+        {{ section.settings.left_text }}
+      </p>
+      {% if section.settings.left_image != blank %}
+        <div 
+          style="height: {{ section.settings.mobile_img_height }}px;" 
+          class="tw-w-full tw-flex tw-items-center tw-justify-center tw-overflow-hidden"
+        >
+          <img src="{{ section.settings.left_image | image_url }}" alt="Left Image" class="tw-w-full tw-h-full tw-object-contain" />
+        </div>
+      {% else %}
+        <div><p>Image will be here</p></div>
+      {% endif %}
+    </div>
+
+    <!-- Right Container -->
+    <div class="tw-flex tw-flex-col tw-items-center tw-text-center">
+      <p style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.font_size }}px; padding-left: {{ section.settings.text_padding_x }}px; padding-right: {{ section.settings.text_padding_x }}px;">
+        {{ section.settings.right_text }}
+      </p>
+      {% if section.settings.right_image != blank %}
+        <div 
+          style="height: {{ section.settings.mobile_img_height }}px;" 
+          class="tw-w-full tw-flex tw-items-center tw-justify-center tw-overflow-hidden"
+        >
+          <img src="{{ section.settings.right_image | image_url }}" alt="Right Image" class="tw-w-full tw-h-full tw-object-contain" />
+        </div>
+      {% else %}
+        <div><p>Image will be here</p></div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>

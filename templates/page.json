@@ -1,0 +1,684 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "home_hero_banner_w9U7KG": {
+      "type": "home-hero-banner",
+      "blocks": {
+        "star_reviews_eccMKN": {
+          "type": "star_reviews",
+          "settings": {
+            "star_rating": 5,
+            "star_color": "#007e40",
+            "review_text_mobile": "<p>4.8 stars from | <strong>80,000</strong> reviews | <strong>1,000,000</strong> members</p>",
+            "review_text_desktop": "<p>4.8 stars from |<strong> 80K</strong> reviews | <strong>1M+ </strong>members</p>",
+            "review_font_color": "#000000",
+            "strong_font_color": "#007e40"
+          }
+        }
+      },
+      "block_order": [
+        "star_reviews_eccMKN"
+      ],
+      "name": "Home Hero Banner",
+      "settings": {
+        "hero-image": "shopify://shop_images/ab1bc42b-7fc9-4dbe-9337-089d8217948e.png",
+        "sale-badge": "shopify://shop_images/holiday_badge_60.webp",
+        "title_row_1": "Delicious Nutrition for Them.",
+        "title_row_2": "Stress-Free for You.",
+        "description_mobile": "Start the year strong with nutrition kids will actually take (and love). Created by parents, these yummy gummy bears fill their nutrient gaps and support developmental growth.",
+        "description_desktop": "Start the year strong with nutrition kids will actually take (and love). Created by parents, these yummy gummy bears fill their nutrient gaps and support developmental growth.",
+        "highlight_color_1": "#000000",
+        "highlight_color_2": "#007e40",
+        "button_text": "Save 60% + Free Shipping",
+        "refund_policy_link": ""
+      }
+    },
+    "companyfeedback_UWrTLD": {
+      "type": "companyfeedback",
+      "name": "Companyfeedback",
+      "settings": {
+        "left_text": "\"All of the good stuff your kids need. Easy to slip into a pocket or purse, and they actually taste good, too.\"",
+        "left_image": "shopify://shop_images/Travel_Leisure_Black_5f52e98f-ef17-44ca-bd6a-966a94a35b4e.svg",
+        "right_text": "“It’s a clever way to sneak in extra veggie goodness alongside essential nutrients, no negotiating over the dinner plate required.”",
+        "right_image": "shopify://shop_images/yahoo_life_logo.svg",
+        "text_color": "#000000",
+        "font_size": 15,
+        "mobile_img_height": 40,
+        "text_padding_x": 10
+      }
+    },
+    "support_section_jkcxBM": {
+      "type": "support-section",
+      "blocks": {
+        "service_container_9NcnNh": {
+          "type": "service_container",
+          "settings": {
+            "image_1": "shopify://shop_images/Icon-bicep_b58629aa-92f7-4134-86d3-c9dff4d174db.svg",
+            "title_1": "Growth & Development",
+            "description_1": "Over 21 essential vitamins and minerals for strong bones and mighty muscles.",
+            "image_2": "shopify://shop_images/Icon-brain_504eef03-c64f-46ea-bae4-14ace1b33b6e.svg",
+            "title_2": "Brain & Clarity Support",
+            "description_2": "Supports brain health with vitamins made for growing minds."
+          }
+        },
+        "service_container_KTLG8P": {
+          "type": "service_container",
+          "settings": {
+            "image_1": "shopify://shop_images/Icon-shield_a52eedf2-1aff-44d7-938c-d17b36250911.svg",
+            "title_1": "Super Shield",
+            "description_1": "Helps kids be their best, support occasional stress response, and feel good with Vitamin C, D, Zinc, and more.",
+            "image_2": "shopify://shop_images/Icon-Gut_5f254575-70fd-4a09-87bc-d666b77f6bdf.svg",
+            "title_2": "Happy Tummies",
+            "description_2": "Helps good belly bugs grow stronger for better digestion. That’s more prebiotic power."
+          }
+        }
+      },
+      "block_order": [
+        "service_container_9NcnNh",
+        "service_container_KTLG8P"
+      ],
+      "name": "Support Section",
+      "settings": {
+        "main_title": "All The Support They Need",
+        "highlight_color": "#007e40",
+        "subheading": "60+ whole-food ingredients packed into a small pack of gummy bears.",
+        "service_text_color": "#007e40"
+      }
+    },
+    "stats_kids_6jFURA": {
+      "type": "stats-kids",
+      "blocks": {
+        "stat_horizontal_FdtYen": {
+          "type": "stat_horizontal",
+          "settings": {
+            "percent": "93%",
+            "description": "of U.S. children don’t eat enough vegetables each day — a key source of nutrients that support healthy growth and development.¹"
+          }
+        },
+        "stat_horizontal_8LzLqx": {
+          "type": "stat_horizontal",
+          "settings": {
+            "percent": "90%",
+            "description": "of US children do not meet recommended daily fiber intake.²"
+          }
+        }
+      },
+      "block_order": [
+        "stat_horizontal_FdtYen",
+        "stat_horizontal_8LzLqx"
+      ],
+      "name": "Stats Section Kids",
+      "settings": {
+        "banner_img": "shopify://shop_images/Kids_Need_Nutrition.webp",
+        "eurofins_img": "shopify://shop_images/euroquad_RGB_-transparent.png",
+        "section_bg_color": "#fff2cb",
+        "first_box_text_color": "#007e40",
+        "second_box_color": "#007e40",
+        "first_heading": "Kids Need NutritionMore Than Ever",
+        "first_subheading": "Grüns Kids gummies build strong bodies and bright minds.",
+        "third_heading": "Quality You Can Trust",
+        "button_text": "Save 60% + Free Shipping"
+      }
+    },
+    "product_page_W6MhBY": {
+      "type": "product-page",
+      "blocks": {
+        "selling_plan_dqjThD": {
+          "type": "selling_plan",
+          "settings": {
+            "plan_name": "1",
+            "plan_description": "Perfect for individual use",
+            "gummies_per_month": 168
+          }
+        },
+        "selling_plan_d63nzF": {
+          "type": "selling_plan",
+          "settings": {
+            "plan_name": "2",
+            "plan_description": "Perfect for individual use",
+            "gummies_per_month": 336
+          }
+        },
+        "selling_plan_WMAkhP": {
+          "type": "selling_plan",
+          "settings": {
+            "plan_name": "3",
+            "plan_description": "Perfect for individual use",
+            "gummies_per_month": 504
+          }
+        },
+        "selling_plan_MGzMCM": {
+          "type": "selling_plan",
+          "settings": {
+            "plan_name": "4",
+            "plan_description": "Perfect for individual use",
+            "gummies_per_month": 672
+          }
+        },
+        "selling_plan_cyeUH3": {
+          "type": "selling_plan",
+          "settings": {
+            "plan_name": "5",
+            "plan_description": "Perfect for individual use",
+            "gummies_per_month": 840
+          }
+        },
+        "section_top_badge_7hcacP": {
+          "type": "section_top_badge",
+          "settings": {
+            "badge_text": "3rd-Party Tested",
+            "badge_text_color": "#00582d"
+          }
+        },
+        "section_title_TQ9mjc": {
+          "type": "section_title",
+          "settings": {
+            "section_title": "<h2><strong>Limited Time New Year's Offer! Save Up To 52% on First Order!</strong></h2>",
+            "title_color": "#00582d"
+          }
+        },
+        "section_description_nYe8gM": {
+          "type": "section_description",
+          "settings": {
+            "section_description": "<p>60+ whole-food nutrients in easy, great-tasting gummies backed by real results and a 30-day guarantee.</p>",
+            "description_color": "#000000"
+          }
+        },
+        "product_accordion_88yJzz": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Why Grüns?",
+            "accordion_content": "<p>It's simple!</p><p><br/><strong>Comprehensive:</strong> Nutrition that works. Grüns replaces handfuls of health products at a fraction of the cost.<br/><br/><strong>Delicious:</strong> A habit that tastes so good, you'll actually want to keep it.<br/><br/><strong>Portable:</strong> Designed to fit whenever and wherever you want your nutrition. Just grab and go.<br/><br/><strong>No Mess, No Stress: </strong>No more gagging on pills, sloshing chalky powders, or cleaning messy counters.</p>"
+          }
+        },
+        "product_accordion_BMiHbH": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Ingredients & Allergies",
+            "accordion_content": "<p><span style=\"text-decoration:underline\"><strong>Ingredients</strong></span><br/>Grüns contains over 20 vitamins & minerals including Vitamin A, Vitamin B6, Vitamin B12, Vitamin C, Vitamin D3, Vitamin E, Vitamin K2, Biotin, Folate, Niacin, Pantothenic Acid, Vitamin B2, Thiamine, Chromium, Copper, Iodine, Manganese, Molybdenum, Selenium, Zinc, and Iron.</p><p><br/>Grüns also contains dozens of organic and key nutrient ingredients such as whole food fruits, vegetables, super mushrooms, prebiotics, adaptogens, and antioxidants. This long list includes organic alfalfa, organic kale, organic parsley, organic spinach, organic broccoli, organic cabbage, organic spirulina, organic astragalus, organic wheatgrass, organic chlorella, organic oat grass, organic beet, organic barley grass powder (gluten free), organic lemon, organic apple, organic blueberry, organic raspberry, organic strawberry, organic tomato, acai, acerola, amla, cranberry, goji, jabuticaba, mangosteen, maqui, pomegranate, shiitake mushroom powder, and inulin.<br/><br/>Grüns are gluten-free, dairy-free, nut-free, vegan, non-GMO, and contain no synthetic sweeteners, no synthetic dyes.</p><p><br/>Lastly, Grüns has a pectin base which is a fruit fiber. No gelatin.<br/><br/><span style=\"text-decoration:underline\"><strong>Allergies</strong></span><br/>Grüns is plant-based and vegan. These gummies are free from gluten, dairy, and nuts. No synthetic sweeteners, no synthetic dyes.</p>"
+          }
+        },
+        "product_accordion_GtW6df": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Low Sugar vs. Sugar-Free",
+            "accordion_content": ""
+          }
+        },
+        "product_accordion_bWiiNG": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Science & Certifications",
+            "accordion_content": "<p><span style=\"text-decoration:underline\"><strong>Clinically Tested</strong></span><br/>We put Grüns to the test in 2025 through a gold standard clinical study: randomized, double blind, and placebo controlled. Here were the results—your body absorbs the nutrients. Participants showed meaningful increases in key nutrients, measured in the blood. It’s validation that gummies aren’t just convenient. They’re effective.</p><p><br/></p><p><span style=\"text-decoration:underline\"><strong>Third Party Testing</strong></span></p><p>Every lot of our products undergo rigorous testing to ensure quality and purity across label claims, heavy metals, and microbial contaminants. In addition, we regularly conduct testing with Eurofins Scientific, a global leader in laboratory testing, to validate that our gummies meet label claims across 21 vitamins and minerals and surpass quality and safety standards across 99 pesticides, heavy metals, and microbial contaminants.</p><p><br/><span style=\"text-decoration:underline\"><strong>Certifications</strong></span><br/>Manufactured in NSF, GMP, and FDA registered facilities in the U.S. & Canada, and thoroughly tested for heavy metals and contaminants.</p>"
+          }
+        },
+        "product_accordion_nNenQ7": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Directions",
+            "accordion_content": "<p>Each large pouch of Grüns contains 28 individual packs. Grab a single pack daily and enjoy the small handful of green gummy bears inside for comprehensive nutrition.<br/><br/></p>"
+          }
+        },
+        "product_accordion_BG86hV": {
+          "type": "product-accordion",
+          "settings": {
+            "accordion_title": "Benefits",
+            "accordion_content": "<p>Grüns supports digestion, immune health, energy metabolism, and normal cognitive function — plus nutrients that help maintain healthy hair, skin, and nails — all in one convenient and delicious daily pack of gummies. Our hope is this tasty daily habit can replace a big shelf in your medicine cabinet.<br/><br/></p>"
+          }
+        },
+        "star_reviews_hfzBW7": {
+          "type": "star_reviews",
+          "settings": {
+            "star_rating": 5,
+            "star_color": "#007e40",
+            "review_text_mobile": "<p>Based on 1000+ reviews</p>",
+            "review_text_desktop": "<p>Based on 1000+ reviews</p>",
+            "review_font_color": "#000000",
+            "strong_font_color": "#007e40"
+          }
+        },
+        "taste_like_aK6Cfx": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🥦",
+            "title": "Whole Veggies"
+          }
+        },
+        "taste_like_VbbDiV": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🍇",
+            "title": "Whole Fruits"
+          }
+        },
+        "taste_like_F7fKVd": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "💊",
+            "title": "Vitamins and Minerals"
+          }
+        },
+        "taste_like_Xk7fJc": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🧠",
+            "title": "Adaptogens"
+          }
+        },
+        "taste_like_a8Jgzk": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🌿",
+            "title": "Herbs"
+          }
+        },
+        "taste_like_Bh9tEf": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🛡️",
+            "title": "Antioxidants"
+          }
+        },
+        "taste_like_QRMV84": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🦠",
+            "title": "Prebiotics"
+          }
+        },
+        "taste_like_WyQirq": {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🍄",
+            "title": "Super Mushrooms"
+          }
+        }
+      },
+      "block_order": [
+        "selling_plan_dqjThD",
+        "selling_plan_d63nzF",
+        "selling_plan_WMAkhP",
+        "selling_plan_MGzMCM",
+        "selling_plan_cyeUH3",
+        "section_top_badge_7hcacP",
+        "section_title_TQ9mjc",
+        "section_description_nYe8gM",
+        "product_accordion_88yJzz",
+        "product_accordion_BMiHbH",
+        "product_accordion_GtW6df",
+        "product_accordion_bWiiNG",
+        "product_accordion_nNenQ7",
+        "product_accordion_BG86hV",
+        "star_reviews_hfzBW7",
+        "taste_like_aK6Cfx",
+        "taste_like_VbbDiV",
+        "taste_like_F7fKVd",
+        "taste_like_Xk7fJc",
+        "taste_like_a8Jgzk",
+        "taste_like_Bh9tEf",
+        "taste_like_QRMV84",
+        "taste_like_WyQirq"
+      ],
+      "name": "Product Page",
+      "settings": {
+        "selected-product": "gruns-copy",
+        "sale_percentage_badge_bg_color": "#ecaf0d",
+        "kids": true,
+        "diet_picker_main_bg": "#fff2cb",
+        "diet_picker_active_bg": "#ecaf0d",
+        "diet_picker_text_color": "#121212",
+        "start_now_button_bg_color": "#ffc62d",
+        "start_now_button_hover_bg_color": "#ecaf0d",
+        "start_now_button_text_color": "#121212",
+        "discount_text": "<p><span style=\"text-decoration:underline\"><strong>New Year's Discount Auto-Applied ✅</strong></span></p>",
+        "discount_text_bg_color": "#ffe89f",
+        "discount_text_color": "#000000",
+        "show_discount_text": true,
+        "accordion-label": "<p>HSA/FSA Eligible with Truemed. <span style=\"text-decoration:underline\"><strong>Learn More</strong></span>.</p>",
+        "accordion-color": "#002613",
+        "taste-like-emoji-1": "🍃",
+        "taste-like-title-1": "Fresh & Light",
+        "taste-like-emoji-2": "🍓",
+        "taste-like-title-2": "Strawberry",
+        "taste-like-emoji-3": "🥬",
+        "taste-like-title-3": "Sweet Greens"
+      }
+    },
+    "video_text_testimonials_Lm3aCh": {
+      "type": "video-text-testimonials",
+      "blocks": {
+        "video_slider_CLTJ7U": {
+          "type": "video_slider",
+          "settings": {
+            "video_1_url": "https://player.vimeo.com/video/1048765978",
+            "video_2_url": "https://player.vimeo.com/video/1048765967",
+            "video_3_url": "https://player.vimeo.com/video/1048765887",
+            "video_4_url": "https://player.vimeo.com/video/1048765925",
+            "video_5_url": "https://player.vimeo.com/video/1048765943"
+          }
+        },
+        "star_reviews_y3NWgD": {
+          "type": "star_reviews",
+          "settings": {
+            "star_rating": 5,
+            "star_color": "#007e40",
+            "review_text_mobile": "<p>4.8 stars</p>",
+            "review_text_desktop": "<p>4.8 stars</p>",
+            "review_font_color": "#000000",
+            "strong_font_color": "#007e40"
+          }
+        },
+        "testimonial_tab_8LdzKK": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Taste",
+            "review_1_title": "I have tried all of the ‘green’ options for the kids and this is the only one they love eating. They think it’s a treat.",
+            "review_1_text": "",
+            "author_name_1": "Dyan",
+            "review_2_title": "So glad my wife ordered Gruns for our whole family.",
+            "review_2_text": "Our son loves the taste and they pack more vitamins than his previous gummy.",
+            "author_name_2": "Robert",
+            "review_3_title": "These actually taste great which is surprising for the sugar-free option.",
+            "review_3_text": "My kids take them without complaining or fighting back.",
+            "author_name_3": "Alicia"
+          }
+        },
+        "testimonial_tab_JFiapd": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Nutrition Gaps",
+            "review_1_title": "My 3-year-old LOVES these!",
+            "review_1_text": "I can definitely tell a difference in his health, energy and it keeps him ‘regular’. I feel good knowing his Grüns are filling in the nutritional gaps of my picky eater.",
+            "author_name_1": "Lianna",
+            "review_2_title": "Kids enjoy them, I feel better about what they miss from day to day through meals.",
+            "review_2_text": "",
+            "author_name_2": "Ryan",
+            "review_3_title": "Getting my kids to eat their veggies is no small task, but Grüns makes it easy to fill in the nutrition gaps.",
+            "review_3_text": "I know they’re getting everything from Vitamin A to Zinc. The best part is that they love the taste and never fight me about taking them!",
+            "author_name_3": "Megan"
+          }
+        },
+        "testimonial_tab_w3tweh": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "vs. Veggies",
+            "review_1_title": "I am blessed that this product is created",
+            "review_1_text": "because it’s a rough time trying to get my kid to eat his greens daily so I can give him these and he loves them",
+            "author_name_1": "Chancise",
+            "review_2_title": "So glad we found these!! Everything I could want in a supplement and nothing I don’t want.",
+            "review_2_text": "My kids are picky eaters! I have a really hard time getting them to eat any greens. So glad we found these!! Everything I could want in a supplement and nothing I don’t want. Plus, they LOVE the taste!! Win-win!",
+            "author_name_2": "Tara",
+            "review_3_title": "My daughter who will barely touch a veggie ate all of these immediately. Game changer!",
+            "review_3_text": "",
+            "author_name_3": "Macall"
+          }
+        },
+        "testimonial_tab_je9Ud8": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Benefits",
+            "review_1_title": "My 5-year-old is obsessed with these gummies!",
+            "review_1_text": "Since starting Grüns, I’ve noticed he has fewer stomach issues. I feel great knowing it’s supporting his gut health and immunity while he enjoys the taste.",
+            "author_name_1": "Sarah",
+            "review_2_title": "My kids always ask for their gummies.",
+            "review_2_text": "The packets make it easy. Taste they love. We enjoy the expanded benefits",
+            "author_name_2": "Pretesh",
+            "review_3_title": "My daughter LOVES these!",
+            "review_3_text": "I can definitely tell a difference in her health, energy and it keeps her ‘regular’. I feel good knowing Grüns is filling the nutritional gaps of my picky eater.",
+            "author_name_3": "Lianna"
+          }
+        },
+        "testimonial_tab_rn6d3U": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Ingredients",
+            "review_1_title": "Its the first supplement I’ve found that has everything I’m looking for",
+            "review_1_text": "—Vitamin D3, Iron, Biotin, and more. It’s clean and high-quality, and I feel good about giving it to my kids every day. Total win.",
+            "author_name_1": "Jennifer",
+            "review_2_title": "I’m blown away by how much goodness is packed into Grüns Kids!",
+            "review_2_text": "It’s hard to find a product that has over 20 essential vitamins and minerals, including Vitamin D3 and Iron. As a parent, it’s comforting to know my kids are getting the nutrients they need without any junk or fillers. And they actually ask for them!\"",
+            "author_name_2": "Lisa P.",
+            "review_3_title": "My pediatrician explained how important it is for kids to have methylated vitamins so their bodies can actually absorb and use the nutrients.",
+            "review_3_text": "It’s rare to find a kids’ supplement that pays attention to details like this, and I’m so glad we found Grüns!",
+            "author_name_3": "Emily"
+          }
+        },
+        "testimonial_tab_6YxhkM": {
+          "type": "testimonial_tab",
+          "settings": {
+            "title": "Convenience",
+            "review_1_title": "The ease of use and being prepackaged makes it convenient to grab and carry so they can eat them whenever they want",
+            "review_1_text": "",
+            "author_name_1": "Walter",
+            "review_2_title": "The only form of greens that my kids stay consistent with!",
+            "review_2_text": "They are delicious and they love their gummies",
+            "author_name_2": "Chelsea",
+            "review_3_title": "LOVE the convenience of a small packet of gummies with everything my kids need - grab and go!",
+            "review_3_text": "",
+            "author_name_3": "Judy"
+          }
+        }
+      },
+      "block_order": [
+        "video_slider_CLTJ7U",
+        "star_reviews_y3NWgD",
+        "testimonial_tab_8LdzKK",
+        "testimonial_tab_JFiapd",
+        "testimonial_tab_w3tweh",
+        "testimonial_tab_je9Ud8",
+        "testimonial_tab_rn6d3U",
+        "testimonial_tab_6YxhkM"
+      ],
+      "name": "Video Text Testimonials",
+      "settings": {
+        "h3_color": "#007e40",
+        "bg_color": "#fff2cb"
+      }
+    },
+    "section7_4MmM6L": {
+      "type": "section7",
+      "name": "Horizontal Text with Customizable Image",
+      "settings": {
+        "heading": "Us vs. Them",
+        "heading_color": "#007e40",
+        "heading_font_size": 36,
+        "heading_font_size_mobile": 24,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "text": "The easiest way for kids to get their nutrients! Sweet treats with all the benefits. Just 100% organic fruits, vegetables, and mushrooms.",
+        "text_color": "#121212",
+        "text_font_size": 16,
+        "text_font_size_mobile": 14,
+        "image": "shopify://shop_images/GrunsCubs-ComparativeTable-Desktop_684be59f-3beb-4117-afd7-bee49e4955bd.webp",
+        "image_mobile": "shopify://shop_images/GrunsCubs-ComparativeTable-Mobile.webp",
+        "image_alt": "Image description",
+        "bg_color": "#ffffff"
+      }
+    },
+    "recommend_slider_efMKmL": {
+      "type": "recommend-slider",
+      "blocks": {
+        "slide_4YdxJh": {
+          "type": "slide",
+          "settings": {
+            "slide-img": "shopify://shop_images/Destiny.jpg",
+            "slide-title": "Destiny Thompson",
+            "slide-description": "\"I love giving my kids Grüns Kids comprehensive gummies because I know they’re getting the nutrients they need in a way they actually enjoy. It’s an easy, stress-free way to support their growth and development every day!\""
+          }
+        },
+        "slide_7m4YM7": {
+          "type": "slide",
+          "settings": {
+            "slide-img": "shopify://shop_images/Janie.jpg",
+            "slide-title": "Janie Ippolito",
+            "slide-description": "\"Grüns are a total game-changer for our family! They’re so easy to take, and my kids absolutely love the kids' version. Even my picky eaters are happily getting their greens in—talk about a mom win!\""
+          }
+        },
+        "slide_4tRDxe": {
+          "type": "slide",
+          "settings": {
+            "slide-img": "shopify://shop_images/Kadin.jpg",
+            "slide-title": "Kadin Kerns",
+            "slide-description": "\"We make sure Crew has his Grüns daily to get his vitamins and nutrients to grow up as the healthiest and best version of himself!\""
+          }
+        },
+        "slide_PFiair": {
+          "type": "slide",
+          "settings": {
+            "slide-img": "shopify://shop_images/Tammin.jpg",
+            "slide-title": "Tammin Sursok",
+            "slide-description": "\"Grüns has been such a game changer for me and my family. I feel like Grüns has really helped with all the vitamins and minerals and greens that we need, not to mention how tasty they are and how the kids love having their packet of gummies every morning!\""
+          }
+        }
+      },
+      "block_order": [
+        "slide_4YdxJh",
+        "slide_7m4YM7",
+        "slide_4tRDxe",
+        "slide_PFiair"
+      ],
+      "name": "Recommendations Slider",
+      "settings": {
+        "section-title": "Recommended by Parents & Pediatricians"
+      }
+    },
+    "our_founder_qfUkVP": {
+      "type": "our-founder",
+      "name": "Our Founder",
+      "settings": {
+        "image_selector": "shopify://shop_images/Chad.jpg",
+        "main_title": "Our Founder",
+        "title_highlight": "#007e40",
+        "founder_name_highlight": "#0a2704",
+        "text_1": "I'm a dad to my darling son Axel (and another boy on the way). My wife Hannah and I do our best to give Axel highly nutritious foods and teach him healthy food choices. However, nutrition gaps are universal, no matter your kid's age.",
+        "text_2": "<p>With Grüns Kids, it can be easy.<br/>Simple, effective nutrition<br/>Responsible, precise dosing<br/>Highest quality, safe ingredients<br/>I developed Grüns Kids to be a constant in Axel's life, carrying him through every stage of development. I'm hopeful that Grüns will be a constant in your child's life as well.</p>",
+        "founder_name": "Founder, Chad Janis"
+      }
+    },
+    "section8_3JNXJY": {
+      "type": "section8",
+      "name": "Two Headlines with Button",
+      "settings": {
+        "heading_line1": "What if your kids had their",
+        "heading_line2_before": "daily nutrients?",
+        "heading_line2_em": "",
+        "heading_color": "#ffffff",
+        "heading_em_color": "#ffffff",
+        "heading_font_size": 36,
+        "heading_font_size_mobile": 24,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "button_label": "Get Your Grüns Kids",
+        "button_link": "",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffcc2e",
+        "button_gap": 8,
+        "bg_color": "#121212"
+      }
+    },
+    "faq_iRUrfY": {
+      "type": "faq",
+      "blocks": {
+        "collapsible_row_pqJFRj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How are Grüns Kids different than Grüns Adults?",
+            "row_content": "<p>Our Grüns Kids has the same amazing ingredients but are properly dosed for ages 2-13 and have a smaller serving size of delicious gummy bears (15 g in Kids vs. 20 g in Adults)<br/><br/></p>"
+          }
+        },
+        "collapsible_row_PMk9G9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does it take for the gummies to arrive?",
+            "row_content": "<p>We're fast! Orders typically ship within 24 hours and, on average, arrive 2 days later. So, in just 3 days, your kids could be snacking on these delicious gummies and enjoying improved health.<br/><br/></p>"
+          }
+        },
+        "collapsible_row_bTfcd3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What's inside each order?",
+            "row_content": "<p>Our gummies come in a spacious 8.5\" x 10\" pouch with 28 daily sachets—a sachet is just a fancy term for a snack pack! Each snack pack contains a small handful of gummy bears, perfect for your child to enjoy daily. You’ll receive 28 daily snack packs within that larger pouch. We highly recommend setting up a subscription. Not only do you get better pricing, but it ensures that your child will always have their favorite gummies on hand, helping to keep their healthy habits on track!<br/><br/></p>"
+          }
+        },
+        "collapsible_row_DK8KPF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When should I expect my child to feel the benefits of Grüns?",
+            "row_content": "<p>The timeline for experiencing the benefits of Grüns can vary from person to person. Some individuals may notice improvements within days or weeks, while others may gradually experience them. Consistent daily use is essential for the best results.<br/><br/></p>"
+          }
+        },
+        "collapsible_row_rh6pb6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What ages are Grüns Kids recommended for?",
+            "row_content": "<p>Grüns Kids are recommended for ages 2-13 years old and are appropriately dosed to have a smaller serving size of delicious gummy bears!<br/><br/></p>"
+          }
+        },
+        "collapsible_row_xycyCr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are Grüns Kids free from major allergens?",
+            "row_content": "<p>Grüns are gluten-free, dairy-free, nut-free, soy-free, and vegan. They contain no synthetic sweeteners, no synthetic dyes, or gelatin and most of our ingredients are organic. You can view a full list of allergens Grüns is free from here<br/><a href=\"https://gruns.co/pages/science\" target=\"_blank\">:<span style=\"text-decoration:underline\">https://gruns.co/pages/science</span></a></p>"
+          }
+        },
+        "collapsible_row_67p3kw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if my child isn’t happy with Grüns?",
+            "row_content": "<p>We want you and your child to have the best experience with Grüns. We offer a 30-day guarantee on your first order so you can try Grüns risk-free! If your kiddo isn’t loving Grüns, you can start a return or exchange for your first order through our self-service portal: <a href=\"https://gruns.loopreturns.com/#/\">https://gruns.loopreturns.com/#/</a>.</p><p>A few reminders:</p><ul><li>Returns are only accepted on first-time purchases. Exchanges are available on repeat purchases.</li><li>All returns have a $5 handling fee, and shipping costs aren’t refunded. Exchanges are totally free!</li><li>If you’re subscribed, you'll need to cancel your subscription separately. <a href=\"https://gruns.co/policies/refund-policy\"><span style=\"text-decoration:underline\">See Terms & Conditions.</span></a><br/></li></ul><p>Have questions or need help outside of your first order? We're happy to chat—reach out at <a href=\"mailto:support@gruns.co\"><span style=\"text-decoration:underline\">support@gruns.co</span>| Opens Email</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_pqJFRj",
+        "collapsible_row_PMk9G9",
+        "collapsible_row_bTfcd3",
+        "collapsible_row_DK8KPF",
+        "collapsible_row_rh6pb6",
+        "collapsible_row_xycyCr",
+        "collapsible_row_67p3kw"
+      ],
+      "name": "Product FAQ",
+      "settings": {
+        "bg_color": "scheme-5",
+        "heading": "Any last questions?",
+        "button_text": "No? Try Grüns Kids now➝",
+        "heading_size": "h1",
+        "open_first_collapsible_row": false,
+        "show_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "home_hero_banner_w9U7KG",
+    "companyfeedback_UWrTLD",
+    "support_section_jkcxBM",
+    "stats_kids_6jFURA",
+    "product_page_W6MhBY",
+    "video_text_testimonials_Lm3aCh",
+    "section7_4MmM6L",
+    "recommend_slider_efMKmL",
+    "our_founder_qfUkVP",
+    "section8_3JNXJY",
+    "faq_iRUrfY"
+  ]
+}

@@ -1,0 +1,64 @@
+<div class="tw-relative tw-inline-flex tw-items-center tw-gap-2 tw-text-sm tw-text-green-700">
+  <!-- Check icon -->
+  <span class="tw-flex tw-items-center">
+    {% render 'icon-check' %}
+  </span>
+
+  <!-- Label -->
+  <span class="tw-font-medium tw-text-[12px] lg:tw-text-[14px]">
+    30 Day Guarantee
+  </span>
+
+  <!-- Info icon + tooltip group -->
+  <span class="tw-relative tw-group tw-flex tw-items-center tw-text-green-700">
+    <!-- Info icon -->
+    {% render 'icon-info', color: 'currentColor', size: '16px' %}
+
+    <!-- Hover buffer (prevents flicker) -->
+    <span class="tw-absolute tw-top-full tw-left-0 tw-h-2 tw-w-full"></span>
+
+    <!-- Tooltip -->
+    <div
+      class="
+        tw-absolute
+        tw-top-full
+        tw-left-1/2
+        tw-z-20
+        tw-mt-2
+        tw-w-56
+        tw--translate-x-1/2
+
+        tw-rounded-lg
+        tw-border
+        tw-border-dashed
+        tw-border-green-400
+        tw-bg-lt-green
+
+        tw-p-3
+        tw-text-xs
+        tw-text-green-900
+
+        tw-opacity-0
+        tw-invisible
+        group-hover:tw-opacity-100
+        group-hover:tw-visible
+
+        tw-pointer-events-auto
+
+        tw-transition-opacity
+        tw-duration-200
+      "
+    >
+      <p>
+        Return shipping charges not included.
+        <a
+          href="{{ refund_link | default: '#' }}"
+          class="tw-underline tw-font-medium hover:tw-opacity-80"
+        >
+          See Refund Policy
+        </a>
+      </p>
+    </div>
+  </span>
+</div>
+ 

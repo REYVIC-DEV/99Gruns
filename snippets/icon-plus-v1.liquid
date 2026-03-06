@@ -1,0 +1,33 @@
+{%- comment -%}
+Customizable plus icon
+
+Usage:
+  Basic: {% render 'icon-plus-v1' %}
+  With custom color and size: {% render 'icon-plus-v1', color: '#FF0000', size: '30px', class: 'custom-class' %}
+
+Parameters:
+  color (string): Color for the icon, defaults to 'currentColor'
+  size (string): Size for the icon (width x height), defaults to '24px'
+  class (string): Additional CSS classes, defaults to empty
+{%- endcomment -%}
+
+{%- assign icon_color = color | default: 'currentColor' -%}
+{%- assign icon_size = size | default: '24px' -%}
+{%- assign additional_classes = class | default: '' -%}
+
+<svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  width="{{ icon_size }}" 
+  height="{{ icon_size }}" 
+  viewBox="0 0 24 24" 
+  fill="none" 
+  stroke="{{ icon_color }}" 
+  stroke-width="2" 
+  stroke-linecap="round" 
+  stroke-linejoin="round"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-plus {{ additional_classes }}"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 5l0 14" />
+  <path d="M5 12l14 0" />
+</svg>

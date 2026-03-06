@@ -1,0 +1,122 @@
+{% assign images = images %}
+
+<section class="modal-overlay tw-flex tw-justify-center tw-py-[50px] tw-bg-[#000000]/[60%] tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-z-50">
+    <div class="tw-overflow-y-scroll tw-max-w-[85%] tw-min-w-[85%] tw-w-full tw-bg-white tw-flex tw-flex-col tw-items-center tw-relative">
+        <button class="modal-close tw-absolute tw-top-4 tw-right-4 tw-w-8 tw-h-8 tw-rounded-full tw-bg-gray-200 hover:tw-bg-gray-300 tw-flex tw-items-center tw-justify-center tw-transition-colors tw-duration-200 tw-z-10">
+            <span class="tw-text-black tw-text-xl tw-font-bold">×</span>
+        </button>
+        <div class="tw-w-[90%] tw-py-[24px] tw-px-[20px] tw-flex tw-flex-col">
+            <div class="tw-flex tw-w-full tw-border tw-border-black tw-border-solid tw-rounded-xl">
+                <div class="modal-tab tw-w-[50%] tw-text-center tw-border-r tw-border-r-black tw-border tw-border-solid tw-border-y-0 tw-border-l-0 tw-cursor-pointer tw-transition-colors tw-duration-200 active-tab" data-tab="low-sugar">
+                    <h2 class="!tw-m-0 tw-text-[16px] tw-font-bold">Low Sugar</h2>
+                </div>
+                <div class="modal-tab tw-w-[50%] tw-text-center tw-border-l tw-border-l-black tw-border tw-border-solid tw-border-y-0 tw-border-r-0 tw-cursor-pointer tw-transition-colors tw-duration-200" data-tab="sugar-free">
+                    <h2 class="!tw-m-0 tw-text-[16px] tw-font-bold">Sugar-Free</h2>
+                </div>
+            </div>
+            <div class="tab-content active" data-tab-content="low-sugar">
+                <img src="{{ images[2].src | image_url: width: 1800 }}" alt="Low Sugar Nutrition Label" width="100%" height="auto">
+            </div>
+            <div class="tab-content tw-hidden" data-tab-content="sugar-free">
+                <img src="{{ images[3].src | image_url: width: 1800 }}" alt="Sugar Free Nutrition Label" width="100%" height="auto">
+            </div>
+        </div>
+    </div>
+</section>
+
+<script defer>
+(function() {
+    // Prevent multiple bindings
+    if (window.modalTabsInitialized) return;
+    window.modalTabsInitialized = true;
+
+    // Close modal function
+    function closeModal(clickedElement) {
+        // If a specific element was clicked, find its modal parent
+        if (clickedElement) {
+            const modal = clickedElement.closest('.modal-overlay');
+            if (modal) {
+                modal.remove();
+                return;
+            }
+        }
+
+        // Fallback: remove all modals
+        const modals = document.querySelectorAll('.modal-overlay');
+        modals.forEach(modal => {
+            modal.remove();
+        });
+    }
+
+    document.addEventListener('click', function(e) {
+        // Handle modal close button
+        if (e.target.closest('.modal-close')) {
+            closeModal();
+            return;
+        }
+
+        // Handle tab clicks
+        if (e.target.closest('.modal-tab')) {
+            const tab = e.target.closest('.modal-tab');
+            const tabName = tab.dataset.tab;
+
+            // Remove active class from all tabs
+            document.querySelectorAll('.modal-tab').forEach(t => {
+                t.classList.remove('active-tab');
+                t.classList.remove('tw-bg-[#007e40]');
+                t.classList.add('tw-text-black');
+            });
+
+            // Add active class to clicked tab
+            tab.classList.add('active-tab');
+            tab.classList.add('tw-bg-[#007e40]');
+            tab.classList.add('tw-text-white');
+
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('tw-hidden');
+                content.classList.remove('active');
+            });
+
+            // Show selected tab content
+            const activeContent = document.querySelector(`[data-tab-content="${tabName}"]`);
+            if (activeContent) {
+                activeContent.classList.remove('tw-hidden');
+                activeContent.classList.add('active');
+            }
+        }
+    });
+
+    // Close modal when clicking on overlay (outside modal content)
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal-overlay')) {
+            closeModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    // Set initial active tab
+    const firstTab = document.querySelector('.modal-tab');
+    if (firstTab) {
+        firstTab.classList.add('active-tab');
+        firstTab.classList.add('tw-bg-[#007e40]');
+        firstTab.classList.add('tw-text-white');
+    }
+})();
+</script>
+
+<style>
+    .modal-tab.active-tab {
+        background-color: #007e40 !important;
+        color: white !important;
+    }
+    .modal-tab:hover:not(.active-tab) {
+        background-color: #f5f5f5;
+    }
+</style>

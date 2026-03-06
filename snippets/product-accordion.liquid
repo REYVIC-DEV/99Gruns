@@ -1,0 +1,83 @@
+{% assign blocks = blocks %}
+{% assign label = label %}
+{% assign color = color %}
+{% assign show_mobile = show_mobile %}
+
+<style>
+    .accordion-label *{
+        font-size: inherit;
+        font-weight: inherit;
+        color: inherit;
+    }
+    .accordion-content-inner *{
+        font-size: inherit;
+        margin: 0;
+        color:black;
+    }
+    .accordion-content-inner {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-10px);
+    }
+    .accordion-content-inner.open {
+        opacity: 1;
+        max-height: 1000px; /* Large enough for content */
+        transform: translateY(0);
+    }
+</style>
+
+<section class="tw-flex tw-flex-col tw-w-full {% if show_mobile %} xl:tw-hidden {% else %} tw-hidden xl:tw-block {% endif %}">
+    <div class="accordion-label tw-text-[14px] tw-pt-[15px] tw-pb-[10px]" style="color: {{ color }}">
+        {{ label }}
+    </div>
+    <div class="accordion-content tw-flex tw-flex-col">
+        {% for block in blocks %}
+            {% if block.type == 'product-accordion' %}
+                <div class="accordion-blocks tw-flex tw-flex-col tw-border tw-border-solid tw-border-black tw-border-x-0 tw-border-t-0 {% if show_mobile %} xl:tw-hidden {% else %} tw-hidden xl:tw-block {% endif %}">
+                    <div class="accordion-title tw-flex tw-justify-between tw-items-center tw-w-full tw-p-[12px] tw-pl-0 tw-cursor-pointer">
+                        <p class="!tw-m-0 tw-text-[16px] tw-font-bold tw-text-black">{{ block.settings.accordion_title }}</p>
+                        <span class="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border tw-border-black tw-border-solid tw-w-[24px] tw-h-[24px] tw-transition-transform tw-duration-300">
+                            {% render 'icon-plus-v1', size: 24 %}
+                        </span>
+                    </div>
+                    <div class="accordion-content-inner tw-pl-[12px]">
+                        {{ block.settings.accordion_content }}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+<script defer>
+(function() {
+    // Prevent multiple bindings
+    if (window.accordionInitialized) return;
+    window.accordionInitialized = true;
+
+    // Use event delegation for multiple renders
+    document.addEventListener('click', function(e) {
+        // Check if the clicked element is an accordion title
+        if (e.target.closest('.accordion-title')) {
+            const title = e.target.closest('.accordion-title');
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('span');
+
+            // Check if content is currently open
+            const isOpen = content.classList.contains('open');
+
+            if (isOpen) {
+                // Close the accordion
+                content.classList.remove('open');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Open the accordion
+                content.classList.add('open');
+                icon.style.transform = 'rotate(45deg)';
+            }
+        }
+    });
+})();
+</script>

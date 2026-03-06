@@ -1,0 +1,180 @@
+<style>
+  	.section-{{ section.id }}-padding {
+		padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+		padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+	}
+
+	@media screen and (min-width: 750px) {
+		.section-{{ section.id }}-padding {
+			padding-top: {{ section.settings.padding_top }}px;
+			padding-bottom: {{ section.settings.padding_bottom }}px;
+		}
+	}
+</style>
+
+<section
+  id="section-{{ section.id }}"
+  class="tw-px-[50px] md:tw-px-20 section-{{ section.id }}-padding tw-justify-center"
+  style="background-color: {{ section.settings.bg_color }};"
+>
+  <div class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-w-full">
+    
+    <h2
+      class="tw-text-center tw-font-bold tw-leading-none"
+      style="
+        color: {{ section.settings.heading_color }};
+        font-size: {{ section.settings.heading_font_size_mobile }}px;
+      "
+    >
+      {{ section.settings.heading_line1 }}<br>
+      {{ section.settings.heading_line2_before }}
+      <em class="italic" style="color: {{ section.settings.heading_em_color }};">
+        {{ section.settings.heading_line2_em }}
+      </em>
+    </h2>
+
+    <a
+      href="{{ section.settings.button_link }}"
+      style="
+        text-decoration: none;
+        background-color: {{ section.settings.button_bg_color }};
+        color: {{ section.settings.button_text_color }};
+        border-radius: {{ section.settings.button_radius | default: 999 }}px;
+        margin-top: {{ section.settings.button_gap | default: 8 }}px;
+      "
+      class="tw-inline-flex tw-items-center tw-justify-center tw-font-bold tw-px-12 tw-py-3 tw-transition tw-duration-300 tw-transform hover:tw-translate-x-1 hover:tw-translate-y-1 hover:tw-brightness-90"
+    >
+      {{ section.settings.button_label }}
+    </a>
+
+  </div>
+
+  <!-- Media query for desktop font size -->
+  <style>
+    @media (min-width: 768px) {
+      #section-{{ section.id }} h2 {
+        font-size: {{ section.settings.heading_font_size }}px !important;
+      }
+    }
+  </style>
+</section>
+
+
+{% schema %}
+{
+  "name": "Two Headlines with Button",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Headline Line 1",
+      "default": "Want To Join The 10% of People"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2_before",
+      "label": "Headline Line 2 Before Emphasis",
+      "default": "Who Are"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2_em",
+      "label": "Headline Line 2 Emphasis",
+      "default": "Nutrient Sufficient?"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Headline Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_em_color",
+      "label": "Emphasized Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Headline Font Size (px)",
+      "min": 16,
+      "max": 72,
+      "step": 1,
+      "default": 36
+    }, 
+    {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "label": "Headline Font Size Mobile (px)",
+      "min": 12,
+      "max": 48,
+      "step": 1,
+      "default": 24
+    },
+    {
+			"type": "range",
+			"id": "padding_top",
+			"min": 0,
+			"max": 100,
+			"step": 4,
+			"unit": "px",
+			"label": "Padding top",
+			"default": 36
+		},
+		{
+			"type": "range",
+			"id": "padding_bottom",
+			"min": 0,
+			"max": 100,
+			"step": 4,
+			"unit": "px",
+			"label": "Padding bottom",
+			"default": 36
+		},
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Get Your Grüns"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },  
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button background color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "button_gap",
+      "label": "Button Gap from Headline (px)",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two Headlines with Button"
+    }
+  ]
+}
+{% endschema %}

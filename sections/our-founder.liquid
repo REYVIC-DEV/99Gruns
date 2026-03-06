@@ -1,0 +1,151 @@
+<style>
+	p{
+		margin-top: 0;
+		margin-bottom: 0;
+		letter-spacing: -1px;
+		color: #001F10F2;
+		line-height: 150%; 
+	}
+
+	h2{
+		letter-spacing: -1px;
+	}
+
+	@media screen and (min-width: 425px) {
+        .p {
+                font-size: 14px;
+        }
+    }
+</style>
+
+<section>
+	<div class="page-width tw-flex tw-flex-col lg:tw-flex-row md:tw-justify-between tw-gap-6 md:tw-gap-8 lg:tw-gap-[80px] tw-py-[70px]">
+		<div class="tw-max-w-[367px] md:tw-max-w-[700px]">
+			{% if section.settings.image_selector != blank %}
+				<img
+					src="{{ section.settings.image_selector | image_url }}"
+					alt="Phone"
+					width="full"
+					height="600"
+					class="tw-w-[375px] tw-h-[365px] md:tw-w-[650px] lg:tw-w-[600px] md:tw-h-[600px] tw-rounded-[20px]"
+				>
+			{% else %}
+				<img
+					src="{{ 'founder.jpg' | asset_url }}"
+					alt="Featured Picture"
+					width="full"
+					height="600"
+					class="tw-w-[375px] tw-h-[365px] md:tw-w-[650px] lg:tw-w-[600px] md:tw-h-[600px] tw-rounded-[20px]"
+				>
+			{% endif %}
+		</div>
+
+		<div class="tw-flex tw-flex-col tw-w-full tw-items-start tw-justify-between tw-gap-10 md:tw-gap-5 lg:tw-py-[60px]">
+			<h2 class="tw-text-[44px] tw-font-dm-sans tw-font-bold tw-my-0 tw-text-left"
+			style="color: {{ section.settings.title_highlight }};">
+				{{ section.settings.main_title }}
+			</h2>
+
+			<div class="tw-gap-10 tw-flex tw-flex-col tw-justify-start tw-tracking-tight">
+				<p class="tw-text-[18px] tw-font-dm-sans tw-my-0">{{ section.settings.text_1 }}</p>
+
+				<p class="tw-text-[18px] tw-font-dm-sans tw-my-0">{{ section.settings.text_2 }}</p>
+			</div>
+
+			<div class="tw-flex tw-justify-between">
+				<div
+				class="tw-text-[18px] tw-font-dm-sans tw-font-bold tw-tracking-tight tw-leading-tight tw-w-[100px]"
+				style="color: {{ section.settings.founder_name_highlight }};"
+				>
+				{{ section.settings.founder_name }}
+				</div>
+
+				{% if section.settings.signature != blank %}
+					<img
+					src="{{ section.settings.signature | image_url }}"
+					alt="Founder signature"
+					width="150"
+					height="88"
+					class="tw-w-[150px] tw-h-[88px] tw-object-contain"
+					>
+				{% else %}
+					<img
+					src="{{ 'FounderSignature.png' | asset_url }}"
+					alt="Founder signature"
+					width="150"
+					height="88"
+					class="tw-w-[150px] tw-h-[88px] tw-object-contain"
+					>
+				{% endif %}
+			</div>
+
+		</div>
+
+	</div>
+</section>
+
+
+{% schema %}
+	{
+		"name": "Our Founder",
+		"settings": [
+			{
+				"type": "image_picker",
+				"id": "image_selector",
+				"label": "Image Picker"
+			},
+			{
+				"type": "image_picker",
+				"id": "signature",
+				"label": "Signature Image"
+			},
+			{
+				"type": "header",
+				"content": "Left Content"
+			},
+			{
+				"type": "inline_richtext",
+				"id": "main_title",
+				"label": "Main Title",
+				"default": "Our Founder",
+			},
+			{
+				"type": "color",
+				"id": "title_highlight",
+				"label": "Title Highlight Color",
+				"default": "#007E40"
+			},
+			{
+				"type": "color",
+				"id": "founder_name_highlight",
+				"label": "Founder Highlight Color",
+				"default": "#0A2704"
+			},
+			{
+				"type": "text",
+				"id": "text_1",
+				"label": "First Paragraph",
+				"default": "<p>I'm a dad to my darling son Axel (and another boy on the way). My wife Hannah and I do our best to give Axel highly nutritious foods and teach him healthy food choices. However, nutrition gaps are universal, no matter your kid's age.</p>"
+			},
+			{
+				"type": "richtext",
+				"id": "text_2",
+				"label": "Second Paragraph",
+				"default": "<p>With Grüns Kids, it can be easy.<br>Simple, effective nutrition<br>Responsible, precise dosing<br>Highest quality, safe ingredients<br>I developed Grüns Kids to be a constant in Axel's life, carrying him through every stage of development. I'm hopeful that Grüns will be a constant in your child's life as well.</p>"
+			},
+			{
+				"type": "text",
+				"id": "founder_name",
+				"label": "Founder Name",
+				"default": "Founder, Chad Janis"
+			}
+
+
+		],
+		"presets": [
+			{
+				"name": "Our Founder"
+			}
+		]
+	}
+{% endschema %}

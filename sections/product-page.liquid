@@ -1,0 +1,1343 @@
+{% assign title_color = nil %}
+{% assign description_color = nil %}
+{% assign badge_text_color = nil %}
+{% assign sale_percentage_bg_color = section.settings.sale_percentage_badge_bg_color %}
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'section_title' %}
+      {% assign title_color = block.settings.title_color %}
+    {% when 'section_description' %}
+      {% assign description_color = block.settings.description_color %}
+    {% when 'section_top_badge' %}
+      {% assign badge_text_color = block.settings.badge_text_color %}
+  {% endcase %}
+{% endfor %}
+<style>
+  #product-page-section-{{ section.id }} {
+    --section-title-color: {{ title_color }};
+    --section-description-color: {{ description_color }};
+    --section-badge-text-color: {{ badge_text_color }};
+    --sale-percentage-bg-color: {{ sale_percentage_bg_color }};
+  }
+  .option-pill input:checked+span {
+    background-color: {{ section.settings.diet_picker_active_bg | default:"#0a7a3c" }} !important;
+}
+</style>
+{{ 'product-page.css' | asset_url | stylesheet_tag }}
+<section id="product-page-section-{{ section.id }}" class="tw-w-full">
+
+  <div class="page-width tw-p-[15px] tw-flex tw-flex-col tw-items-center tw-justify-center tw-w-full tw-gap-[24px] md:tw-p-[5%]">
+    <div class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-[5px] tw-text-center">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+        {% when 'section_top_badge' %}
+            <div class="tw-flex tw-items-center tw-self-center tw-justify-center tw-mt-[15px] tw-rounded-full tw-bg-lt-yellow !tw-w-[148px] md:!tw-w-[211px] xl:!tw-w-[190px] tw-py-[8px] tw-px-[20px] tw-line-clamp-1 tw-tracking-tighter">
+              <strong class="tw-text-[12px] section-top-badge"> {{ block.settings.badge_text }} </strong>
+            </div>
+          {%- when 'star_reviews' -%}
+            <div class="">
+              {% render 'home-star-review',
+                rating: block.settings.star_rating,
+                star_color: block.settings.star_color,
+                review_text_mobile: block.settings.review_text_mobile,
+                review_text_desktop: block.settings.review_text_desktop,
+                font_color: block.settings.review_font_color,
+                strong_font_color: block.settings.strong_font_color
+              %}
+            </div>
+          {%- when 'section_title' -%}
+            <div class="tw-w-full">
+              <div class="section-title !tw-m-0 !tw-text-[32px]">
+                {{ block.settings.section_title }}
+              </div>
+            </div>
+          {% when 'section_description' %}
+            <span class="section-description">
+              <p class="!tw-m-0 ">
+                {{ block.settings.section_description }}
+              </p>
+            </span>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+    <div class="tw-flex tw-flex-col xl:tw-flex-row xl:tw-gap-[32px] tw-w-full tw-max-w-[450px] lg:!tw-max-w-full tw-items-center xl:tw-items-start tw-justify-center">
+      {% comment %} product slider here {% endcomment %}
+      <div class="tw-w-full tw-flex tw-flex-col tw-gap-[10px] lg:tw-w-full tw-max-w-[450px]">
+        <!-- Slider main container -->
+        <div class="swiper product-slider tw-w-full">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper !tw-w-full tw-max-w-[376px] md:tw-max-w-[676px] lg:tw-max-w-[906px] xl:tw-max-w-[445px]">
+            <!-- Slides -->
+            {% for image in section.settings.selected-product.images %}
+              <div class="swiper-slide tw-flex tw-items-center tw-justify-center">
+                <img
+                  src="{{ image.src | image_url: width: 906, height: 906 }}"
+                  width="906"
+                  height="906"
+                  class="!tw-w-full  tw-max-w-[376px] md:tw-max-w-[676px] lg:tw-max-w-[906px] xl:tw-max-w-[445px] tw-h-fit tw-rounded-[10px] tw-object-contain tw-border tw-border-black tw-border-solid"
+                  alt="{{ image.alt }}"
+                >
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Slider main container -->
+        <div class="swiper product-thumb tw-w-full">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper tw-w-[43px] tw-h-[43px] tw-rounded-[20px]">
+            <!-- Slides -->
+            {% for image in section.settings.selected-product.images %}
+              <div class="swiper-slide tw-flex tw-items-center tw-justify-center tw-w-[43px] tw-h-[43px] tw-rounded-[3px] tw-overflow-hidden">
+                <img
+                  src="{{ image.src | image_url: width: 510, height: 510 }}"
+                  width="510"
+                  height="510"
+                  class="tw-w-[43px] tw-h-[43px] tw-object-contain tw-opacity-50"
+                  alt="{{ image.alt }}"
+                >
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div
+          id="view-nutrition-label-btn"
+          class="
+            tw-inline-flex
+            tw-items-center
+            tw-justify-center
+            tw-font-bold
+            tw-px-12
+            tw-py-3
+            tw-rounded-full
+            tw-no-underline
+
+            tw-bg-white
+            hover:tw-bg-gray-200
+            tw-text-black
+
+            hover:tw-shadow-[0_0_0_0.5px_#000,2px_2px_0_#000]
+            hover:tw-translate-x-1
+            hover:tw-translate-y-1
+            tw-shadow-[inset_0_0_0_0.5px_#000,4px_4px_0_#000]
+
+
+            tw-transition-all
+            tw-duration-300
+            tw-ease-out
+
+            tw-h-[46px]
+            tw-w-full
+
+            tw-text-[16px]
+
+            tw-leading-[120%]
+            tw-tracking-tighter
+
+            tw-flex-nowrap
+            tw-text-nowrap
+            tw-cursor-pointer
+          "
+          data-sugar-free-image="{{ section.settings.selected-product.images[2].src | image_url: width: 1800 }}"
+          data-low-sugar-image="{{ section.settings.selected-product.images[3].src | image_url: width: 1800 }}"
+        >
+          View Nutrition Label
+        </div>
+        {% render 'product-accordion', 
+          blocks: section.blocks, 
+          label: section.settings.accordion-label, 
+          color: section.settings.accordion-color,
+          show_mobile: false %}
+      </div>
+      {% comment %} product options here {% endcomment %}
+      <div class="tw-flex tw-flex-col tw-max-w-[450px] tw-w-full">
+        <product-form class="product-form tw-w-full">
+          <form class="tw-mt-10 tw-w-full tw-flex tw-flex-col tw-justify-self-center tw-gap-[15px] xl:tw-mt-0" method="post" action="{{ routes.cart_add_url }}">
+            <input
+              type="hidden"
+              name="id"
+              value="{{ section.settings.selected-product.selected_or_first_available_variant.id }}"
+            >
+            <input type="hidden" name="quantity" value="1">
+              <h2 class="!tw-m-0 tw-text-[24px] tw-font-bold tw-text-center tw-text-[#001f10] tw-uppercase">
+                Choose your offer
+              </h2>
+
+              <div class="option-toggle" style="background: {{ section.settings.diet_picker_main_bg }};">
+                {% assign diet_option = section.settings.selected-product.options_with_values
+                  | where: "name", "Diet Type:"
+                  | first
+                %}
+
+                {% if diet_option %}
+                  {% for value in diet_option.values %}
+                    {% if value contains "One Time" %}
+                      {% continue %}
+                    {% endif %}
+                    <label class="option-pill tw-flex-grow tw-w-full" style="color: {{ section.settings.diet_picker_text_color }};">
+                      <input
+                        type="radio"
+                        name="options[{{ diet_option.name }}]"
+                        value="{{ value | escape }}"
+                        {% if forloop.first %}checked{% endif %}
+                      >
+                      <span class="tw-w-full tw-text-center tw-font-bold">
+                        {{ value }}
+                      </span>
+                    </label>
+                  {% endfor %}
+                {% endif %}
+              </div>
+
+
+
+            <div class="tw-text-[#002613] tw-flex tw-flex-col tw-gap-[16px] tw-w-full tw-border tw-border-black tw-border-solid tw-border-r-[7px] tw-border-b-[7px] tw-px-[3%] tw-py-[13px] tw-rounded-[20px]">
+              <div>
+                <p class="!tw-m-0 tw-text-[18px] tw-font-bold">
+                  AutoShip & Save
+                </p>
+                {%- if section.settings.kids -%}
+                  <p class="!tw-m-0 tw-font-bold tw-text-[24px]">
+                    How many kids?
+                  </p>
+                {%- endif -%}
+              </div>
+              <div class="
+                tw-flex tw-gap-5 
+                {% if section.settings.kids %}
+                  tw-flex-row
+                  tw-border
+                  tw-border-black
+                  tw-border-solid
+                  tw-rounded-full
+                  tw-items-center
+                  tw-justify-center
+                  tw-p-5
+                {% else %}
+                  tw-flex-col
+                  tw-pt-[13px]
+                {% endif %}
+                ">
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'selling_plan' -%}
+                    <label class="tw-flex-grow tw-cursor-pointer
+                      {% if section.settings.kids %}
+                       tw-justify-center tw-items-center tw-text-center
+                      {% else %}
+                         tw-border tw-border-black tw-border-solid tw-rounded-2xl
+                      {% endif %}
+                      ">
+                      <input
+                        type="radio"
+                        name="selling_plan"
+                        value=""
+                        class="tw-peer tw-sr-only"
+                        id="selling-plan-{{ forloop.index }}"
+                        data-plan-index="{{ forloop.index }}"
+                        data-gummies-per-month="{{ block.settings.gummies_per_month }}"
+                      >
+                        <div
+                          class="tw-leading-[150%] tw-relative tw-border tw-border-black tw-rounded-2xl tw-p-4 tw-transition-all tw-flex tw-flex-col
+                          {% if section.settings.kids %}
+                            peer-checked:tw-bg-[#fff2cb]
+                          {% else %}
+                            peer-checked:tw-bg-[#e3f2e8]
+                          {% endif %}
+                          "
+                        >
+                          <p class="!tw-m-0 tw-font-bold tw-text-[16px]">{{ block.settings.plan_name }}</p>
+                          {%- unless section.settings.kids -%}
+                          <span class="!tw-m-0">
+                            <strong class="tw-text-[18px]" id="plan-price-{{ forloop.index }}">
+                              $50
+                            </strong>
+                            <s class="tw-text-[16px]" id="plan-original-price-{{ forloop.index }}">
+                              $99
+                            </s>
+                          </span>
+                          <p class="!tw-m-0 tw-font-bold tw-text-[14px]" id="per-day-{{ forloop.index }}">$perday</p>
+                          <div class="tw-h-[32px] tw-px-[5%] tw-py-[4px] tw-absolute tw-top-3 tw-right-3 tw-rounded-full" style="background:{{ section.settings.sale_percentage_badge_bg_color }}">
+                            <h5 class="!tw-m-0 tw-font-bold tw-text-white tw-text-[20px]" id="selling_plan_percent_{{ forloop.index }}">50% off</h5>
+                          </div>
+                        {%- endunless -%}
+                        </div>
+                    </label>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+              <div class="tw-flex tw-flex-col">
+                <div class="tw-h-[25px] tw-flex tw-items-center">
+                  <span class="tw-h-full tw-flex tw-items-center tw-justify-center">{% render 'icon-check' %}</span>
+                  <p class="!tw-m-0">28 packs every 4 weeks (224 gummies)</p>
+                </div>
+                <div class="tw-h-[25px] tw-flex tw-items-center">
+                  <span class="tw-h-full tw-flex tw-items-center tw-justify-center">{% render 'icon-check' %}</span>
+                  <p class="!tw-m-0">FREE avg 2-day shipping today</p>
+                </div>
+                <div class="tw-h-[25px] tw-flex tw-items-center">
+                  <span class="tw-h-full">{% render 'icon-check' %}</span>
+                  <p class="!tw-m-0">Pause or cancel anytime</p>
+                </div>
+                <div class="tw-h-[25px] tw-flex tw-items-center">
+                  <span class="tw-h-full">{% render 'icon-check' %}</span>
+                  <p class="!tw-m-0">30-day money back guarantee</p>
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="
+                  tw-inline-flex
+                  tw-items-center
+                  tw-justify-center
+                  tw-font-bold
+                  tw-px-12
+                  tw-py-3
+                  tw-rounded-full
+                  tw-no-underline
+
+                  hover:tw-shadow-[0_0_0_0.5px_#000,2px_2px_0_#000]
+                  hover:tw-translate-x-1
+                  hover:tw-translate-y-1
+                  tw-shadow-[inset_0_0_0_0.5px_#000,4px_4px_0_#000]
+
+
+                  tw-transition-all
+                  tw-duration-300
+                  tw-ease-out
+
+                  tw-h-[46px]
+                  tw-w-full
+
+                  tw-text-[16px]
+
+                  tw-leading-[120%]
+                  tw-tracking-tighter
+
+                  tw-flex-nowrap
+                  tw-text-nowrap
+                  tw-cursor-pointer
+                  tw-relative
+                "
+                style="
+                  background-color: {{ section.settings.start_now_button_bg_color }};
+                  color: {{ section.settings.start_now_button_text_color }}
+                "
+                onmouseover="this.style.backgroundColor='{{ section.settings.start_now_button_hover_bg_color }}'"
+                onmouseout="this.style.backgroundColor='{{ section.settings.start_now_button_bg_color }}'"
+              >
+                <span>Start Now</span>
+                <div class="loading__spinner tw-absolute tw-inset-0 tw-hidden tw-flex tw-items-center tw-justify-center">
+                  {%- render 'loading-spinner' -%}
+                </div>
+              </button>
+              {% if section.settings.show_discount_text %}
+                <style>
+                  .discount-text * {
+                    color: inherit !important;
+                    margin: 0 !important;
+                    font-size: inherit !important;
+                  }
+                </style>
+                <div class="discount-text tw-font-dm-sans tw-text-[14px] tw-flex tw-justify-center tw-leading-[160%] tw-tracking-tighter" style="background-color: {{ section.settings.discount_text_bg_color }}; color: {{ section.settings.discount_text_color }}">
+                  {{ section.settings.discount_text }}
+                </div>
+              {% endif %}
+            </div>
+          </form>
+          {% assign one_time_purchase = section.settings.selected-product.options_with_values
+            | where: "name", "Diet Type:"
+            | first
+          %}
+        </product-form>
+        {% for plan in one_time_purchase.values %}
+          <product-form class="tw-w-full tw-max-w-[448px]" id="one_time_purchase_{{ plan | handleize }}">
+          {% unless plan contains 'One Time' %}
+            {% continue %}
+          {% endunless %}
+          <form class="tw-py-[8px] tw-px-[5%] tw-rounded-[20px] tw-mt-[20px] tw-border tw-border-black tw-border-solid tw-leading-[125%] tw-w-full tw-flex tw-flex-col tw-cursor-pointer
+            {%- if forloop.last -%} tw-hidden  {%- endif -%}  
+            " method="post" action="{{ routes.cart_add_url }}">
+            <input
+              type="hidden"
+              name="id"
+              value="{{ plan.variant.id }}"
+            >
+            <p class="!tw-m-0 tw-font-bold tw-text-black">One-Time Purchase</p>
+            <span class="tw-text-black">
+              <strong>{{ plan.variant.price | money }} <s>{{ plan.variant.compare_at_price | money }}</s> </strong>
+            </span>
+            <div class="tw-text-[#007340] tw-text-[14px]">{{ plan.variant.unit_price | money }} Per Day</div>
+            <div class="hidden_purchase tw-border tw-border-t tw-border-black tw-border-solid tw-border-x-0 tw-border-b-0 tw-mt-[20px] tw-hidden">
+              <div class="tw-flex tw-items-center tw-gap-3">
+                <span>{%- render 'icon-x-simple' -%}</span>
+                <p class="tw-text-[13px]">No Free Shipping</p>
+              </div>
+              <button
+                type="submit"
+                class="
+                  tw-inline-flex
+                  tw-items-center
+                  tw-justify-center
+                  tw-font-bold
+                  tw-px-12
+                  tw-py-3
+                  tw-rounded-full
+                  tw-no-underline
+      
+                tw-bg-[#007e40]
+                hover:tw-bg-[#00582d]
+                    tw-text-white
+      
+                  hover:tw-shadow-[0_0_0_0.5px_#000,2px_2px_0_#000]
+                  hover:tw-translate-x-1
+                  hover:tw-translate-y-1
+                  tw-shadow-[inset_0_0_0_0.5px_#000,4px_4px_0_#000]
+      
+      
+                  tw-transition-all
+                  tw-duration-300
+                  tw-ease-out
+      
+                  tw-h-[46px]
+                  tw-w-full
+      
+                  tw-text-[16px]
+      
+                  tw-leading-[120%]
+                  tw-tracking-tighter
+      
+                  tw-flex-nowrap
+                  tw-text-nowrap
+                  tw-cursor-pointer
+                  tw-relative
+                "
+                style="border: 1px solid black"
+              >
+                <span>Try Now</span>
+                <div class="loading__spinner tw-absolute tw-inset-0 tw-hidden tw-flex tw-items-center tw-justify-center">
+                  {%- render 'loading-spinner' -%}
+                </div>
+              </button>
+              <div class="tw-w-full tw-flex tw-items-center tw-justify-center tw-text-center tw-mt-3">
+                <p class="!tw-m-0 tw-text-[10px] tw-tracking-tighter">
+                  (Regular one‑time price {{ plan.variant.compare_at_price | money }} after your first order)
+                </p>
+              </div>
+            </div>
+          </form>
+          </product-form>
+        {% endfor %}
+        {% render 'product-accordion', 
+          blocks: section.blocks, 
+          label: section.settings.accordion-label, 
+          color: section.settings.accordion-color,
+          show_mobile: true %}
+        {% render 'taste-like',
+          blocks: section.blocks,
+          taste_like_img_1: section.settings['taste-like-img-1'],
+          taste_like_emoji_1: section.settings['taste-like-emoji-1'],
+          taste_like_text_1: section.settings['taste-like-title-1'],
+          taste_like_img_2: section.settings['taste-like-img-2'],
+          taste_like_emoji_2: section.settings['taste-like-emoji-2'],
+          taste_like_text_2: section.settings['taste-like-title-2'],
+          taste_like_img_3: section.settings['taste-like-img-3'],
+          taste_like_emoji_3: section.settings['taste-like-emoji-3'],
+          taste_like_text_3: section.settings['taste-like-title-3'] %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-slider.js' | asset_url }}" defer="defer"></script>
+
+<script type="application/json" id="product-variants">
+  {{ section.settings.selected-product.variants | json }}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('product-form form');
+  if (!form) return;
+
+  const variants = JSON.parse(
+    document.getElementById('product-variants').textContent
+  );
+
+  const dietInputs = form.querySelectorAll(
+    'input[type="radio"][name^="options["]'
+  );
+
+  const sellingPlanInputs = form.querySelectorAll(
+    'input[name="selling_plan"]'
+  );
+
+  const variantInput = form.querySelector('input[name="id"]');
+
+  // Global variables for one-time purchase elements
+  const lowSugarOneTime = document.querySelector(
+    '#one_time_purchase_low-sugar-one-time'
+  );
+
+  const sugarFreeOneTime = document.querySelector(
+    '#one_time_purchase_sugar-free-one-time'
+  );
+
+  // Add click event listeners
+  if (lowSugarOneTime) {
+    lowSugarOneTime.addEventListener('click', function() {
+      const hiddenPurchase = this.querySelector('.hidden_purchase');
+      if (hiddenPurchase) {
+        hiddenPurchase.classList.toggle('tw-hidden');
+      }
+    });
+    
+    // Prevent toggle when clicking the button inside
+    const lowSugarButton = lowSugarOneTime.querySelector('.hidden_purchase button');
+    if (lowSugarButton) {
+      lowSugarButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+  }
+
+  if (sugarFreeOneTime) {
+    sugarFreeOneTime.addEventListener('click', function() {
+      const hiddenPurchase = this.querySelector('.hidden_purchase');
+      if (hiddenPurchase) {
+        hiddenPurchase.classList.toggle('tw-hidden');
+      }
+    });
+    
+    // Prevent toggle when clicking the button inside
+    const sugarFreeButton = sugarFreeOneTime.querySelector('.hidden_purchase button');
+    if (sugarFreeButton) {
+      sugarFreeButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+  }
+
+  /* --------------------------------------------
+   * Swiper DOM references
+   * ------------------------------------------ */
+  const mainWrapper = document.querySelector('.product-slider .swiper-wrapper');
+  const thumbWrapper = document.querySelector('.product-thumb .swiper-wrapper');
+
+  if (!mainWrapper || !thumbWrapper) return;
+
+  // Store original slides ONCE
+  const originalMainSlides = Array.from(mainWrapper.children);
+  const originalThumbSlides = Array.from(thumbWrapper.children);
+
+  // selling_plan_id -> variant_id
+  let sellingPlanVariantMap = {};
+
+  /* --------------------------------------------
+   * Utilities
+   * ------------------------------------------ */
+  function formatMoney(cents) {
+    return `$${(cents / 100).toFixed(2)}`;
+  }
+
+  function getDiscountPercent(originalPrice, salePrice) {
+    if (
+      !originalPrice ||
+      originalPrice <= 0 ||
+      !salePrice ||
+      salePrice >= originalPrice
+    ) {
+      return 0;
+    }
+
+    return Math.round(
+      ((originalPrice - salePrice) / originalPrice) * 100
+    );
+  }
+
+  /* --------------------------------------------
+   * Rebuild sliders by diet (CORE FIX)
+   * ------------------------------------------ */
+  function rebuildSlidersByDiet(dietValue) {
+  // Destroy existing Swipers
+  if (window.productSliders?.main_swiper) {
+    window.productSliders.main_swiper.destroy(true, true);
+    window.productSliders.main_swiper = null;
+  }
+
+  if (window.productSliders?.thumb_swiper) {
+    window.productSliders.thumb_swiper.destroy(true, true);
+    window.productSliders.thumb_swiper = null;
+  }
+
+  // Clear DOM
+  mainWrapper.innerHTML = '';
+  thumbWrapper.innerHTML = '';
+
+  // Filter logic:
+  // - include images matching the diet
+  // - include "General" images
+  const filteredMainSlides = originalMainSlides.filter(slide => {
+    const img = slide.querySelector('img');
+    if (!img) return false;
+
+    return (
+      img.alt === dietValue ||
+      img.alt === 'General'
+    );
+  });
+
+  const filteredThumbSlides = originalThumbSlides.filter(slide => {
+    const img = slide.querySelector('img');
+    if (!img) return false;
+
+    return (
+      img.alt === dietValue ||
+      img.alt === 'General'
+    );
+  });
+
+  // Append slides
+  filteredMainSlides.forEach(slide => mainWrapper.appendChild(slide));
+  filteredThumbSlides.forEach(slide => thumbWrapper.appendChild(slide));
+
+  // Re-init Swiper
+  initProductSliders();
+}
+
+
+  /* --------------------------------------------
+   * Diet → Selling plans + sliders
+   * ------------------------------------------ */
+  function handleDietChange(dietValue) {
+    console.log('🔄 handleDietChange called with dietValue:', dietValue);
+
+    if (!dietValue) {
+      console.log('❌ No dietValue provided, returning');
+      return;
+    }
+
+    if (lowSugarOneTime) lowSugarOneTime.classList.add('tw-hidden');
+    if (sugarFreeOneTime) sugarFreeOneTime.classList.add('tw-hidden');
+    if (dietValue === 'Low Sugar') {
+      if (lowSugarOneTime) lowSugarOneTime.classList.remove('tw-hidden');
+      console.log('✅ Showing Low Sugar one-time purchase');
+    } else if (dietValue === 'Sugar Free') {
+      if (sugarFreeOneTime) sugarFreeOneTime.classList.remove('tw-hidden');
+      console.log('✅ Showing Sugar Free one-time purchase');
+    }
+
+    // Rebuild sliders FIRST
+    rebuildSlidersByDiet(dietValue);
+
+    // Filter variants by diet
+    const filteredVariants = variants.filter(
+      variant => variant.option1 === dietValue
+    );
+    console.log('📊 Filtered variants for diet:', dietValue, filteredVariants);
+
+    // Get all selling plan inputs (dynamic count)
+    const sellingPlanInputs = form.querySelectorAll('input[name="selling_plan"]');
+    console.log('🎯 Found selling plan inputs:', sellingPlanInputs.length, Array.from(sellingPlanInputs).map(input => ({ id: input.id, index: input.dataset.planIndex })));
+
+    if (filteredVariants.length < sellingPlanInputs.length) {
+      console.warn('⚠️ Not enough variants for available selling plans:', {
+        dietValue,
+        availableVariants: filteredVariants.length,
+        neededPlans: sellingPlanInputs.length
+      });
+      return;
+    }
+
+    // Build selling plan → variant map
+    sellingPlanVariantMap = {};
+    console.log('🗺️ Building plan-to-variant mapping...');
+
+    // Update each selling plan input with corresponding variant data
+    sellingPlanInputs.forEach((input, index) => {
+      const variant = filteredVariants[index];
+      console.log(`🔗 Processing Plan ${index} (${input.id}):`, {
+        variantTitle: variant?.title,
+        variantId: variant?.id,
+        hasSellingPlanAllocations: variant?.selling_plan_allocations?.length > 0
+      });
+
+      if (!variant?.selling_plan_allocations?.length) {
+        console.warn(`❌ Missing selling plan allocation for variant ${index}:`, variant);
+        return;
+      }
+
+      // Assign selling plan ID
+      const sellingPlanId = variant.selling_plan_allocations[0].selling_plan_id;
+      input.value = sellingPlanId;
+      console.log(`✅ Set selling plan ID for Plan ${index}:`, sellingPlanId);
+
+      // Map selling plan to variant
+      sellingPlanVariantMap[sellingPlanId] = variant.id;
+      console.log(`🗺️ Mapped selling plan ${sellingPlanId} to variant ${variant.id}`);
+
+      // Update prices for this plan
+      const planIndex = input.dataset.planIndex;
+      const newPrice = formatMoney(variant.selling_plan_allocations[0].price);
+      const originalPrice = formatMoney(variant.price);
+      const perDayPrice = formatMoney(variant.selling_plan_allocations[0].unit_price);
+      const discountPercent = getDiscountPercent(
+        variant.selling_plan_allocations[0].compare_at_price,
+        variant.selling_plan_allocations[0].price
+      );
+
+      console.log(`💰 Updating prices for Plan ${planIndex}:`, {
+        price: newPrice,
+        originalPrice,
+        perDayPrice,
+        discountPercent: discountPercent + '% off'
+      });
+
+      // Only update elements if they exist (not hidden in kids mode)
+      const priceElement = document.querySelector(`#plan-price-${planIndex}`);
+      const originalPriceElement = document.querySelector(`#plan-original-price-${planIndex}`);
+      const perDayElement = document.querySelector(`#per-day-${planIndex}`);
+      const percentElement = document.querySelector(`#selling_plan_percent_${planIndex}`);
+
+      if (priceElement) priceElement.textContent = newPrice;
+      if (originalPriceElement) originalPriceElement.textContent = originalPrice;
+      if (perDayElement) perDayElement.textContent = perDayPrice;
+      if (percentElement) percentElement.textContent = discountPercent + '% off';
+    });
+
+    console.log('🗺️ Final selling plan mapping:', sellingPlanVariantMap);
+
+    // Preserve current selection or default to first if none selected
+    const currentlySelected = form.querySelector('input[name="selling_plan"]:checked');
+    console.log('🎯 Current selection:', currentlySelected ? currentlySelected.id : 'none');
+
+    if (!currentlySelected && sellingPlanInputs.length > 0) {
+      console.log('🎯 No selection, defaulting to first plan');
+      sellingPlanInputs[0].checked = true;
+      variantInput.value = sellingPlanVariantMap[sellingPlanInputs[0].value];
+      updateSubscriptionText(sellingPlanInputs[0].id);
+      console.log('✅ Set default selection to:', sellingPlanInputs[0].id);
+    } else if (currentlySelected) {
+      console.log('🎯 Preserving existing selection:', currentlySelected.id);
+      // Update variant ID for the currently selected plan
+      variantInput.value = sellingPlanVariantMap[currentlySelected.value];
+      updateSubscriptionText(currentlySelected.id);
+      console.log('✅ Updated variant ID to:', sellingPlanVariantMap[currentlySelected.value]);
+    }
+  }
+
+  /* --------------------------------------------
+   * Selling plan → Variant mapping
+   * ------------------------------------------ */
+  sellingPlanInputs.forEach((input, index) => {
+    input.addEventListener('change', () => {
+      if (!input.checked) return;
+
+      const variantId = sellingPlanVariantMap[input.value];
+      if (!variantId) return;
+
+      variantInput.value = variantId;
+
+      // Update quantity based on plan index (1-based)
+      const quantityInput = form.querySelector('input[name="quantity"]');
+      if (quantityInput) {
+        quantityInput.value = index + 1;
+        console.log(`📦 Updated quantity to ${index + 1} for plan ${index} (${input.id})`);
+      }
+
+      // Update subscription text based on selection
+      updateSubscriptionText(input.id);
+    });
+  });
+
+  // Function to update subscription text
+  function updateSubscriptionText(selectedPlanId) {
+    const subscriptionTextElements = document.querySelectorAll('.tw-flex.tw-flex-col > div.tw-h-\\[25px\\] p');
+    if (subscriptionTextElements.length > 0 && selectedPlanId) {
+      // Get the selected plan input and its gummies per month
+      const selectedInput = document.getElementById(selectedPlanId);
+      if (selectedInput) {
+        const gummiesPerMonth = selectedInput.dataset.gummiesPerMonth;
+        const packsPerMonth = Math.ceil(gummiesPerMonth / 28); // Assuming 28 gummies per pack
+
+        subscriptionTextElements[0].textContent = `${packsPerMonth} packs every 4 weeks (${gummiesPerMonth} gummies)`;
+      }
+    }
+  }
+
+  /* --------------------------------------------
+   * Diet bindings
+   * ------------------------------------------ */
+  dietInputs.forEach(input => {
+    input.addEventListener('change', () => {
+      if (input.checked) {
+        handleDietChange(input.value);
+      }
+    });
+  });
+
+  /* --------------------------------------------
+   * Init on page load
+   * ------------------------------------------ */
+  dietInputs.forEach(input => {
+    if (input.checked) {
+      handleDietChange(input.value);
+    }
+  });
+  
+  // Set initial subscription text based on default selection
+  const defaultSelectedPlan = form.querySelector('input[name="selling_plan"]:checked');
+  if (defaultSelectedPlan) {
+    updateSubscriptionText(defaultSelectedPlan.id);
+  }
+});
+
+// Modal trigger
+document.addEventListener('click', function(e) {
+  const button = e.target.closest('#view-nutrition-label-btn');
+  if (button) {
+    // Get image URLs from data attributes
+    const lowSugarImage = button.dataset.lowSugarImage;
+    const sugarFreeImage = button.dataset.sugarFreeImage;
+
+    // Create and show modal
+    const modalHTML = `
+      <section class="modal-overlay tw-flex tw-justify-center tw-py-[50px] tw-bg-[#000000]/[60%] tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-z-50">
+        <div class="tw-overflow-y-scroll tw-max-w-[85%] tw-min-w-[85%] tw-w-full tw-bg-white tw-flex tw-flex-col tw-items-center tw-relative">
+          <button class="modal-close tw-absolute tw-top-4 tw-right-4 tw-w-8 tw-h-8 tw-rounded-full tw-bg-gray-200 hover:tw-bg-gray-300 tw-flex tw-items-center tw-justify-center tw-transition-colors tw-duration-200 tw-z-10">
+            <span class="tw-text-black tw-text-xl tw-font-bold">×</span>
+          </button>
+          <div class="tw-w-[90%] tw-py-[24px] tw-px-[20px] tw-flex tw-flex-col">
+            <div class="tw-flex tw-w-full tw-border tw-border-black tw-border-solid tw-rounded-xl">
+              <div class="modal-tab tw-w-[50%] tw-text-center tw-border-r tw-border-r-black tw-border tw-border-solid tw-border-y-0 tw-border-l-0 tw-cursor-pointer tw-transition-colors tw-duration-200 active-tab" data-tab="low-sugar">
+                <h2 class="!tw-m-0 tw-text-[16px] tw-font-bold">Low Sugar</h2>
+              </div>
+              <div class="modal-tab tw-w-[50%] tw-text-center tw-border-l tw-border-l-black tw-border tw-border-solid tw-border-y-0 tw-border-r-0 tw-cursor-pointer tw-transition-colors tw-duration-200" data-tab="sugar-free">
+                <h2 class="!tw-m-0 tw-text-[16px] tw-font-bold">Sugar-Free</h2>
+              </div>
+            </div>
+            <div class="tab-content active" data-tab-content="low-sugar">
+              <img src="${lowSugarImage}" alt="Low Sugar Nutrition Label" width="100%" height="auto">
+            </div>
+            <div class="tab-content tw-hidden" data-tab-content="sugar-free">
+              <img src="${sugarFreeImage}" alt="Sugar Free Nutrition Label" width="100%" height="auto">
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    // Append modal to body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    // Initialize modal functionality (tabs and close)
+    initializeModal();
+  }
+});
+
+function initializeModal() {
+  (function() {
+    // Prevent multiple bindings
+    if (window.modalTabsInitialized) return;
+    window.modalTabsInitialized = true;
+
+    // Close modal function
+    function closeModal(clickedElement) {
+      // If a specific element was clicked, find its modal parent
+      if (clickedElement) {
+        const modal = clickedElement.closest('.modal-overlay');
+        if (modal) {
+          modal.remove();
+          return;
+        }
+      }
+
+      // Fallback: remove all modals
+      const modals = document.querySelectorAll('.modal-overlay');
+      modals.forEach(modal => {
+        modal.remove();
+      });
+    }
+
+    document.addEventListener('click', function(e) {
+      // Handle modal close button
+      if (e.target.closest('.modal-close')) {
+        closeModal();
+        return;
+      }
+
+      // Handle tab clicks
+      if (e.target.closest('.modal-tab')) {
+        const tab = e.target.closest('.modal-tab');
+        const tabName = tab.dataset.tab;
+
+        // Remove active class from all tabs
+        document.querySelectorAll('.modal-tab').forEach(t => {
+          t.classList.remove('active-tab');
+          t.classList.remove('tw-bg-[#007e40]');
+          t.classList.add('tw-text-black');
+        });
+
+        // Add active class to clicked tab
+        tab.classList.add('active-tab');
+        tab.classList.add('tw-bg-[#007e40]');
+        tab.classList.add('tw-text-white');
+
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.add('tw-hidden');
+          content.classList.remove('active');
+        });
+
+        // Show selected tab content
+        const activeContent = document.querySelector(`[data-tab-content="${tabName}"]`);
+        if (activeContent) {
+          activeContent.classList.remove('tw-hidden');
+          activeContent.classList.add('active');
+        }
+      }
+    });
+
+    // Close modal when clicking on overlay (outside modal content)
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal-overlay')) {
+        closeModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Set initial active tab
+    const firstTab = document.querySelector('.modal-tab');
+    if (firstTab) {
+      firstTab.classList.add('active-tab');
+      firstTab.classList.add('tw-bg-[#007e40]');
+      firstTab.classList.add('tw-text-white');
+    }
+  })();
+}
+</script>
+
+
+{% schema %}
+{
+  "name": "Product Page",
+  "settings": [
+    {
+      "type": "product",
+      "id": "selected-product",
+      "label": "Select Product"
+    },
+    {
+      "type": "color",
+      "id": "sale_percentage_badge_bg_color",
+      "label": "Sale Percentage Badge Background Color",
+      "default": "#007e40"
+    },
+    {
+      "type": "checkbox",
+      "id": "kids",
+      "label": "Kids",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Diet Type Picker Settings"
+    },
+    {
+      "type": "color",
+      "id": "diet_picker_main_bg",
+      "label": "Diet Picker Main Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "diet_picker_active_bg",
+      "label": "Diet Picker Active Background",
+      "default": "#e3f2e8"
+    },
+    {
+      "type": "color",
+      "id": "diet_picker_text_color",
+      "label": "Diet Picker Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Start Now Button Settings"
+    },
+    {
+      "type": "color",
+      "id": "start_now_button_bg_color",
+      "label": "Start Now Button Background Color",
+      "default": "#007e40"
+    },
+    {
+      "type": "color",
+      "id": "start_now_button_hover_bg_color",
+      "label": "Start Now Button Hover Background Color",
+      "default": "#00582d"
+    },
+    {
+      "type": "color",
+      "id": "start_now_button_text_color",
+      "label": "Start Now Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Discount Text settings",
+      "info": "This text will be displayed below the 'Start Now' button"
+    },
+    {
+      "type": "richtext",
+      "id": "discount_text",
+      "label": "Discount Text",
+      "default": "<p><strong><u>New Year's Discount Auto-Applied ✅</u></strong></p>"
+    },
+    {
+      "type": "color",
+      "id": "discount_text_bg_color",
+      "label": "Discount Text Background Color",
+      "default": "#FFE89F"
+    },
+    {
+      "type": "color",
+      "id": "discount_text_color",
+      "label": "Discount Text Color",
+      "default": "#000000",
+    },
+    {
+      "type": "checkbox",
+      "id": "show_discount_text",
+      "label": "Show Discount Text",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "accordion-label",
+      "label": "Accordion Label",
+      "default": "<p>HSA/FSA Eligible with Truemed. <strong><u>Learn More</u></strong>.</p>",
+    },
+    {
+      "type": "color",
+      "id": "accordion-color",
+      "label": "Accordion Color",
+      "default": "#002613",
+      "info": "This color will be applied to the accordion label"
+    },
+    {
+      "type": "header",
+      "content": "Tastes Like Settings",
+    },
+    {
+      "type": "image_picker",
+      "id": "taste-like-img-1",
+      "label": "Taste Like Image 1",
+      "info": "This will override emoji"
+    },
+    {
+      "type": "text",
+      "id": "taste-like-emoji-1",
+      "label": "Taste Like Emoji 1",
+      "default": "🍃",
+    },
+    {
+      "type": "text",
+      "id": "taste-like-title-1",
+      "label": "Taste Like Title 1",
+      "default": "Fresh & Light",
+    },
+    {
+      "type": "image_picker",
+      "id": "taste-like-img-2",
+      "label": "Taste Like Image 2",
+      "info": "This will override emoji"
+    },
+    {
+      "type": "text",
+      "id": "taste-like-emoji-2",
+      "label": "Taste Like Emoji 2",
+      "default": "🍓",
+    },
+    {
+      "type": "text",
+      "id": "taste-like-title-2",
+      "label": "Taste Like Title 2",
+      "default": "Strawberry",
+    },
+    {
+      "type": "image_picker",
+      "id": "taste-like-img-3",
+      "label": "Taste Like Image 3",
+      "info": "This will override emoji"
+    },
+    {
+      "type": "text",
+      "id": "taste-like-emoji-3",
+      "label": "Taste Like Emoji 3",
+      "default": "🥬",
+    },
+    {
+      "type": "text",
+      "id": "taste-like-title-3",
+      "label": "Taste Like Title 3",
+      "default": "Sweet Greens",
+    },
+  ],
+  "blocks": [
+    {
+      "type": "taste-like",
+      "name": "Tastes Like",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "This will override emoji"
+        },
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Emoji"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "product-accordion",
+      "name": "Product Accordion Blocks",
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Accordion Title",
+          "default": "Accordion Title",
+          "info": "This title will be displayed in the accordion",
+          "placeholder": "Accordion Title"
+        },
+        {
+          "type": "richtext",
+          "id": "accordion_content",
+          "label": "Accordion Content",
+          "default": "<p>accordion content here</p>"
+        },
+      ]
+    },
+    {
+      "type": "section_top_badge",
+      "name": "Section Top Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "Eligible for FSA/HSA"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge Text Color",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "type": "section_description",
+      "name": "Section Description",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "section_description",
+          "label": "Section Description",
+          "default": "<p>60+ whole-food nutrients in easy, great-tasting gummies backed by real results and a 30-day guarantee.</p>"
+        },
+        {
+          "type": "color",
+          "id": "description_color",
+          "label": "Description Color",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "type": "section_title",
+      "name": "Section Title",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "section_title",
+          "label": "Section Title",
+          "default": "<h2><strong> Limited Time New Year's Offer </strong>Save Up To 60% Off First Order</h2>"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "type": "star_reviews",
+      "name": "Star Reviews",
+      "settings": [
+        {
+          "type": "range",
+          "id": "star_rating",
+          "label": "Star Rating",
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "default": 5.0
+        },
+        {
+          "type": "color",
+          "id": "star_color",
+          "label": "Star Color",
+          "default": "#007E40FF"
+        },
+        {
+          "type": "richtext",
+          "id": "review_text_mobile",
+          "label": "Review Text (Mobile)",
+          "default": "<p>Based on 1000+ reviews</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "review_text_desktop",
+          "label": "Review Text (Desktop)",
+          "default": "<p>Based on 1000+ reviews</p>"
+        },
+        {
+          "type": "color",
+          "id": "review_font_color",
+          "label": "Review Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "strong_font_color",
+          "label": "Strong Text Color",
+          "default": "#007e40"
+        }
+      ]
+    },
+    {
+      "type": "selling_plan",
+      "name": "Selling Plan",
+      "settings": [
+        {
+          "type": "text",
+          "id": "plan_name",
+          "label": "Plan Name",
+          "default": "One Person",
+          "info": "The name/title of this selling plan"
+        },
+        {
+          "type": "text",
+          "id": "plan_description",
+          "label": "Plan Description",
+          "default": "Perfect for individual use",
+          "info": "Optional description for the plan"
+        },
+        {
+          "type": "number",
+          "id": "gummies_per_month",
+          "label": "Gummies Per Month",
+          "default": 224,
+          "info": "Number of gummies delivered per month for this plan"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Page",
+      "blocks": [
+        {
+          "type": "star_reviews"
+        },
+        {
+          "type": "selling_plan",
+          "settings": {
+            "plan_name": "One Person",
+            "gummies_per_month": 224
+          }
+        },
+        {
+          "type": "selling_plan",
+          "settings": {
+            "plan_name": "Two People",
+            "gummies_per_month": 448
+          }
+        },
+        {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🥦",
+            "title": "Whole Veggies"
+          }
+        },
+        {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🍇",
+            "title": "Whole Fruits"
+          }
+        },
+        {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "💊",
+            "title": "Vitamins and Minerals"
+          }
+        },
+        {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🧠",
+            "title": "Adaptogens"
+          }
+        },
+        {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🌿",
+            "title": "Herbs"
+          }
+        },
+        {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🛡️",
+            "title": "Antioxidants"
+          }
+        },
+        {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🦠",
+            "title": "Prebiotics"
+          }
+        },
+        {
+          "type": "taste-like",
+          "settings": {
+            "emoji": "🍄",
+            "title": "Super Mushrooms"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

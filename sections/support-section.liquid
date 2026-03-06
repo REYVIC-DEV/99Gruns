@@ -1,0 +1,184 @@
+<style>
+	.border-image {
+		border: 2px solid #000000;
+	}
+
+	 @media screen and (min-width: 768px) {
+        .main_title {
+            font-size: 44px;
+			text-align: center;
+        }
+    }
+</style>
+
+<section>
+	<div class="page-width tw-flex tw-flex-col lg:tw-flex-row md:tw-justify-between tw-gap-6 md:tw-gap-8 lg:tw-gap-[80px] tw-py-[70px]">
+
+		<!-- LEFT IMAGE -->
+		<div class="tw-max-w-[367px] md:tw-max-w-[700px]">
+			{% if section.settings.image_selector != blank %}
+				<img
+					src="{{ section.settings.image_selector | image_url }}"
+					alt="Featured Picture"
+					width="full"
+					height="600"
+					class="tw-w-[375px] tw-h-[365px] md:tw-w-[650px] lg:tw-w-[600px] md:tw-h-[600px] tw-shadow-[inset_0_0_0_0.5px_#000,5px_5px_0_#000] tw-rounded-[20px] border-image"
+				>
+			{% else %}
+				<img
+					src="{{ 'All_The_Support_They_Need.webp' | asset_url }}"
+					alt="Featured Picture"
+					width="full"
+					height="600"
+					class="tw-w-[375px] tw-h-[365px] md:tw-w-[650px] lg:tw-w-[600px] md:tw-h-[600px] tw-shadow-[inset_0_0_0_0.5px_#000,5px_5px_0_#000] tw-rounded-[20px] border-image"
+				>
+			{% endif %}
+		</div>
+
+		<!-- RIGHT COLUMN (TITLE + GRID) -->
+		<div class="tw-flex tw-flex-col tw-gap-8 tw-items-center lg:tw-items-start tw-flex-1">
+
+			<!-- TITLE + SUBHEADING -->
+			<div class="tw-flex tw-flex-col tw-gap-5 tw-text-center lg:tw-text-center">
+				<h2
+					class="tw-text-[32px] tw-font-dm-sans tw-my-0 tw-font-bold main_title"
+					style="color: {{ section.settings.highlight_color }};"
+				>
+					{{ section.settings.main_title }}
+				</h2>
+
+				<p class="tw-text-[18px] md:tw-text-[20px] tw-font-dm-sans tw-my-0 tw-text-black">
+					{{ section.settings.subheading }}
+				</p>
+			</div>
+
+			<!-- SERVICES GRID -->
+			{% if section.blocks.size > 0 %}
+				<div
+					class="
+						tw-grid
+						tw-grid-cols-2
+						tw-gap-x-12
+						tw-gap-y-12
+						tw-items-center
+					"
+				>
+					{% for block in section.blocks %}
+
+						<!-- LEFT SERVICE -->
+						<div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-3">
+							{% if block.settings.image_1 %}
+								{{ block.settings.image_1 | image_url: width: 48 | image_tag }}
+							{% endif %}
+							<h4
+								class="!tw-m-0 tw-font-semibold tw-text-[20px]"
+								style="color: {{ section.settings.service_text_color }};"
+							>
+								{{ block.settings.title_1 }}
+							</h4>
+							<p class="!tw-m-0 tw-text-[14px] md:tw-text-[16px] tw-leading-[140%] tw-text-black">
+								{{ block.settings.description_1 }}
+							</p>
+						</div>
+
+						<!-- RIGHT SERVICE -->
+						<div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-3">
+							{% if block.settings.image_2 %}
+								{{ block.settings.image_2 | image_url: width: 48 | image_tag }}
+							{% endif %}
+							<h4
+								class="!tw-m-0 tw-font-semibold tw-text-[20px]"
+								style="color: {{ section.settings.service_text_color }};"
+							>
+								{{ block.settings.title_2 }}
+							</h4>
+							<p class="!tw-m-0 tw-text-[14px] md:tw-text-[16px] tw-leading-[140%] tw-text-black">
+								{{ block.settings.description_2 }}
+							</p>
+						</div>
+
+					{% endfor %}
+				</div>
+			{% endif %}
+
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Support Section",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "image_selector",
+			"label": "Image Picker Left"
+		},
+		{
+			"type": "text",
+			"id": "main_title",
+			"label": "Main Title",
+			"default": "All The Support They Need"
+		},
+		{
+			"type": "color",
+			"id": "highlight_color",
+			"label": "Highlight Color for Row 2",
+			"default": "#007e40"
+		},
+		{
+			"type": "text",
+			"id": "subheading",
+			"label": "Subheading",
+			"default": "60+ whole-food ingredients packed into a small pack of gummy bears."
+		},
+		{
+			"type": "color",
+			"id": "service_text_color",
+			"label": "Service Text Color",
+			"default": "#007e40"
+		}
+	],
+	"blocks": [
+		{
+			"type": "service_container",
+			"name": "Service Container",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image_1",
+					"label": "Image 1"
+				},
+				{
+					"type": "text",
+					"id": "title_1",
+					"label": "Title 1"
+				},
+				{
+					"type": "textarea",
+					"id": "description_1",
+					"label": "Description 1"
+				},
+				{
+					"type": "image_picker",
+					"id": "image_2",
+					"label": "Image 2"
+				},
+				{
+					"type": "text",
+					"id": "title_2",
+					"label": "Title 2"
+				},
+				{
+					"type": "textarea",
+					"id": "description_2",
+					"label": "Description 2"
+				}
+			]
+		}
+	],
+	"presets": [
+		{ "name": "Support Section" }
+	]
+}
+{% endschema %}

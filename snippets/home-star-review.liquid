@@ -1,0 +1,75 @@
+{% comment %}
+  Home Star Reviews Snippet
+
+  This snippet renders a dynamic star rating display with full and half stars.
+
+  Usage:
+    Basic: {% render 'home-star-reviews' %}
+    With custom rating: {% render 'home-star-reviews', rating: 4.5 %}
+
+  Parameters:
+    rating (number): Star rating value (1-5, supports half stars), defaults to 5
+    star_color (string): Hex color for the stars
+    review_text (string): Text to display next to stars
+    font_color (string): Color for the review text
+{% endcomment %}
+
+{% assign rating = rating | default: 5.0 | times: 1.0 %}
+{% assign star_color = star_color %}
+{% assign review_text_mobile = review_text_mobile %}
+{% assign review_text_desktop = review_text_desktop %}
+{% assign font_color = font_color %}
+{% assign strong_font_color = strong_font_color %}
+
+{% assign full_stars = rating | floor %}
+{% assign decimal_part = rating | modulo: 1.0 %}
+{% if decimal_part == 0.5 %}
+  {% assign has_half = true %}
+{% else %}
+  {% assign has_half = false %}
+{% endif %}
+
+<style>
+.star__reviews-container{
+  display    : flex;
+  font-family: var(--font-heading-family);
+  align-items: center;
+  gap        : 10px;
+}
+.star__reviews-container p{
+  color    : {{ font_color }};
+  font-size: 14px;
+  margin: 0 !important;
+}
+@media screen and (min-width: 1280px) {
+  .star__reviews-container p {
+    font-size: 16px;
+  }
+}
+.star__reviews-container strong {
+  color: {{ strong_font_color }};
+}
+.star__reviews-container svg {
+  width: 16px;
+  height: 16px;
+}
+@media screen and (min-width: 1280px) {
+  .star__reviews-container svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+</style>
+
+<section class="star__reviews-container tw-flex tw-justify-center md:tw-justify-start md:tw-flex-nowrap md:tw-text-nowrap">
+  <div class="tw-flex">
+    {% for i in (1..full_stars) %}
+      {% render 'icon-home-star', color: star_color %}
+    {% endfor %}
+    {% if has_half %}
+      {% render 'icon-half-star', color: star_color %}
+    {% endif %}
+  </div>
+  <div class="tw-block xl:tw-hidden">{{ review_text_mobile }}</div>
+  <div class="tw-hidden xl:tw-block">{{ review_text_desktop }}</div>
+</section>

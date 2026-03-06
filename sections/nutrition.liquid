@@ -1,0 +1,373 @@
+<style>
+    .section-{{ section.id }}-padding {
+		padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+		padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+	}
+
+	@media screen and (min-width: 750px) {
+		.section-{{ section.id }}-padding {
+			padding-top: {{ section.settings.padding_top }}px;
+			padding-bottom: {{ section.settings.padding_bottom }}px;
+		}
+	}
+</style>
+
+<section class="tw-bg-[#FFF2CB] section-{{ section.id }}-padding">
+    <div class="page-width tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-items-center tw-gap-8 lg:tw-gap-16">
+
+    <!-- LEFT: CONTENT -->
+    <div class="tw-order-2 md:tw-order-1 tw-flex tw-flex-col tw-items-center lg:tw-items-center tw-text-center lg:tw-text-left tw-gap-8">
+
+        <div class="tw-flex tw-flex-col tw-items-center tw-gap-2">
+            <h2
+            class="tw-font-dm-sans tw-font-semibold tw-tracking-tighter tw-leading-[110%]
+                    tw-text-[32px] md:tw-text-[44px]
+                    tw-max-w-[280px] md:tw-max-w-[380px] 
+                    tw-my-0 tw-text-center"
+            style="color: {{ section.settings.highlight_color_1 }};"
+            >
+            {{ section.settings.main_title }}
+            </h2>
+
+            <div class="tw-w-full tw-flex tw-justify-center">
+            {% render 'KidsScribble' %}
+            </div>
+
+            <h3 class="tw-mt-4 tw-font-dm-sans tw-font-semibold tw-text-[20px] md:tw-text-[24px] tw-text-center">
+            {{ section.settings.subheading }}
+            </h3>
+        </div>
+
+        <!-- STATS -->
+        <div class="tw-w-full tw-flex tw-flex-col md:tw-flex-row tw-gap-8 md:tw-gap-12 tw-justify-center">
+            {%- for block in section.blocks -%}
+                {%- if block.type == 'stats_horizontal' -%}
+                    <div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-3 tw-w-full md:tw-w-1/2">
+                    <p
+                        style="color: {{ block.settings.first_box_color }};"
+                        class="tw-m-0 tw-leading-[110%] tw-text-[72px] md:tw-text-[96px] lg:tw-text-[100px]"
+                    >
+                        {{ block.settings.percent }}
+                    </p>
+
+                    <p class="tw-m-0 tw-text-[12px] md:tw-text-[13px] tw-leading-[160%] tw-tracking-tighter tw-max-w-[320px]">
+                        {{ block.settings.description }}
+                    </p>
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+
+        <!-- BUTTON -->
+        <a
+        href="#product-page-section"
+        class="
+            tw-mt-2
+            tw-inline-flex tw-items-center tw-justify-center
+            tw-font-bold tw-no-underline
+            tw-rounded-full
+            tw-bg-[#007e40] hover:tw-bg-[#00582d] tw-text-white
+
+            hover:tw-shadow-[0_0_0_0.5px_#000,2px_2px_0_#000]
+            hover:tw-translate-x-1 hover:tw-translate-y-1
+            tw-shadow-[inset_0_0_0_0.5px_#000,3px_3px_0_#000]
+            tw-transition-all tw-duration-300 tw-ease-out
+
+            tw-w-full lg:tw-w-[420px]
+
+            tw-px-[32px] tw-py-[12px]
+
+            tw-text-[16px] md:tw-text-[20px]
+            tw-leading-[120%]
+            tw-tracking-tighter
+
+            tw-text-center
+            tw-whitespace-normal md:tw-whitespace-nowrap
+        "
+        >
+        {{ section.settings.button_text }}
+        </a>
+
+
+      <!-- SOURCES -->
+      <div class="tw-mt-2 tw-flex tw-w-full tw-justify-center lg:tw-justify-center tw-gap-6">
+        <a
+          href="{{ section.settings.source_1 }}"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          class="tw-text-[10px] tw-leading-[160%] tw-underline tw-text-[rgba(0,31,16,0.5)]"
+        >
+          ¹Source
+        </a>
+        <a
+          href="{{ section.settings.source_2 }}"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          class="tw-text-[10px] tw-leading-[160%] tw-underline tw-text-[rgba(0,31,16,0.5)]"
+        >
+          ²Source
+        </a>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: IMAGE -->
+    <div class="tw-order-1 md:tw-order-2 tw-flex tw-justify-center lg:tw-justify-end">
+      {% if section.settings.image_right != blank %}
+        <img
+          src="{{ section.settings.image_right | image_url: width: 900 }}"
+          alt="{{ section.settings.image_right.alt | escape }}"
+          width="{{ section.settings.image_right.width }}"
+          height="{{ section.settings.image_right.height }}"
+          loading="lazy"
+          decoding="async"
+          class="tw-w-full tw-h-auto tw-max-w-[369px] md:tw-max-w-[678px] lg:tw-max-w-[617px]"
+        >
+      {% else %}
+        <img
+          src="{{ 'Kids_Need_Nutrition.webp' | asset_url }}"
+          alt="Kids Need Nutrition"
+          width="678"
+          height="678"
+          loading="lazy"
+          decoding="async"
+          class="tw-w-full tw-h-auto tw-max-w-[369px] md:tw-max-w-[678px] lg:tw-max-w-[617px]"
+        >
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- QUALITY SECTION: FULL WIDTH BELOW (like reference) -->
+    {% for block in section.blocks %}
+        {% if block.type == 'quality' %}
+            <div class="tw-mt-16">
+                <div class="page-width tw-py-16 tw-flex tw-flex-col tw-items-center">
+                    <div class="tw-flex tw-flex-col tw-gap-[8px] tw-w-full tw-justify-center tw-items-center tw-text-center">
+
+                        <div class="tw-flex tw-justify-center md:tw-hidden">
+                            {% if block.settings.eurofins_img != blank %}
+                            <img
+                                src="{{ block.settings.eurofins_img | image_url: width: 520 }}"
+                                class="tw-w-[140.56px] tw-h-[30px] md:tw-w-[234.38px] md:tw-h-[50px]"
+                                loading="lazy"
+                                decoding="async"
+                                width="234"
+                                height="50"
+                                alt="{{ block.settings.eurofins_img.alt | escape }}"
+                            >
+                            {% else %}
+                            <img
+                                src="{{ 'euroquad_RGB_-transparent.webp' | asset_url }}"
+                                class="tw-w-[140.56px] tw-h-[30px] md:tw-w-[234.38px] md:tw-h-[50px]"
+                                loading="lazy"
+                                decoding="async"
+                                alt="Eurofins"
+                                width="234"
+                                height="50"
+                            >
+                            {% endif %}
+                        </div>
+
+                        <h3
+                        style="color: {{ block.settings.text_color }};"
+                        class="tw-m-0 tw-text-[32px] md:tw-text-[44px] tw-leading-[110%] tw-font-bold"
+                        >
+                        {{ block.settings.title }}
+                        </h3>
+
+                        <p class="tw-mt-0 tw-mb-0 tw-text-[14px] md:tw-text-[20px] tw-leading[160%] tw-max-w-[700px] tw-tracking-tight tw-px-[15px] md:tw-px-0">
+                        {{ block.settings.quality_subheading }}
+                        </p>
+                    </div>
+                    
+                    <div class="tw-mt-10 tw-flex tw-flex-col md:tw-flex-row tw-items-center tw-gap-10 md:tw-gap-16">
+
+                        <!-- Eurofins logo -->
+                        <div class="tw-hidden md:tw-flex tw-justify-center">
+                            {% if block.settings.eurofins_img != blank %}
+                            <img
+                                src="{{ block.settings.eurofins_img | image_url: width: 520 }}"
+                                class="tw-w-[140.56px] tw-h-[30px] md:tw-w-[234.38px] md:tw-h-[50px]"
+                                loading="lazy"
+                                decoding="async"
+                                width="234"
+                                height="50"
+                                alt="{{ block.settings.eurofins_img.alt | escape }}"
+                            >
+                            {% else %}
+                            <img
+                                src="{{ 'euroquad_RGB_-transparent.webp' | asset_url }}"
+                                class="tw-w-[140.56px] tw-h-[30px] md:tw-w-[234.38px] md:tw-h-[50px]"
+                                loading="lazy"
+                                decoding="async"
+                                alt="Eurofins"
+                                width="234"
+                                height="50"
+                            >
+                            {% endif %}
+                        </div>
+
+                        <!-- List -->
+                        <div class="tw-flex tw-flex-col tw-gap-0 tw-leading-tight">
+                            <div class="tw-flex tw-items-center tw-gap-2">
+                                <span class="tw-flex tw-shrink-0">{% render 'icon-polygon-x' %}</span>
+                                <p class="tw-m-0 tw-text-[14px] tw-tracking-tight">70 Different pesticides</p>
+                            </div>
+                            <div class="tw-flex tw-items-center tw-gap-2">
+                                <span class="tw-flex tw-shrink-0">{% render 'icon-polygon-x' %}</span>
+                                <p class="tw-m-0 tw-text-[14px] tw-tracking-tight">4 types of heavy metals</p>
+                            </div>
+                            <div class="tw-flex tw-items-center tw-gap-2">
+                                <span class="tw-flex tw-shrink-0">{% render 'icon-polygon-x' %}</span>
+                                <p class="tw-m-0 tw-text-[14px] tw-tracking-tight">16 different contaminants</p>
+                            </div>
+                            <div class="tw-flex tw-items-center tw-gap-2">
+                                <span class="tw-flex tw-shrink-0">{% render 'icon-polygon-x' %}</span>
+                                <p class="tw-m-0 tw-text-[14px] tw-tracking-tight">9 Microbial contaminants</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+</section>
+
+{% schema %}
+	{
+		"name": "Nutrition Section",
+		"settings": [
+            {
+                "type": "text",
+                "id": "main_title",
+                "label": "Main Title",
+                "default": "Kids Need Nutrition More Than Ever"
+            },
+            {
+                "type": "color",
+                "id": "highlight_color_1",
+                "label": "Highlight Color for Title",
+                "default": "#007E40"
+            },
+			{
+				"type": "text",
+				"id": "subheading",
+				"label": "Subheading",
+				"default": "Grüns Kids gummies build strong bodies and bright minds.",
+			},
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "Grüns Kids Gummies Can Support Both",
+            },
+            {
+                "type": "header",
+                "content": "Source Links"
+            },
+            {
+                "type": "text",
+                "id": "source_1",
+                "label": "Source Link 1",
+                "default": "https://archive.cdc.gov/www_cdc_gov/media/releases/2014/p0805-fruits-vegetables.html",
+            },
+            {
+                "type": "text",
+                "id": "source_2",
+                "label": "Source Link 2",
+                "default": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3262613/",
+            },
+            {
+                "type": "image_picker",
+                "id": "image_right",
+                "label": "Image Right"
+            },
+            {
+                "type": "header",
+                "content": "Top & Bottom Section Padding",
+            },
+            {
+				"type": "range",
+				"id": "padding_top",
+				"min": 0,
+				"max": 100,
+				"step": 4,
+				"unit": "px",
+				"label": "Padding top",
+				"default": 36
+			},
+			{
+				"type": "range",
+				"id": "padding_bottom",
+				"min": 0,
+				"max": 100,
+				"step": 4,
+				"unit": "px",
+				"label": "Padding bottom",
+				"default": 36
+			}
+		],
+		"blocks": [
+            {
+                "type": "stats_horizontal",
+                "name": "Stat Box",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "percent",
+                        "label": "Percent",
+                        "default": "90%"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Description",
+                        "default": "of U.S. children don’t eat enough vegetables each day — a key source of nutrients that support healthy growth and development.¹"
+                    },
+                    {
+                        "type": "color",
+                        "id": "first_box_color",
+                        "label": "Box Color",
+                        "default": "#007e40"
+                    },
+                ]
+            },
+            {
+                "name": "Quality",
+                "type": "quality",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Main Title",
+                        "default": "Quality You Can Trust",
+                    },
+                    {
+                        "type": "color",
+                        "id": "text_color",
+                        "label": "Text Color",
+                        "default": "#007e40"
+                    },
+                    {
+                        "type": "text",
+                        "id": "quality_subheading",
+                        "label": "Subheading",
+                        "default": "Our gummies are regularly tested for all 21 vitamins & minerals to ensure label claims are accurate and clear of contaminants including:",
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "eurofins_img",
+                        "label": "Eurofins Image"
+                    },
+                ]
+            }
+		],
+        "presets": [
+            {
+                "name": "Quality Section",
+                "settings": {}
+            }
+        ]
+	}
+{% endschema %}
