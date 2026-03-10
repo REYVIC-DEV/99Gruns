@@ -17,118 +17,116 @@
 {%- endif -%}
 
 <style>
-  header-drawer {
-    justify-self: start;
-    margin-left: -1.2rem;
-  }
-
-  {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
-    .scrolled-past-header .header__heading-logo-wrapper {
-      width: 75%;
+    header-drawer {
+      justify-self: start;
+      margin-left: -1.2rem;
     }
-  {%- endif -%}
 
-  {%- if section.settings.menu_type_desktop != "drawer" -%}
+    {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
+      .scrolled-past-header .header__heading-logo-wrapper {
+        width: 75%;
+      }
+    {%- endif -%}
+
+    {%- if section.settings.menu_type_desktop != "drawer" -%}
+      @media screen and (min-width: 1024px) {
+        header-drawer {
+          display: none;
+        }
+      }
+    {%- endif -%}
+
+    .menu-drawer-container {
+      display: flex;
+    }
+
+    .list-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .list-menu--inline {
+      display: inline-flex;
+      flex-wrap: wrap;
+    }
+
+    summary.list-menu__item {
+      padding-right: 2.7rem;
+    }
+
+    .list-menu__item {
+      display: flex;
+      align-items: center;
+      line-height: calc(1 + 0.3 / var(--font-body-scale));
+    }
+
+    .list-menu__item--link {
+      text-decoration: none;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      line-height: calc(1 + 0.8 / var(--font-body-scale));
+    }
+
     @media screen and (min-width: 1024px) {
-      header-drawer {
+      .list-menu__item--link {
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+      }
+    }
+
+    .custom-header-buttons a:hover{
+      color: {{ section.settings.color_scheme.settings.background }} !important;
+
+    }
+
+    .header__icon--cart .svg-wrapper svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      .header__icon--cart .svg-wrapper svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .account-visible {
+      display: none;
+    }
+
+    @media screen and (min-width: 1024px) {
+      .account-visible {
+        display: block;
+      }
+    }
+
+    .custom-desktop-flex {
+      display: none;
+    }
+
+    @media screen and (min-width: 1024px) {
+      .custom-desktop-flex {
+        display: flex;
+      }
+    }
+
+    .custom-desktop-hidden {
+      display: flex;
+    }
+
+    @media screen and (min-width: 1024px) {
+      .custom-desktop-hidden {
         display: none;
       }
     }
-  {%- endif -%}
 
-  .menu-drawer-container {
-    display: flex;
+
+  /* Hide when header is hidden */
+  .shopify-section-header-hidden {
+    top:-150px
   }
-
-  .list-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .list-menu--inline {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-
-  summary.list-menu__item {
-    padding-right: 2.7rem;
-  }
-
-  .list-menu__item {
-    display: flex;
-    align-items: center;
-    line-height: calc(1 + 0.3 / var(--font-body-scale));
-  }
-
-  .list-menu__item--link {
-    text-decoration: none;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    line-height: calc(1 + 0.8 / var(--font-body-scale));
-  }
-
-  @media screen and (min-width: 1024px) {
-    .list-menu__item--link {
-      padding-bottom: 0.5rem;
-      padding-top: 0.5rem;
-    }
-  }
-
-  .custom-header-buttons a:hover{
-    color: {{ section.settings.color_scheme.settings.background }} !important;
-
-  }
-
-  .header__icon--cart .svg-wrapper svg {
-    width: 25px;
-    height: 25px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    .header__icon--cart .svg-wrapper svg {
-      width: 30px;
-      height: 30px;
-    }
-  }
-
-  .account-visible {
-    display: none;
-  }
-
-  @media screen and (min-width: 1024px) {
-    .account-visible {
-      display: block;
-    }
-  }
-
-  .custom-desktop-flex {
-    display: none;
-  }
-
-  @media screen and (min-width: 1024px) {
-    .custom-desktop-flex {
-      display: flex;
-    }
-  }
-
-  .custom-desktop-hidden {
-    display: flex;
-  }
-
-  @media screen and (min-width: 1024px) {
-    .custom-desktop-hidden {
-      display: none;
-    }
-  }
-
-
-/* Hide when header is hidden */
-.shopify-section-header-hidden {
-  top:-150px
-}
-
-
 </style>
 
 {%- style -%}
@@ -250,22 +248,30 @@
         endif
       endif
     %}
-      <div class="custom-header-buttons tw-hidden custom-desktop-flex tw-gap-4 tw-items-center">
-        {%- if section.settings.button1_text != blank and section.settings.button1_link != blank -%}
-          <a href="{{ section.settings.button1_link }}" class="tw-text-[12px] tw-rounded-[35px] hover:tw-bg-white tw-transition-all tw-duration-500 tw-flex tw-items-center tw-justify-center tw-no-underline !tw-h-[26px] tw-py-[4px] tw-px-[16px]" style="border:1px solid {{ section.settings.color_scheme.settings.secondary_button_label }}; color:{{ section.settings.color_scheme.settings.button_label }}">
-            <span class="tw-text-[12px] tw-leading-4">
-              {{ section.settings.button1_text }}
-            </span>
-          </a>
-        {%- endif -%}
-        {%- if section.settings.button2_text != blank and section.settings.button2_link != blank -%}
-          <a href="{{ section.settings.button2_link }}" class="tw-text-[12px] tw-rounded-[35px] hover:tw-bg-white tw-transition-all tw-duration-500 tw-flex tw-items-center tw-justify-center tw-no-underline !tw-h-[26px] tw-py-[4px] tw-px-[16px]" style="border:1px solid {{ section.settings.color_scheme.settings.secondary_button_label }}; color:{{ section.settings.color_scheme.settings.button_label }}">
-            <span class="tw-text-[12px] tw-leading-4">
-              {{ section.settings.button2_text }}
-            </span>
-          </a>
-        {%- endif -%}
-      </div>
+    <div class="custom-header-buttons tw-hidden custom-desktop-flex tw-gap-4 tw-items-center">
+      {%- if section.settings.button1_text != blank and section.settings.button1_link != blank -%}
+        <a
+          href="{{ section.settings.button1_link }}"
+          class="tw-text-[12px] tw-rounded-[35px] hover:tw-bg-white tw-transition-all tw-duration-500 tw-flex tw-items-center tw-justify-center tw-no-underline !tw-h-[26px] tw-py-[4px] tw-px-[16px]"
+          style="border:1px solid {{ section.settings.color_scheme.settings.secondary_button_label }}; color:{{ section.settings.color_scheme.settings.button_label }}"
+        >
+          <span class="tw-text-[12px] tw-leading-4">
+            {{ section.settings.button1_text }}
+          </span>
+        </a>
+      {%- endif -%}
+      {%- if section.settings.button2_text != blank and section.settings.button2_link != blank -%}
+        <a
+          href="{{ section.settings.button2_link }}"
+          class="tw-text-[12px] tw-rounded-[35px] hover:tw-bg-white tw-transition-all tw-duration-500 tw-flex tw-items-center tw-justify-center tw-no-underline !tw-h-[26px] tw-py-[4px] tw-px-[16px]"
+          style="border:1px solid {{ section.settings.color_scheme.settings.secondary_button_label }}; color:{{ section.settings.color_scheme.settings.button_label }}"
+        >
+          <span class="tw-text-[12px] tw-leading-4">
+            {{ section.settings.button2_text }}
+          </span>
+        </a>
+      {%- endif -%}
+    </div>
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
@@ -327,32 +333,32 @@
 
       {%- if shop.customer_accounts_enabled -%}
         <div class="account-visible tw-px-[16px]">
-        <a
-          href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-          class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %} hover:tw-opacity-50 tw-transition-all tw-duration-500 tw-no-underline tw-text-[15px]"
-          rel="nofollow"
-        >
-      {%- if section.settings.enable_customer_avatar -%}
-        <account-icon>
-          {%- if customer and customer.has_avatar? -%}
-            {{ customer | avatar }}
-          {%- else -%}
-            Account
-          {%- endif -%}
-        </account-icon>
-      {%- else -%}
-        Account
-      {%- endif -%}
-          <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
-          </span>
-        </a>
+          <a
+            href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+            class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %} hover:tw-opacity-50 tw-transition-all tw-duration-500 tw-no-underline tw-text-[15px]"
+            rel="nofollow"
+          >
+            {%- if section.settings.enable_customer_avatar -%}
+              <account-icon>
+                {%- if customer and customer.has_avatar? -%}
+                  {{ customer | avatar }}
+                {%- else -%}
+                  Account
+                {%- endif -%}
+              </account-icon>
+            {%- else -%}
+              Account
+            {%- endif -%}
+            <span class="visually-hidden">
+              {%- liquid
+                if customer
+                  echo 'customer.account_fallback' | t
+                else
+                  echo 'customer.log_in' | t
+                endif
+              -%}
+            </span>
+          </a>
         </div>
       {%- endif -%}
 
@@ -367,11 +373,11 @@
         {% if cart == empty %}
           <span class="svg-wrapper">{% render 'icon-cart-empty-v2' %}</span>
         {% else %}
-          <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+          <span class="svg-wrapper">{% render 'icon-cart-empty-v2' %}</span>
         {% endif %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
-          <div class="cart-count-bubble">
+          <div class="cart-count-bubble tw-border tw-border-solid">
             {%- if cart.item_count < 100 -%}
               <span aria-hidden="true">{{ cart.item_count }}</span>
             {%- endif -%}
@@ -381,16 +387,27 @@
       </a>
     </div>
   </header>
-  <div style="background:{{ section.settings.color_scheme.settings.button }}; border-top:0" class="custom-header-buttons tw-flex custom-desktop-hidden tw-items-center tw-justify-center">
+  <div
+    style="background:{{ section.settings.color_scheme.settings.button }}; border-top:0"
+    class="custom-header-buttons tw-flex custom-desktop-hidden tw-items-center tw-justify-center"
+  >
     {%- if section.settings.button1_text != blank and section.settings.button1_link != blank -%}
-      <a href="{{ section.settings.button1_link }}" class=" hover:tw-bg-white tw-transition-all tw-duration-500 tw-flex tw-items-center tw-justify-center tw-no-underline !tw-w-full !tw-h-full" style="border-left:none !important; border:1px solid {{ section.settings.color_scheme.settings.secondary_button_label }}; color:{{ section.settings.color_scheme.settings.button_label }}">
+      <a
+        href="{{ section.settings.button1_link }}"
+        class=" hover:tw-bg-white tw-transition-all tw-duration-500 tw-flex tw-items-center tw-justify-center tw-no-underline !tw-w-full !tw-h-full"
+        style="border-left:none !important; border:1px solid {{ section.settings.color_scheme.settings.secondary_button_label }}; color:{{ section.settings.color_scheme.settings.button_label }}"
+      >
         <span class="tw-text-[22px]">
           {{ section.settings.button1_text }}
         </span>
       </a>
     {%- endif -%}
     {%- if section.settings.button2_text != blank and section.settings.button2_link != blank -%}
-      <a href="{{ section.settings.button2_link }}" class=" hover:tw-bg-white tw-transition-all tw-duration-500 tw-flex tw-items-center tw-justify-center tw-no-underline !tw-w-full !tw-h-full" style="border-right:none !important; border:1px solid {{ section.settings.color_scheme.settings.secondary_button_label }}; color:{{ section.settings.color_scheme.settings.button_label }}">
+      <a
+        href="{{ section.settings.button2_link }}"
+        class=" hover:tw-bg-white tw-transition-all tw-duration-500 tw-flex tw-items-center tw-justify-center tw-no-underline !tw-w-full !tw-h-full"
+        style="border-right:none !important; border:1px solid {{ section.settings.color_scheme.settings.secondary_button_label }}; color:{{ section.settings.color_scheme.settings.button_label }}"
+      >
         <span class="tw-text-[22px]">
           {{ section.settings.button2_text }}
         </span>
@@ -398,7 +415,6 @@
     {%- endif -%}
   </div>
 </{{ header_tag }}>
-
 
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
